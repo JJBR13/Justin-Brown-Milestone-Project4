@@ -1,5 +1,41 @@
-/* Header */ 
+/*---------------------------------------------------------------  Header */ 
+
+.header-design {
+    background-color: #FFE6EB;
+}
 
 .hide {
     display: none;
+}
+
+/* CSS for removing caret and showing dropdown onclick */
+/* .navbar .nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+} */
+
+.navbar .nav-item.dropdown .nav-link::after {
+    content: none;
+}
+
+.megamenu {
+    position: static;
+}
+
+.megamenu .dropdown-menu {
+    background: #FFE6EB;
+    border: none;
+    width: 100%;
+    margin-top: 0;
+}
+
+.logo {
+    width: 63px;
+    padding: 0 !important;
+    margin: 0 30px;
+}
+
+/*---------------------------------------------------------------  Search bar */ 
+
+#search-bar {
+    background-color: #FFE6EB;
 }
