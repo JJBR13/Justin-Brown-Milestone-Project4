@@ -1,3 +1,25 @@
+/* -------------------------------------------------------------- Font imports */
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+
+header, h1, h2, h3, h4, h5 {
+    font-family: 'Fredoka One', cursive;
+    letter-spacing: 2px;
+    color: #005792;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+body {
+    font-family: 'Architects Daughter', cursive;
+    background-color:#FFE6EB;
+}
+
+
+
 /*---------------------------------------------------------------  Header */
 
 .header-design {
@@ -34,6 +56,14 @@
     margin: 0 30px;
 }
 
+.nav-link {
+    color: #4D4D4D;
+}
+
+.nav-link:hover {
+    color: #005792;
+}
+
 /*---------------------------------------------------------------  Search bar */
 
 #search-bar {
@@ -53,6 +83,10 @@
     outline: none;
     box-shadow: none;
     border-color: #005792;
+}
+
+.icon {
+    color: #005792;
 }
 
 /* clears the ‘X’ from search bars Internet Explorer */

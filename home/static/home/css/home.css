@@ -1,4 +1,5 @@
 /* --------------------------------------------------- Fade effeect hero section */
+
 .fade-carousel .carousel-item {
     opacity: 0.5;
     transition-duration: 3s;
