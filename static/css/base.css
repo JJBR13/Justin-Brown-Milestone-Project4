@@ -18,8 +18,6 @@ body {
     background-color:#FFE6EB;
 }
 
-
-
 /*---------------------------------------------------------------  Header */
 
 .header-design {
@@ -68,6 +66,7 @@ body {
 
 #search-bar {
     background-color: #FFE6EB;
+    font-family: 'Architects Daughter', cursive;
 }
 
 ::placeholder {
