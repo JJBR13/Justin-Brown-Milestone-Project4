@@ -1,0 +1,45 @@
+/* --------------------------------------------------- Fade effeect hero section */
+.fade-carousel .carousel-item {
+    opacity: 0.5;
+    transition-duration: 3s;
+    transition-property: opacity;
+}
+
+.fade-carousel .carousel-item.active,
+.fade-carousel .carousel-item-next.carousel-item-start,
+.fade-carousel .carousel-item-prev.carousel-item-end {
+    opacity: 1;
+}
+
+.fade-carousel .carousel-item-next,
+.fade-carousel .carousel-item-prev,
+.fade-carousel .carousel-item.active,
+.fade-carousel .carousel-item-start,
+.fade-carousel .carousel-item-end {
+    display: flex;
+    transform: translateX(0);
+}
+
+.fade-carousel .carousel-item-next,
+.fade-carousel .carousel-item-prev {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.fade-carousel .carousel-item-prev.carousel-item-end,
+.fade-carousel .carousel-item-next.carousel-item-start {
+    transform: translateX(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fade-carousel .carousel-item {
+        transition: none;
+    }
+}
+
+/*---------------------------------------------------------------- Review block */
+
+.review-item {
+    height: 200px;
+}

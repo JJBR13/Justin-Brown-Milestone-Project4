@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
 {% block page_header %}
   <div class="container">
     <div class="row">
@@ -15,7 +19,7 @@
   <div class="container-fluid d-flex justify-content-center text-center p-0">
     <div class="row">
       <!-- Hero Slideshow of 3 img -->
-      <div id="carouselExampleAutoplaying" class="col carousel slide" data-bs-ride="carousel">
+      <div id="carouselExampleAutoplaying" class="carousel fade-carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img src="/media/hero1.webp" class="d-block w-100" alt="...">
@@ -30,4 +34,49 @@
       </div>
     </div>
   </div>
+  <!-- Why us block -->
+  <div class="container p-4">
+    <div class="row justify-content-center">
+      <div class="col-12 text-center">
+        <h2>Why Point > Point</h2>
+        <p>
+          Travelled with us before the keep scrolling, you know the deal. <br>
+          If not, take a sec to read this, ethier by endless research or recomendation, there are <br>
+          few compainies that look like us, and you owe it to yourself to choose the right one.
+        </p>
+      </div>
+    </div>
+
+    <div class="row p-4 text-center">
+      <div class="col-3">
+        <h3>LOW DEPOSIT</h3>
+        <p>Secure your trip with minimal commitment</p>
+      </div>
+      <div class="col-3">
+        <h3>FRIENDS 4 LIFE</h3>
+        <p>It a big statement, but we know you will make friends for life when adventuring with us</p>
+      </div>
+      <div class="col-3">
+        <h3>GO GREENER</h3>
+        <p>While travelling your dream, we focus of sustainabile travel & giving back. Taking pride in our local initiative</p>
+      </div>
+      <div class="col-3">
+        <h3>OFF THE TRACK</h3>
+        <p>Every Tom, Dick and Harry takes you to the hotspots, our tours give you a selection of unique experiences</p>
+      </div>
+    </div>
+  </div>
+  <!-- Review block -->
+  <div id="carouselExampleAutoplaying" class="col carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item review-item active">
+        <img src="/media/hero1.webp" class="d-block w-100 overlay" alt="...">
+        <div class="carousel-caption">
+          <h5 class="text-center">Review one</h5>
+          <p class="text-center">"I had the best time ever on tour with Point > Point. The Japan tour was incredible and made travelling solo less scary! Deffo will be booking again!"</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
 {% endblock %}
