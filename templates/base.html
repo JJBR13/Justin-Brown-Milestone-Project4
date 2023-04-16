@@ -46,7 +46,7 @@
     <nav class="navbar navbar-expand-lg px-2 header-design">
       <!-- search btn -->
       <a id="search-btn" onclick="searchBlock()">
-        <i class="fa-sharp fa-light fa-magnifying-glass"></i>
+        <i class="fa-solid fa-magnifying-glass"></i>
       </a>
 
       <div class="container justify-content-center">
@@ -110,7 +110,7 @@
       <li class="list-inline-item d-flex justify-content-end px-3">
         <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="">
           <div class="text-center">
-            <div><i class="fa-light fa-basket-shopping"></i></i></div>
+            <div><i class="fa-solid fa-basket-shopping"></i></div>
             <p class="my-0">
               {% if grand_total %}
               £{{ grand_total|floatformat:2 }}
