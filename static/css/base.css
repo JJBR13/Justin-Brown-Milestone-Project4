@@ -88,6 +88,37 @@ body {
     color: #005792;
 }
 
+/* Navbar hamburger icon style */ 
+
+.navbar-toggler {
+    color: #005792;
+    border: solid 0.10rem;
+    padding: 10px 6px 
+}
+
+.navbar-toggler span {
+    display: block; 
+    width: 22px;
+    height: 2px;
+    border: 1px;
+    background: #005792;
+}
+
+.navbar-toggler span + span {
+    margin-top: 4px;
+    width: 15px; 
+    margin-left: 4px; 
+}
+
+.navbar-toggler span + span + span {
+   width: 10px;
+   margin-left: 6px;
+}
+
+.navbar {
+--bs-navbar-toggler-focus-width: 0.10rem;
+}
+
 /* clears the ‘X’ from search bars Internet Explorer */
 input[type=search]::-ms-clear { display: none; width : 0; height: 0; }
 input[type=search]::-ms-reveal { display: none; width : 0; height: 0; }
