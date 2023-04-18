@@ -11,4 +11,4 @@ def all_tours(request):
         'tourproducts': tourproducts,
     }
 
-    return render(request, 'tourproducts/tour_products.html', context)
+    return render(request, 'all_tours/tour_products.html', context)
