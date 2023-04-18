@@ -13,13 +13,14 @@ def all_tours(request):
 
     return render(request, 'all_tours/tour_products.html', context)
 
-def tour_details(request, tour_id):
-    ''' View that shows individual tours '''
+
+def tour_breakdown(request, tour_id):
+    ''' View that shows individual tour breakdown '''
 
     tour = get_object_or_404(TourProducts, pk=tour_id)
 
     context = {
-        'tourproducts': tourproducts,
+        'tour': tour,
     }
 
     return render(request, 'all_tours/tour_breakdown.html', context)

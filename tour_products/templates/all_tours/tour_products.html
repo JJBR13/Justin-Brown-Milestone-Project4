@@ -18,21 +18,19 @@
 
     <div class="container-fluid px-5">
         <div class="row">
-        {% for tours in tourproducts %}
+        {% for tour in tourproducts %}
             <div class="col-sm-12 col-md-4">
                 <div class="card w-100" style="width: 18rem;">
-                    {% if tours.image %}
-                        <img src="..." class="card-img-top" alt="{{ tours.name }}">
+                    {% if tour.image %}
+                            <img src="{{ tour.image.url }}" class="card-img-top" alt="{{ tour.name }}">
                     {% else %}
-                        <a href="">
                             <!-- add no img, img -->
-                            <img src="{{ MEDIA_URL}}" alt="{{ tours.name }}">
-                        </a>
+                            <img src="{{ MEDIA_URL}}" alt="{{ tour.name }}">
                     {% endif %}
                     <div class="card-body">
-                        <h5 class="card-title">{{ tours.name }}</h5>
-                        <p class="card-text">{{ tours.description }}</p>
-                        <a href="#" class="btn btn-primary">Link to seperate tour page</a>
+                        <h5 class="card-title">{{ tour.name }}</h5>
+                        <p class="card-text">{{ tour.description }}</p>
+                        <a href="{% url 'tour-breakdown tour.id' %}" class="btn btn-primary">VIEW TOUR</a>
                     </div>
                 </div>
             </div>
