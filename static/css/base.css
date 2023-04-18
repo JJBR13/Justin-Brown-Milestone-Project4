@@ -15,7 +15,11 @@ h3 {
 
 body {
     font-family: 'Architects Daughter', cursive;
-    background-color:#FFE6EB;
+    background-color: none;
+}
+
+.bg-pink {
+    background-color: #FFE6EB;
 }
 
 /*---------------------------------------------------------------  Header */
