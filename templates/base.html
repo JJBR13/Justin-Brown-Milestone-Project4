@@ -54,14 +54,71 @@
       </a>
       {% include 'includes/mobile-top-header.html' %}
       <!-- Burger btn -->
-        <button class="navbar-toggler mx-3" type="button" data-bs-toggle="collapse" data-bs-target="#navBurger"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        {% include 'includes/main-nav.html' %}
+      <button class="navbar-toggler mx-3" type="button" data-bs-toggle="collapse" data-bs-target="#navBurger"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      {% include 'includes/main-nav.html' %}
     </nav>
+
+    <div class="collapse navbar-collapse justify-content-center w-100 px-3" id="navBurger">
+      <ul class="navbar-nav">
+        <li class="nav-item active pt-3">
+          <a class="nav-link" href="#">home</a>
+        </li>
+        <!-- Tour Dropdown -->
+        <li class="nav-item dropdown megamenu pt-3">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Our Trips
+          </a>
+          <div class="dropdown-menu" aria-labelledby="toursDropdown">
+            <a class="dropdown-item" href="#">Indonesia</a>
+            <a class="dropdown-item" href="#">Philippines</a>
+            <a class="dropdown-item" href="#">Japan</a>
+            <a>
+              <hr class="dropdown-divider"></a>
+            <a class="dropdown-item" href="#">ALL TOURS</a>
+          </div>
+        </li>
+
+        <!--Logo Image md up -->
+        <a class="navbar-brand d-flex justify-content-center d-none d-md-block" href="{% url 'home' %}">
+          <img src="/media/logo.png" class="logo" alt="logo">
+        </a>
+
+        <li class="nav-item pt-3">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item pt-3">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+        <!-- Profile Dropdown -->
+        <li class="nav-item dropdown megamenu pt-3">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Profile
+          </a>
+          <ul class="dropdown-menu">
+            {% if request.user.is_authenticated %}
+            {% if request.user.is_superuser %}
+            <a href="" class="dropdown-item">Admin Tour Management</a>
+            {% endif %}
+            <li><a class="dropdown-item" href="#">My Profile</a></li>
+            <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
+            {% else %}
+            <li><a class="dropdown-item" href="{% url 'account_signup' %}">Signup</a></li>
+            <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="#">Ask us anything</a></li>
+            {% endif %}
+          </ul>
+        </li>
+      </ul>
+    </div>
 
     <!-- Search bar -->
     <div id="search-bar" class="container-fluid hide pt-2 pb-2">
@@ -75,63 +132,6 @@
       </div>
       <div class="d-md-none col-md-3"></div>
     </div>
-
-    <div class="collapse navbar-collapse justify-content-center w-100 px-3" id="navBurger">
-      <ul class="navbar-nav">
-          <li class="nav-item active pt-3">
-              <a class="nav-link" href="#">home</a>
-          </li>
-          <!-- Tour Dropdown -->
-          <li class="nav-item dropdown megamenu pt-3">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                  data-bs-toggle="dropdown" aria-expanded="false">
-                  Our Trips
-              </a>
-              <div class="dropdown-menu" aria-labelledby="toursDropdown">
-                  <a class="dropdown-item" href="#">Indonesia</a>
-                  <a class="dropdown-item" href="#">Philippines</a>
-                  <a class="dropdown-item" href="#">Japan</a>
-                  <a><hr class="dropdown-divider"></a>
-                  <a class="dropdown-item" href="#">ALL TOURS</a>
-              </div>
-          </li>
-  
-          <!--Logo Image md up -->
-          <a class="navbar-brand d-flex justify-content-center d-none d-md-block" href="{url 'home'}">
-              <img src="/media/logo.png" class="logo" alt="logo">
-          </a>
-  
-          <li class="nav-item pt-3">
-              <a class="nav-link" href="#">About</a>
-          </li>
-          <li class="nav-item pt-3">
-              <a class="nav-link" href="#">Contact</a>
-          </li>
-          <!-- Profile Dropdown -->
-          <li class="nav-item dropdown megamenu pt-3">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                  aria-expanded="false">
-                  Profile
-              </a>
-              <ul class="dropdown-menu">
-                  {% if request.user.is_authenticated %}
-                  {% if request.user.is_superuser %}
-                  <a href="" class="dropdown-item">Admin Tour Management</a>
-                  {% endif %}
-                  <li><a class="dropdown-item" href="#">My Profile</a></li>
-                  <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
-                  {% else %}
-                  <li><a class="dropdown-item" href="{% url 'account_signup' %}">Signup</a></li>
-                  <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
-                  <li>
-                      <hr class="dropdown-divider">
-                  </li>
-                  <li><a class="dropdown-item" href="#">Ask us anything</a></li>
-                  {% endif %}
-              </ul>
-          </li>
-      </ul>
-  </div>
   </header>
 
   {% if messages %}

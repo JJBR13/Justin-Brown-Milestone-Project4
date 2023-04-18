@@ -2,12 +2,33 @@
 {% load static %}
 
 {% block content %}
-    <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">{ tourproducts }</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+    <div class="container d-flex justify-content-center">
+        <div class="row">
+            <div class="col-12">
+                <h1>Where to next?</h1>
+            </div>
+        </div>
+        <!-- Tour card -->
+        <div class="row">
+            {% for tours in tourproducts %}
+            <div class="col-sm-12 col-md-3 col-lg-4">
+                <div class="card" style="width: 18rem;">
+                    {% if tours.image %}
+                        <img src="..." class="card-img-top" alt="{{ tours.name }}">
+                    {% else %}
+                        <a href="">
+                            <!-- add no img, img -->
+                            <img src="{{ MEDIA_URL}}" alt="{{ tours.name }}">
+                        </a>
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ tours.name }}</h5>
+                        <p class="card-text">{{ tours.description }}</p>
+                        <a href="#" class="btn btn-primary">Link to seperate tour page</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}
