@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                {% if tour.image %}
+                    <img src="{{ tour.image.url }}" class="card-img-top" alt="{{ tour.name }}">
+                {% else %}
+                        <!-- add no img, img -->
+                        <img src="{{ MEDIA_URL}}" alt="{{ tour.name }}">
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
