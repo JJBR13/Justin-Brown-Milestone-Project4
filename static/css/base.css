@@ -191,3 +191,14 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     }
     
   }
+
+  @media (max-width: 768px) { 
+    #address {
+      text-align: center; 
+      padding-top: 20px;
+    }
+
+    #back-to-top {
+        padding-bottom: 20px;
+    }
+  }
