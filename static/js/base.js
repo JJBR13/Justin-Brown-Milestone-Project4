@@ -18,3 +18,14 @@ function reHide() {
   searchBar.classList.add('hide');
   
 }
+
+// When user click footer btn returns to top of page
+
+function backToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
+
+backToTop();
