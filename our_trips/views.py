@@ -1,6 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from tour_products.models import Modle
-
+from tour_products.models import TourProducts
 
 
 def tour_breakdown(request, tour_id):
@@ -15,4 +14,3 @@ def tour_breakdown(request, tour_id):
     }
 
     return render(request, 'tours/tour_breakdown.html', context)
-
