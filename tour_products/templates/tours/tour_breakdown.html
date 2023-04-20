@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="container-fluid">
+    <div class="container-fluid p-0 m-0">
         <div class="row">
             <div class="col-12">
                 {% if tour.image %}
@@ -28,7 +28,7 @@
     </div>
 
     <!-- Tour Description -->
-    <div class="row p-4">
+    <div class="row p-4 m-0">
         <div class="col-6">
             <h2>{{ tour.name }}</h2>
             {{ tour.description }}
@@ -44,7 +44,7 @@
     <!-- Tour video -->
 
     <!-- Add to travel backpack -->
-    <form class="form pb-5" action="#" method="POST">
+    <form class="form pb-5" action="{% url 'add-to-backpack' tour.id %}" method="POST">
         {% csrf_token %}
         <!-- How many -->
         <div class="row">
@@ -79,7 +79,7 @@
 
             <!-- Call to action btn -->
             <div class="col-6">
-                <input type="submit" class="btn btn-black rounded-0 text-uppercase" value="Add to Backpack">
+                <input type="submit" class="btn btn-black text-uppercase m-0" value="Add to Backpack">
             </div>
 
             <div class="col-12 d-flex justify-content-center">
