@@ -10,9 +10,13 @@
                 Our Trips
             </a>
             <div class="dropdown-menu" aria-labelledby="toursDropdown">
-                <a class="dropdown-item" href="#">Indonesia</a>
-                <a class="dropdown-item" href="#">Philippines</a>
-                <a class="dropdown-item" href="#">Japan</a>
+                {% for tour in tours %}
+                    <ul class="no-bullets">
+                    <li class="px-3">
+                        <a href="{% url 'tour-breakdown' tour_id=tour.pk %}" id="tour-name">{{ tour.name }}</a>
+                    </li>
+                    </ul>
+                {% endfor %}
                 <hr class="dropdown-divider">
                 <a class="dropdown-item" href="{% url 'all-tours' %}">All Trips</a>
             </div>

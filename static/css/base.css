@@ -83,6 +83,11 @@ ul.no-bullets {
     margin: 0;
 }
 
+#tour-name {
+    text-decoration: none;
+    color: #4D4D4D;
+}
+
 /*---------------------------------------------------------------  Search bar */
 
 #search-bar {

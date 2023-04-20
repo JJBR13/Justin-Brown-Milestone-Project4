@@ -67,7 +67,7 @@
     <div class="collapse navbar-collapse justify-content-center w-100 px-3" id="navBurger">
       <ul class="navbar-nav">
         <li class="nav-item active pt-3">
-          <a class="nav-link" href="#">Home</a>
+          <a class="nav-link" href="{% url 'home' %}">Home</a>
         </li>
         <!-- Tour Dropdown -->
         <li class="nav-item dropdown megamenu pt-3">
@@ -77,17 +77,16 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="toursDropdown">
             {% for tour in tours %}
-                <a href="{% url 'tour-breakdown' tour_id=tour.pk %}">{{ tour.name }}</a>
+              <ul class="no-bullets">
+                <li class="px-3">
+                    <a href="{% url 'tour-breakdown' tour_id=tour.pk %}" id="tour-name">{{ tour.name }}</a>
+                </li>
+              </ul>
             {% endfor %}
-              <hr class="dropdown-divider"></a>
-            <a class="dropdown-item" href="#">ALL TOURS</a>
+            <hr class="dropdown-divider"></a>
+            <a class="dropdown-item"  href="#">ALL TOURS</a>
           </div>
         </li>
-
-        <!--Logo Image md up -->
-        <a class="navbar-brand d-flex justify-content-center d-none d-md-block" href="{% url 'home' %}">
-          <img src="/media/logo.png" class="logo" alt="logo">
-        </a>
 
         <li class="nav-item pt-3">
           <a class="nav-link" href="#">About</a>
