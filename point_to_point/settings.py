@@ -75,6 +75,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'tour_products.contexts.tour_products',
+                'bag.contexts.travelbag_contents'
             ],
         },
     },

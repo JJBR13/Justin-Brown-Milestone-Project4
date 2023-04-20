@@ -3,8 +3,9 @@
 
 {% block content %}
     <div class="cotainer-fluid pt-4 vh-100">
+        <!-- causing width scroll= --bs-gutter-x: 0; -->
         <div class="row">
-            <div class="col-12 text-center pb-3 ">
+            <div class="col-12 text-center pb-3">
                 <h1> Your Travel Backpack </h1>
             </div> 
         </div>
@@ -32,8 +33,9 @@
                 <div class="col-12">
                     <p class="px-3">Your Backpack is empty...</p>
                     <a href="{% url 'all-tours' %}" class="btn">
-                        <span>
-                            <strong>Explore tours</strong>
+                        <span class="px-5">
+                            <i class="fa-solid fa-hand-point-left"></i>
+                            <strong class="text-uppercase">Explore tours</strong>
                         </span>
                     </a>
                 </div>

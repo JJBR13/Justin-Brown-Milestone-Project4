@@ -40,18 +40,18 @@
             </a>
             <ul class="dropdown-menu">
                 {% if request.user.is_authenticated %}
-                {% if request.user.is_superuser %}
-                <a href="" class="dropdown-item">Admin Tour Management</a>
-                {% endif %}
-                <li><a class="dropdown-item" href="#">My Profile</a></li>
-                <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
-                {% else %}
-                <li><a class="dropdown-item" href="{% url 'account_signup' %}">Signup</a></li>
-                <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="#">Ask us anything</a></li>
+                    {% if request.user.is_superuser %}
+                        <a href="" class="dropdown-item">Admin Tour Management</a>
+                    {% endif %}
+                        <li><a class="dropdown-item" href="#">My Profile</a></li>
+                        <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
+                    {% else %}
+                        <li><a class="dropdown-item" href="{% url 'account_signup' %}">Signup</a></li>
+                        <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                    <li><a class="dropdown-item" href="#">Ask us anything</a></li>
                 {% endif %}
             </ul>
         </li>
@@ -62,10 +62,10 @@
                 <div class="text-center align-items-center">
                     <a class="icon" href="{% url 'view-bag' %}"><i class="fa-solid fa-basket-shopping p-0"></i></a>
                     <p class="my-0">
-                        {% if grand_total %}
-                        £{{ grand_total|floatformat:2 }}
+                        {% if total %}
+                            £{{ total|floatformat:2 }}
                         {% else %}
-                        £0.00
+                            £0.00
                         {% endif %}
                     </p>
                 </div>
