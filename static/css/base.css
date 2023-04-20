@@ -236,7 +236,7 @@ input[type="search"]::-webkit-search-results-decoration {
 #fix-tour {
     z-index: 9999;
     height: 50px;
-    background-color: rgb(255, 230, 235, 0.5);
+    background-color: rgb(85, 216, 193, 0.5);
   }
 
 /*---------------------------------------------------------------  Media Queries */
