@@ -11,20 +11,43 @@
         </div>
         
         {% if travel_backpack  %}
-            <div class="row cotainer-fluid">
-                <div class="col-md-4 text-center">
-                    <p>img here</p>
-                </div>
+            {% for item in travel_backpack %}
+                <div class="row cotainer-fluid">
+                    <div class="col-md-4 text-center">
+                        <img class="img-fluid p-3" src="{{ item.tour.image.url }}" alt="tour image">
+                    </div>
 
-                <div class="col-md-5">
-                    <p>tour info</p>
-                </div>
+                    <div class="col-md-5">
+                        <table class="table-sm table table-borderless">
+                            <tr>
+                                <th class="pt-4">{{ item.tour.name }}</th>
+                            </tr>
+                            <tr>
+                                <td><strong>Date:</strong> {{ item.tour.date_available }}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Price:</strong> £{{ item.tour.price }}</td>
+                            </tr>
+                        </table>
+                    </div>
 
-                <div class="col-md-3">
-                    <p>add person delete tour</p>
+                    <div class="col-md-3">
+                        <div class="col-2 icon d-flex">
+                            <i class="fa-solid fa-user-plus ms-auto"></i>
+                        </div>
+            
+                        <div class="col-4">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="99"
+                                        data-item_id="{{ tour.id }}" id="id_qty_{{ tour.id }}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
                 </div>
-                <hr>
-            </div>
+            {% endfor %}
         {% else %}
             <div class="row">
                 <div class="col-11 mx-3">
