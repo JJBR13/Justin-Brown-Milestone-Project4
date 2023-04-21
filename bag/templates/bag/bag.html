@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-    <div class="cotainer-fluid pt-4 vh-100">
+    <div class="container pt-4 vh-100">
         <!-- causing width scroll= --bs-gutter-x: 0; -->
         <div class="row">
             <div class="col-12 text-center pb-3">
@@ -12,12 +12,12 @@
         
         {% if travel_backpack  %}
             {% for item in travel_backpack %}
-                <div class="row cotainer-fluid">
-                    <div class="col-md-4 text-center">
+                <div class="row">
+                    <div class="col-md-3 text-center">
                         <img class="img-fluid p-3" src="{{ item.tour.image.url }}" alt="tour image">
                     </div>
 
-                    <div class="col-md-5">
+                    <div class="col-md-5 d-flex align-items-center">
                         <table class="table-sm table table-borderless">
                             <tr>
                                 <th class="pt-4">{{ item.tour.name }}</th>
@@ -28,24 +28,33 @@
                             <tr>
                                 <td><strong>Price:</strong> £{{ item.tour.price }}</td>
                             </tr>
+                            <tr>
+                                <td><strong>Quantity:</strong> {{ item.quantity }}</td>
+                            </tr>
                         </table>
                     </div>
 
-                    <div class="col-md-3">
-                        <div class="col-2 icon d-flex">
-                            <i class="fa-solid fa-user-plus ms-auto"></i>
-                        </div>
-            
-                        <div class="col-4">
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="99"
-                                        data-item_id="{{ tour.id }}" id="id_qty_{{ tour.id }}">
+                    <div class="col-md-3 d-flex align-items-center">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="mx-2">
+                                    <i class="icon fa-solid fa-user-minus ml-auto decrease-qty pt-2"></i>
+                                </div>
+                                
+                                <input class="form-control qty_input" type="number" name="quantity" value="1" min="1"
+                                    max="99" data-item_id="{{ tour.id }}" id="id_qty_{{ tour.id }}">
+
+                                <div class="mx-2">
+                                    <i class="icon fa-solid fa-user-plus ms-auto increase-qty pt-2"></i>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <hr>
+                    <div class="row">
+                        <div class="col- mx-auto">
+                            <hr>
+                        </div>
+                    </div>
                 </div>
             {% endfor %}
         {% else %}
@@ -66,5 +75,4 @@
         {% endif %}
     </div>
 
-    
 {% endblock %}
