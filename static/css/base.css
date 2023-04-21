@@ -27,6 +27,66 @@ body {
     background-color: #FFE6EB;
 }
 
+
+/*---------------------------------------------------------------  Site wide btns/ icons */
+
+.icon-header {
+    color: #55D8C1;
+    background-color: #005792;
+    border: solid 3px #55D8C1;
+    text-decoration: none;
+    border-radius: 50%; 
+    padding: 5px; 
+    width: 40px; 
+    height: 40px;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+}
+
+.icon {
+    color: #55D8C1;
+    border: solid 3px #005792;
+    text-decoration: none;
+    border-radius: 50%; 
+    padding: 5px; 
+    width: 40px; 
+    height: 40px;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+}
+
+
+.text-btn { 
+    font-family: 'Fredoka One', cursive;
+    color: #005792;
+    text-decoration: none;
+    border: solid 3px #55D8C1;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.text-btn-2 {
+    font-family: 'Fredoka One', cursive;
+    color: #005792;
+    text-decoration: none;
+    background-color: #55D8C1;
+    border: solid 3px #55D8C1;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#ex-btn {
+    font-family: 'Fredoka One', cursive;
+    color: #005792;
+    text-decoration: none;
+    border: solid 3px #55D8C1;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
 /*---------------------------------------------------------------  Header */
 
 .header-design {
@@ -108,10 +168,6 @@ ul.no-bullets {
     outline: none;
     box-shadow: none;
     border-color: #005792;
-}
-
-.icon {
-    color: #005792;
 }
 
 /* Navbar hamburger icon style */

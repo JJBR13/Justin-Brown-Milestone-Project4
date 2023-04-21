@@ -46,10 +46,10 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-md d-flex justify-content-center px-lg-5 header-design">
       <!-- search btn -->
-      <a id="search-btn" class="icon" onclick="searchBlock()">
-        <i class="fa-solid fa-magnifying-glass px-3"></i>
+      <a id="search-btn" class="icon mx-2" onclick="searchBlock()">
+        <i class="fa-solid fa-magnifying-glass px-3 mx-3"></i>
       </a>
-      <a id="close" class="hide icon" onclick="reHide()">
+      <a id="close" class="hide icon mx-2" onclick="reHide()">
         <i class="fa-solid fa-x px-3"></i>
       </a>
       {% include 'includes/mobile-top-header.html' %}
@@ -125,7 +125,7 @@
         <div class="d-md-none col-md-3"></div>
         <div class="col-sm-12 col-md-6">
           <form role="search" method="GET" action="{% url 'all-tours' %}">
-            <input class="form-control me-2" type="search" placeholder="Search" name="s-q" minlength="3" aria-label="Search">
+            <input class="form-control" type="search" placeholder="Search" name="s-q" minlength="3" aria-label="Search">
           </form>
         </div>
       </div>

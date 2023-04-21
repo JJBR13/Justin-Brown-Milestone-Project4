@@ -56,11 +56,11 @@
             </ul>
         </li>
         <!-- Basket -->
-        <li class="list-inline-item d-flex justify-content-end d-none d-md-block">
-            <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link p-1"
+        <li class="list-inline-item d-flex align-items-center d-none d-md-block">
+            <a class="{% if total %}text-info {% else %}text-black{% endif %} nav-link p-0"
                 href="">
-                <div class="text-center align-items-center">
-                    <a class="icon" href="{% url 'view-bag' %}"><i class="fa-solid fa-basket-shopping p-0"></i></a>
+                <div class="text-center">
+                    <a class="icon-header mx-3" href="{% url 'view-bag' %}"><i class="fa-solid fa-basket-shopping"></i></a>
                     <p class="my-0">
                         {% if total %}
                             £{{ total|floatformat:2 }}

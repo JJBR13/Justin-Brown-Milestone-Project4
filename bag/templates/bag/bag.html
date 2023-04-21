@@ -2,12 +2,30 @@
 {% load static %}
 
 {% block content %}
-    <div class="container pt-4 vh-100">
-        <!-- causing width scroll= --bs-gutter-x: 0; -->
+    <div class="container pt-4 mb-5 vh-100">
+
         <div class="row">
             <div class="col-12 text-center pb-3">
                 <h1> Your Travel Backpack </h1>
             </div> 
+        </div>
+
+        <div class="row pt-3 pb-4">
+            <div class="col text-center">
+                <a href="{% url 'all-tours' %}" class="text-btn-2 mx-2">
+                    <span>
+                        <i class="fa-solid fa-hand-point-left"></i>
+                    </span>
+                    <span class="text-uppercase">Explore more tours</span>
+                </a>
+
+                <a href="#" class="text-btn mx-2">
+                    <span>Secure Checkout</span>
+                    <span>
+                        <i class="fa-solid fa-shield"></i>
+                    </span>
+                </a>
+            </div>
         </div>
         
         {% if travel_backpack  %}
