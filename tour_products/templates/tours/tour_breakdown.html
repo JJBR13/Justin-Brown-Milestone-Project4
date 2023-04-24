@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-12">
                 {% if tour.image %}
-                    <img src="{{ tour.image.url }}" class="card-img-top" alt="{{ tour.name }}">
+                    <img src="{{ tour.image.url }}" class="card-img-top vh-100" alt="{{ tour.name }}">
                 {% else %}
                         <!-- add no img, img -->
                         <img src="{{ MEDIA_URL}}" alt="{{ tour.name }}">
@@ -58,17 +58,27 @@
 
             <!-- Number of people for tour -->
             <div class="row align-items-center">
-                <div class="col-4">
+
+                <div class="col-6">
                     <div class="form-group">
                         <div class="input-group">
+                            <div class="input-group-prepend">
+                                <button class="icon d-flex minus-qty m-2" data-item_id="{{ tour.id }}"
+                                    id="minus-qty_{{ tour.id }}">
+                                    <i class="fa-solid fa-user-minus ms-auto"></i>
+                                </button>
+                            </div>
                             <input class="form-control qty_input" type="number" name="quantity" value="1" min="1"
-                                max="99" data-item_id="{{ tour.id }}" id="id_qty_{{ tour.id }}">
+                                max="30" data-item_id="{{ tour.id }}" id="id_qty_{{ tour.id }}">
+
+                            <div class="input-group-append">
+                                <button class="icon d-flex add-qty m-2" data-item_id="{{ tour.id }}"
+                                    id="add-qty_{{ tour.id }}">
+                                    <i class="fa-solid fa-user-plus ms-auto"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-2 icon d-flex">
-                    <i class="fa-solid fa-user-plus ms-auto"></i>
                 </div>
 
                 <!-- Call to action btn -->
@@ -78,34 +88,13 @@
                         <i class="fa-solid fa-hand-point-left"></i> Explore more tours
                     </button>
                 </div>
-
-                <!-- <div class="col-3">
-                    <button id="ex-btn" href="{% url 'all-tours' %} text-uppercase">
-                        <i class="fa-solid fa-hand-point-left"></i> Explore more tours
-                    </button>
-                </div> -->
                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
             </div>
-    </div>
-
+        </div>
     </form>
 {% endblock %}
 
 {% block postloadjs %}
-    <script>
-        window.addEventListener('scroll', function () {
-            const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body
-                .scrollTop || 0;
-            const viewportHeight = window.innerHeight || document.documentElement.clientHeight || document.body
-                .clientHeight || 0;
-            const fixedTour = document.getElementById('fix-tour');
-
-            // Check if the scroll position is greater than the viewport height
-            if (scrollPosition > viewportHeight) {
-                fixedTour.classList.add('position-fixed', 'top-0', 'start-0');
-            } else {
-                fixedTour.classList.remove('position-fixed', 'top-0', 'start-0');
-            }
-        });
-    </script>
+{{ block.super }}
+{% include 'tours/includes/breakdown_scripts.html' %} 
 {% endblock %}
