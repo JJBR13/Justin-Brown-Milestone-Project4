@@ -222,6 +222,18 @@ input[type="search"]::-webkit-search-results-decoration {
     display: none;
 }
 
+/*---------------------------------------------------------------  Cards */
+.card {
+    border: 3px solid #FFE6EB;
+    border-radius: 5px;
+}
+
+.card-title {
+    font-family: 'Fredoka One', cursive;
+    letter-spacing: 2px;
+    color: #005792;
+}
+
 /*---------------------------------------------------------------  Footer */
 
 #back-to-top {
@@ -295,6 +307,12 @@ input[type="search"]::-webkit-search-results-decoration {
     background-color: rgb(85, 216, 193, 0.5);
   }
 
+.fix-content {
+    margin: 0;
+    font-family: 'Fredoka One', cursive;
+    letter-spacing: 2px;
+    color: #005792;
+}
 /*---------------------------------------------------------------  Media Queries */
 
 @media (max-width: 368px) {

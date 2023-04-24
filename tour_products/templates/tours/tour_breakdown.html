@@ -15,15 +15,15 @@
     </div>
 
     <!-- Fix tour block -->
-    <div id="fix-tour" class="row container-fluid d-flex align-items-center">
-        <div class="col-4 d-flex justify-content-center">
-            {{ tour.name }}
+    <div id="fix-tour" class="row container-fluid m-0">
+        <div class="col-4 d-flex justify-content-center align-items-center">
+            <p class="fix-content">{{ tour.name }}</p>
         </div>
-        <div class="col-4 d-flex justify-content-center">
-            <h4>tour number of days here</h4>
+        <div class="col-4 d-flex justify-content-center align-items-center">
+            <p class="fix-content">tour number of days here<p>
         </div>
-        <div class="col-4 d-flex justify-content-center">
-            <strong class="">£ {{ tour.price }}</strong>
+        <div class="col-4 d-flex justify-content-center align-items-center">
+            <p class="fix-content"><strong class="">£ {{ tour.price }}</strong></p>
         </div>
     </div>
 
@@ -83,9 +83,9 @@
 
                 <!-- Call to action btn -->
                 <div class="col-6 d-flex">
-                    <input type="submit" class="text-btn-2 text-uppercase m-2" value="Add to Backpack">
-                    <button id="ex-btn" href="{% url 'all-tours' %} text-uppercase" class="m-2">
-                        <i class="fa-solid fa-hand-point-left"></i> Explore more tours
+                    <input type="submit" class="text-btn-2 text-uppercase hrv-shrink m-2" value="Add to Backpack">
+                    <button id="ex-btn" href="{% url 'all-tours' %} text-uppercase" class="m-2 hvr-icon-back">
+                        <i class="fa-solid fa-hand-point-left hvr-icon"></i> Explore more tours
                     </button>
                 </div>
                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
