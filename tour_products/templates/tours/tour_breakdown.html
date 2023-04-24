@@ -63,18 +63,18 @@
                     <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-prepend">
-                                <button class="icon d-flex minus-qty m-2" data-item_id="{{ tour.id }}"
+                                <button class="icon d-flex m-2" data-item_id="{{ tour.id }}"
                                     id="minus-qty_{{ tour.id }}">
-                                    <i class="fa-solid fa-user-minus ms-auto"></i>
+                                    <i class="fa-solid fa-user-minus ms-auto minus-qty"></i>
                                 </button>
                             </div>
                             <input class="form-control qty_input" type="number" name="quantity" value="1" min="1"
                                 max="30" data-item_id="{{ tour.id }}" id="id_qty_{{ tour.id }}">
 
                             <div class="input-group-append">
-                                <button class="icon d-flex add-qty m-2" data-item_id="{{ tour.id }}"
+                                <button class="icon d-flex  m-2" data-item_id="{{ tour.id }}"
                                     id="add-qty_{{ tour.id }}">
-                                    <i class="fa-solid fa-user-plus ms-auto"></i>
+                                    <i class="fa-solid fa-user-plus ms-auto add-qty"></i>
                                 </button>
                             </div>
                         </div>

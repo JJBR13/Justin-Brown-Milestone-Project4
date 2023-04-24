@@ -10,8 +10,9 @@
 
     // Add quantity
     document.addEventListener('click', function (event) {
+        event.preventDefault();
         if (event.target.classList.contains('add-qty')) {
-            event.preventDefault();
+            console.log('clicked add')
             var closestInput = event.target.closest('.input-group').querySelector('.qty_input');
             var currentValue = parseInt(closestInput.value);
             closestInput.value = currentValue + 1;
@@ -22,9 +23,9 @@
 
     // Decrease quantity
     document.addEventListener('click', function (event) {
-        console.log('clicked minus')
+        event.preventDefault();
         if (event.target.classList.contains('minus-qty')) {
-            event.preventDefault();
+            console.log('clicked minus')
             var closestInput = event.target.closest('.input-group').querySelector('.qty_input');
             var currentValue = parseInt(closestInput.value);
             closestInput.value = currentValue - 1;
