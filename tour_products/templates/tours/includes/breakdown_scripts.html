@@ -2,53 +2,60 @@
     // Disable +/- buttons outside 1-30 range
     function handleEnableDisable(itemId) {
         var currentValue = parseInt(document.getElementById(`id_qty_${itemId}`).value);
-        var minusDisabled = currentValue < 2;
-        var plusDisabled = currentValue > 30;
+        console.log('currentValue')
+        var minusDisabled = currentValue <= 0;
+        console.log('minusDisabled')
+        var plusDisabled = currentValue >= 30;
+        console.log('plusDisabled')
         document.getElementById(`minus-qty_${itemId}`).disabled = minusDisabled;
         document.getElementById(`add-qty_${itemId}`).disabled = plusDisabled;
     }
 
-    // Add quantity
-    document.addEventListener('click', function (event) {
+    const addTest = document.querySelector('#add-qty_1');
+    const removeTest = document.querySelector('#minus-qty_1');
+    addTest.addEventListener('click', addQty);
+    removeTest.addEventListener('click', removeQty);
+    
+    function addQty(event) {
+        // event.stopPropagation();
         event.preventDefault();
-        if (event.target.classList.contains('add-qty')) {
-            console.log('clicked add')
-            var closestInput = event.target.closest('.input-group').querySelector('.qty_input');
-            var currentValue = parseInt(closestInput.value);
-            closestInput.value = currentValue + 1;
-            var itemId = event.target.dataset.item_id;
-            handleEnableDisable(itemId);
-        }
-    });
+        const closestInput = event.currentTarget.closest('.input-group').querySelector('.qty_input');
+        console.log(closestInput);
+        const currentValue = parseInt(closestInput.value);
+        console.log(currentValue);
+        closestInput.value = currentValue + 1;
+        const itemId = event.currentTarget.dataset.item_id;
+        console.log(itemId);
+        handleEnableDisable(itemId);
+    }
+    
+    function removeQty(event) {
+        // event.stopPropagation();
+        event.preventDefault();
+        const closestInput = event.currentTarget.closest('.input-group').querySelector('.qty_input');
+        console.log(closestInput);
+        const currentValue = parseInt(closestInput.value);
+        console.log(currentValue);
+        closestInput.value = currentValue - 1;
+        const itemId = event.currentTarget.dataset.item_id;
+        console.log(itemId);
+        handleEnableDisable(itemId);
+    }
 
-    // Decrease quantity
-    document.addEventListener('click', function (event) {
-        event.preventDefault();
+    // Ensure proper enabling/disabling of all inputs on page load
+    var allQtyInputs = document.getElementsByClassName('qty_input');
+    for (var i = 0; i < allQtyInputs.length; i++) {
+        var itemId = allQtyInputs[i].dataset.item_id;
+        handleEnableDisable(itemId);
+    }
+
+    // Check enable/disable every time the input is changed
+    document.addEventListener('change', function (event) {
         if (event.target.classList.contains('minus-qty')) {
-            console.log('clicked minus')
-            var closestInput = event.target.closest('.input-group').querySelector('.qty_input');
-            var currentValue = parseInt(closestInput.value);
-            closestInput.value = currentValue - 1;
             var itemId = event.target.dataset.item_id;
-            console.log('itemId')
             handleEnableDisable(itemId);
         }
     });
-
-    // // Ensure proper enabling/disabling of all inputs on page load
-    // var allQtyInputs = document.getElementsByClassName('qty_input');
-    // for (var i = 0; i < allQtyInputs.length; i++) {
-    //     var itemId = allQtyInputs[i].dataset.item_id;
-    //     handleEnableDisable(itemId);
-    // }
-
-    // // Check enable/disable every time the input is changed
-    // document.addEventListener('change', function (event) {
-    //     if (event.target.classList.contains('minus-qty')) {
-    //         var itemId = event.target.dataset.item_id;
-    //         handleEnableDisable(itemId);
-    //     }
-    // });
 
     /* Makes key info sticky to top of page */
     window.addEventListener('scroll', function () {
