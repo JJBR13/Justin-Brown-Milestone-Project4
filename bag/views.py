@@ -1,6 +1,4 @@
-from django.shortcuts import render, redirect
-
-# Create your views here.
+from django.shortcuts import render, redirect, reverse
 
 
 def view_bag(request):
@@ -28,3 +26,21 @@ def add_to_backpack(request, item_id):
     # Update/create bag on session 
     request.session['bag'] = bag
     return redirect(redirect_url)
+
+
+def modify_backpack(request, item_id):
+    """ Modify the quantity on the tour to a certain amount """
+
+    quantity = int(request.POST.get('quantity'))
+
+    # Get varible if already extists if not creates one
+    bag = request.session.get('bag', {})
+
+    if quantity > 0: 
+        bag[item_id] = quantity
+    else: 
+        bag.pop[item_id]
+
+    # Update/create bag on session 
+    request.session['bag'] = bag
+    return redirect(reverse ('view_bag'))
