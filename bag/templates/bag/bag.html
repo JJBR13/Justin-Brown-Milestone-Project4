@@ -58,18 +58,22 @@
 
                             <div class="form-group">
                                 <div class="input-group">
-                                    <div class="mx-2">
+                                    <button class="icon d-flex m-2" data-item_id="{{ item.tour.id }}"
+                                        id="minus-qty_{{ item.tour.id }}">
                                         <i class="icon fa-solid fa-user-minus ml-auto decrease-qty pt-2"></i>
-                                    </div>
+                                    </button>
 
                                     <input class="form-control qty_input" type="number" name="quantity" value="1"
-                                        min="1" max="30" data-item_id="{{ tour.id }}" id="id_qty_{{ tour.id }}">
+                                        min="1" max="30" data-item_id="{{ item.tour.id }}"
+                                        id="id_qty_{{ item.tour.id }}">
 
-                                    <div class="mx-2">
+                                    <button class="icon d-flex  m-2" data-item_id="{{ item.tour.id }}"
+                                        id="add-qty_{{ item.tour.id }}">
                                         <i class="icon fa-solid fa-user-plus ms-auto increase-qty pt-2"></i>
-                                    </div>
+                                    </button>
                                 </div>
                             </div>
+                            
                         </form>
                         <a class="update-link text-info"><small>Update</small></a>
                         <a class="delete-item text-danger float-right" id="remove_{{ item.item_id }}"
@@ -101,4 +105,9 @@
         {% endif %}
     </div>
 
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+{% include 'tours/includes/breakdown_scripts.html' %} 
 {% endblock %}

@@ -29,19 +29,3 @@ function backToTop() {
 }
 
 backToTop();
-
-  /* Makes key info sticky to top of page */
-  window.addEventListener('scroll', function () {
-    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body
-        .scrollTop || 0;
-    const viewportHeight = window.innerHeight || document.documentElement.clientHeight || document.body
-        .clientHeight || 0;
-    const fixedTour = document.getElementById('fix-tour');
-
-    // Check if the scroll position is greater than the viewport height
-    if (scrollPosition > viewportHeight) {
-        fixedTour.classList.add('position-fixed', 'top-0', 'start-0');
-    } else {
-        fixedTour.classList.remove('position-fixed', 'top-0', 'start-0');
-    }
-});
