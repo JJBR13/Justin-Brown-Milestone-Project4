@@ -234,6 +234,20 @@ input[type="search"]::-webkit-search-results-decoration {
     color: #005792;
 }
 
+/*---------------------------------------------------------------  Toasts */
+
+
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 99999999999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
 /*---------------------------------------------------------------  Footer */
 
 #back-to-top {

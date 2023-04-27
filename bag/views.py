@@ -1,4 +1,7 @@
 from django.shortcuts import render, redirect, reverse
+from django.contrib import messages
+
+from tour_products.models import TourProducts
 
 
 def view_bag(request):
@@ -9,7 +12,8 @@ def view_bag(request):
 
 def add_to_backpack(request, item_id):
     """ Add tour to backpack """
-
+    
+    tour = TourProducts.objects.get(pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
 
@@ -22,6 +26,8 @@ def add_to_backpack(request, item_id):
     else:
         # Add to bag
         bag[item_id] = quantity
+        messages(request, f'Added {tour.name} to your travel backpack')
+        print(messages)
 
     # Update/create bag on session 
     request.session['bag'] = bag
