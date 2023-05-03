@@ -10,15 +10,16 @@ def all_tours(request):
     tourproducts = TourProducts.objects.all()
     query = None
 
-    # Search bar query 
+    # Search bar queryS
     if request.GET:
         if 's-q' in request.GET:
             query = request.GET['sq']
             if not query:
                 messages.error(request, "Invalid search criteria")
                 return redirect(reverse('all-tours'))
-            
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+
+            queries = Q(name__icontains=query) | Q(
+                description__icontains=query)
             tourproducts = tourproducts.filter(queries)
 
     context = {

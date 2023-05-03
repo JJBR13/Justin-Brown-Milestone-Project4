@@ -138,10 +138,24 @@
       </div>
     </header>
 
-    {% if messages %}
+	{% if messages %}
       <div class="message-block d-flex justify-content-center">
         {% for message in messages %}
-          {% include 'includes/toasts/toast_success.html' %}
+          {% with message.level as level %}
+            <!-- Error -->
+            {% if level == 40 %}
+              {% include 'includes/toasts/toast_error.html' %}
+            <!-- Warning -->
+            {% elif level == 30 %}
+              {% include 'includes/toasts/toast_warning.html' %}
+            <!-- Success -->
+            {% elif level == 25 %}
+              {% include 'includes/toasts/toast_success.html' %}
+            <!-- info -->
+            {% else %}
+              {% include 'includes/toasts/toast_info.html' %}
+            {% endif %}
+          {% endwith %}
         {% endfor %}
       </div>
     {% endif %}
@@ -153,16 +167,15 @@
     {% endblock %}
 
     {% block postloadjs %}
-      <script>
-        document.getElementsByClassName("toast").onclick = function() {
-          var toastElList = [].slice.call(document.querySelectorAll('.toast'))
-          console.log(toastElList);
-          var toastList = toastElList.map(function(toastEl) {
-            return new bootstrap.Toast(toastEl)
-          })
-          toastList.forEach(toast => toast.show())
-        }
-      </script>
+    <script>
+      console.log("postloadjs");
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+          $('.toast').toast('show');
+        })
+    </script>
+    
     {% endblock %}
 
     <footer class="bg-pink pt-3">

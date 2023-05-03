@@ -12,7 +12,7 @@ def view_bag(request):
 
 def add_to_backpack(request, item_id):
     """ Add tour to backpack """
-    
+
     tour = TourProducts.objects.get(pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
@@ -23,13 +23,16 @@ def add_to_backpack(request, item_id):
     if item_id in list(bag.keys()):
         # update quantity if exsists
         bag[item_id] += quantity
+        messages.success(
+            request, f'Added {tour.name} tour to your travel backpack')
+
     else:
         # Add to bag
         bag[item_id] = quantity
-        messages(request, f'Added {tour.name} to your travel backpack')
-        print(messages)
+        messages.success(
+            request, f'Added {tour.name} tour to your travel backpack')
 
-    # Update/create bag on session 
+    # Update/create bag on session
     request.session['bag'] = bag
     return redirect(redirect_url)
 
@@ -42,11 +45,11 @@ def modify_backpack(request, item_id):
     # Get varible if already extists if not creates one
     bag = request.session.get('bag', {})
 
-    if quantity > 0: 
+    if quantity > 0:
         bag[item_id] = quantity
-    else: 
+    else:
         bag.pop[item_id]
 
-    # Update/create bag on session 
+    # Update/create bag on session
     request.session['bag'] = bag
-    return redirect(reverse ('view_bag'))
+    return redirect(reverse('view_bag'))
