@@ -60,7 +60,7 @@
             <a class="{% if total %}text-info {% else %}text-black{% endif %} nav-link p-0"
                 href="">
                 <div class="text-center">
-                    <a class="icon-header mx-3" href="{% url 'view-bag' %}"><i class="fa-solid fa-basket-shopping"></i></a>
+                    <a class="icon-header mx-3" href="{% url 'view_bag' %}"><i class="fa-solid fa-basket-shopping"></i></a>
                     <p class="my-0">
                         {% if total %}
                             £{{ total|floatformat:2 }}

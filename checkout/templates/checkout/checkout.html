@@ -3,8 +3,8 @@
 {% load bag_tools %}
 
 {% block extra_css %}
-
-<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
 
 {% block header %}
     <div class="container header-container">
@@ -74,11 +74,11 @@
             <div class="col text-center">
             <p> Please fill out the form below </p>
             <form action="{% url 'checkout' %}" method="POST" id="payment-form">
-                {% crsf_token %}
+                {% csrf_token %}
                 <fieldset class="mb-3">
                     <legend class="w-auto text-black px-2">Details</legend>
                     {{ order_form.full_name | as_crispy_field }}
-                    {{ order_form.full_name | as_crispy_field }}
+                    {{ order_form.email | as_crispy_field }}
                 </fieldset>
                 <fieldset class="mb-3">
                     <legend class="w-auto text-black px-2">Delivery</legend>
@@ -112,7 +112,7 @@
                 <!-- Navagation Keys -->
 
                 <div class="submit-button text-right mt-5 mb-2">                    
-                    <a href="{% url 'view_bag' %}" class="btn btn-outline-black rounded-0">
+                    <a href="{% url 'view_bag' %}" class="btn rounded-0">
                         <span class="icon">
                             <i class="fas fa-chevron-left"></i>
                         </span>
@@ -134,5 +134,4 @@
             </form>
         </div>
     </div>
-
 {% endblock %}
