@@ -1,0 +1,43 @@
+.form-header1 {
+    font-size: clamp(1rem, 1.5vw, 2rem);
+    color:#005792;
+    font-weight: ;
+}
+
+.form-header2 {
+    font-family: 'Fredoka One', cursive;
+    letter-spacing: 2px;
+    color: #005792;
+    text-align: start;
+}
+
+#order-header {
+    color: #005792;
+    font-size: 1.5rem;
+}
+
+.order-border {
+    border-left: 1px solid #000;
+    padding-left: 3rem;
+}
+
+.form-control {
+    border: 1px solid #005792;
+    background-color: #FFE6EB ;
+}
+
+.form-control:focus {
+    background-color: #f3f4f6!important; 
+    border-color: #005792 !important; 
+    outline: none !important;
+    color: #fff !important;
+}
+
+/* Responsive css */
+
+@media (max-width: 767.98px) { 
+    .order-border {
+        border-left: none;
+        padding-left: 0; 
+    }
+}
