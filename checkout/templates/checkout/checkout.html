@@ -15,17 +15,18 @@
 {% endblock %}
 
 {% block content %}
+    <!-- Header block -->
+    <div class="row">
+        <div class="col-12 text-center pt-3 pb-3">
+            <h1> Pay For Your Backpack </h1>
+        </div> 
+    </div>
+
     <div class="container pt-4 mb-5 vh-100">
         <div class="row">
-            <div class="col-12 text-center pb-3">
-                <h1> Travel Backpack </h1>
-            </div> 
-        </div>
-
-        <!-- Order summary box -->
-        <div class="row">
-            <div class="col-12 col-lg-6 order-lg-last mb-5">
-                <p class="text-muted">Order Summary ({{ product_count }})</p>
+            <!-- Order Summary Column -->
+            <div class="col-12 col-md-6 order-lg-last mb-5">
+                <p class="text-muted">Order Summary <strong class="font-weight-bold ">({{ tour_count }})</strong></p>
                 <div class="row">
                     <div class="col-7 offset-2">
                         <p class="mb-1 mt-0 small text-muted">Item</p>
@@ -37,11 +38,11 @@
                 {% for item in bag_items %}
                     <div class="row">
                         <div class="col-2 mb-1">
-                            <a href="{% url 'product_detail' item.product.id %}">
-                                {% if item.product.image %}
-                                    <img class="w-100" src="{{ item.product.image.url }}" alt="{{ product.name }}">
+                            <a href="{% url 'tour_detail' item.tour.id %}">
+                                {% if item.tour.image %}
+                                    <img class="w-100" src="{{ item.tour.image.url }}" alt="{{ tour.name }}">
                                 {% else %}
-                                    <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                    <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ tour.name }}">
                                 {% endif %}
                             </a>
                         </div>
@@ -51,7 +52,7 @@
                             <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
                         </div>
                         <div class="col-3 text-right">
-                            <p class="my-0 small text-muted">${{ item.product.price | calc_subtotal:item.quantity }}</p>
+                            <p class="my-0 small text-muted">£{{ item.product.price | calc_subtotal:item.quantity }}</p>
                         </div>
                     </div>
                 {% endfor %}
@@ -59,79 +60,79 @@
                 <div class="row text-black text-right">
                     <div class="col-7 offset-2">
                         <p class="my-0">Order Total:</p>
-                        <p class="my-0">Delivery:</p>
                         <p class="my-0">Grand Total:</p>
                     </div>
                     <div class="col-3">
-                        <p class="my-0">${{ total | floatformat:2 }}</p>
-                        <p class="my-0">${{ delivery | floatformat:2 }}</p>
-                        <p class="my-0"><strong>${{ grand_total | floatformat:2 }}</strong></p>
+                        <p class="my-0">£{{ total | floatformat:2 }}</p>
+                        <p class="my-0"><strong>£{{ grand_total | floatformat:2 }}</strong></p>
+                    </div>
+                    <!-- Checkout Btns -->
+                    <div class="row pt-3 pb-4">
+                        <div class="col text-center">
+                            <p class="pb-3">
+                                <span class="text-danger">Your card will be charged <strong>£{{ grand_total|floatformat:2 }}</strong></span>
+                            </p>
+                            <a href="{% url 'all-tours' %}" class="text-btn-2 mx-2 hrv-grow">
+                                <span>
+                                    <i class="fa-solid fa-hand-point-left"></i>
+                                </span>
+                                <span class="text-uppercase hrv-shrink">Adjust Your Backpack</span>
+                            </a>
+
+                            <a href="{% url 'checkout' %}" class="text-btn mx-2">
+                                <span class="text-uppercase">Complete Payment</span>
+                                <span>
+                                    <i class="fa-solid fa-credit-card"></i>
+                                </span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-        <!-- Form -->
-        <div class="row pt-3 pb-4">
-            <div class="col text-center">
-            <p> Please fill out the form below </p>
-            <form action="{% url 'checkout' %}" method="POST" id="payment-form">
-                {% csrf_token %}
-                <fieldset class="mb-3">
-                    <legend class="w-auto text-black px-2">Details</legend>
-                    {{ order_form.full_name | as_crispy_field }}
-                    {{ order_form.email | as_crispy_field }}
-                </fieldset>
-                <fieldset class="mb-3">
-                    <legend class="w-auto text-black px-2">Delivery</legend>
-                    {{ order_form.phone_number | as_crispy_field }}
-                    {{ order_form.country | as_crispy_field }}
-                    {{ order_form.postcode | as_crispy_field }}
-                    {{ order_form.town_or_city | as_crispy_field }}
-                    {{ order_form.street_address1 | as_crispy_field }}
-                    {{ order_form.street_address2 | as_crispy_field }}
-                     <div class="form-check form-check-inline float-right mr-0">
-						{% if user.is_authenticated %}
-							<label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
-                            <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
-						{% else %}
-							<label class="form-check-label" for="id-save-info">
-                                <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
-                                <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
-                            </label>
-						{% endif %}
-					</div>
-                </fieldset>
-                <fieldset>
-                    <legend class="class fieldset-label">Payment</legend>
-                    <!-- Insert Stripe-->
-                    <div class="class mb-3" id="card-element"></div>
-
-                    <!-- Desplay payment errors -->
-                    <div class="class mb-3 text-danger" id="card-errors" role="alert"></div>
-                </fieldset>
-
-                <!-- Navagation Keys -->
-
-                <div class="submit-button text-right mt-5 mb-2">                    
-                    <a href="{% url 'view_bag' %}" class="btn rounded-0">
-                        <span class="icon">
-                            <i class="fas fa-chevron-left"></i>
-                        </span>
-                        <span class="font-weight-bold">Adjust Backpack</span>
-                    </a>
-                    <button id="submit-button" class="btn btn-black rounded-0">
-                        <span class="font-weight-bold">Complete Packing</span>
-                        <span class="icon">
-                            <i class="fas fa-lock"></i>
-                        </span>
-                    </button>
-                    <p class="small text-danger my-0">
-                        <span class="icon">
-                            <i class="fas fa-exclamation-circle"></i>
-                        </span>
-                        <span>Your card will be charged <strong>${{ grand_total|floatformat:2 }}</strong></span>
-                    </p>
+        
+            <!-- Form Column -->
+            <div class="col-12 col-md-6">
+                <div class="row pt-3 pb-4">
+                    <div class="col text-center">
+                        <p class="font-weight-bold">Please fill out the form below</p>
+                        <form action="{% url 'checkout' %}" method="POST" id="payment-form">
+                            {% csrf_token %}
+                            <fieldset class="mb-3">
+                                <legend class="w-auto text-black px-2">Details</legend>
+                                {{ order_form.full_name | as_crispy_field }}
+                                {{ order_form.email | as_crispy_field }}
+                                {{ order_form.phone_number | as_crispy_field }}
+                            </fieldset>
+                            <fieldset class="mb-3">
+                                <legend class="w-auto text-black px-2">Delivery Details</legend>
+                                {{ order_form.street_address1 | as_crispy_field }}
+                                {{ order_form.street_address2 | as_crispy_field }}
+                                {{ order_form.town_or_city | as_crispy_field }}
+                                {{ order_form.postcode | as_crispy_field }}
+                                {{ order_form.country | as_crispy_field }}
+                                <div class="form-check form-check-inline float-right mr-0 pt-3 my-0">
+                                    {% if user.is_authenticated %}
+                                        <label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
+                                        <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
+                                    {% else %}
+                                        <label class="form-check-label" for="id-save-info">
+                                            <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
+                                            <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
+                                        </label>
+                                    {% endif %}
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <!-- Insert Stripe -->
+                                <div class="class mb-3" id="card-element"></div>
+        
+                                <!-- Display payment errors -->
+                                <div class="class mb-3 text-danger" id="card-errors" role="alert"></div>
+                            </fieldset>
+                        </form>
+                    </div>
                 </div>
-            </form>
+            </div>
         </div>
-    </div>
+    </div>        
 {% endblock %}
