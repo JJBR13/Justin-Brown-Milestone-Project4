@@ -3,7 +3,6 @@ from django.contrib import messages
 
 from tour_products.models import TourProducts
 
-
 def view_bag(request):
     """ Returns view that renders the bag contents page """
 
@@ -35,9 +34,8 @@ def add_to_backpack(request, item_id):
     # Update/create bag on session
     request.session['bag'] = bag
     return redirect(redirect_url)
-
-
-def modify_backpack(request, item_id):
+    
+def update_backpack(request, item_id):
     """ Modify the quantity on the tour to a certain amount """
 
     quantity = int(request.POST.get('quantity'))
@@ -45,10 +43,12 @@ def modify_backpack(request, item_id):
     # Get varible if already extists if not creates one
     bag = request.session.get('bag', {})
 
+    url = reverse('update_backpack', args=[item_id])
+    
     if quantity > 0:
         bag[item_id] = quantity
     else:
-        bag.pop[item_id]
+        bag.pop(item_id)
 
     # Update/create bag on session
     request.session['bag'] = bag

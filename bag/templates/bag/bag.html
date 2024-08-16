@@ -2,6 +2,10 @@
 {% load static %}
 {% load bag_tools %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'bag/css/bag.css' %}">
+{% endblock %}
+
 {% block content %}
     <div class="container pt-4 mb-5 vh-100">
         <!-- Header Block -->
@@ -55,28 +59,27 @@
                     </div>
                     <!-- Increase/ decrease function about of ppl -->
                     <div class="col-md-3 d-flex align-items-center">
-                        <form class="form update-form" method="POST" action="#">
+                        <form class="form update-form" method="POST" action="{% url 'update_backpack' item.item_id %}">
                             {% csrf_token %}
                             <div class="form-group">
                                 <div class="input-group">
-                                    <button class="icon d-flex m-2" data-item_id="{{ item.tour.id }}"
+                                    <button type="button" class="icon d-flex m-2 minus-qty" data-item_id="{{ item.tour.id }}"
                                         id="minus-qty_{{ item.tour.id }}">
-                                        <i class="icon fa-solid fa-user-minus ml-auto pt-2 minus-qty"></i>
+                                        <i class="icon fa-solid fa-user-minus ml-auto pt-2"></i>
                                     </button>
-
-                                    <input class="form-control qty_input" type="number" name="quantity" value="1"
-                                        min="1" max="30" data-item_id="{{ item.tour.id }}"
-                                        id="id_qty_{{ item.tour.id }}">
-
-                                    <button class="icon d-flex m-2" data-item_id="{{ item.tour.id }}"
+                                
+                                    <input class="form-control qty_input" type="number" name="quantity" value="{{ item.quantity }}"
+                                        min="1" max="30" data-item_id="{{ item.tour.id }}" id="id_qty_{{ item.tour.id }}">
+                                
+                                    <button type="button" class="icon d-flex m-2 add-qty" data-item_id="{{ item.tour.id }}"
                                         id="add-qty_{{ item.tour.id }}">
-                                        <i class="icon fa-solid fa-user-plus ms-auto pt-2 add-qty"></i>
+                                        <i class="icon fa-solid fa-user-plus ms-auto pt-2"></i>
                                     </button>
                                 </div>
                             </div>  
                         </form>
-                        <a class="update-link text-info"><small>Update</small></a>
-                        <a class="delete-item text-danger float-right" id="remove_{{ item.item_id }}">
+                        <a class="update-link text-info point-cursor"><small>Update</small></a>
+                        <a class="delete-item text-danger float-right point-cursor" id="remove_{{ item.item_id }}">
                             <i class="fa-solid fa-trash"></i>
                         </a>
                     </div>
@@ -111,4 +114,57 @@
 {% block postloadjs %}
 {{ block.super }}
 {% include 'tours/includes/breakdown_scripts.html' %} 
+
+<script type="text/javascript">
+   $(document).ready(function() {
+    // Update quantity on click
+    $('.update-link').click(function(e) {
+        e.preventDefault(); // Prevent default link behavior
+        var form = $(this).closest('.row').find('.update-form'); // Find the form within the same row
+        form.submit(); // Submit the form
+    });
+
+    // Increase quantity on click
+    $('.add-qty').click(function(e) {
+        e.preventDefault();
+        var itemId = $(this).data('item_id'); // Get item ID from data attribute
+        var qtyInput = $('#id_qty_' + itemId); // Find the input field corresponding to this item
+        var currentValue = parseInt(qtyInput.val());
+        if (currentValue < 30) { // Assuming max quantity is 30
+            qtyInput.val(currentValue + 1); // Increment the quantity
+        }
+    });
+
+    // Decrease quantity on click
+    $('.minus-qty').click(function(e) {
+        e.preventDefault();
+        var itemId = $(this).data('item_id'); // Get item ID from data attribute
+        var qtyInput = $('#id_qty_' + itemId); // Find the input field corresponding to this item
+        var currentValue = parseInt(qtyInput.val());
+        if (currentValue > 1) { // Assuming minimum quantity is 1
+            qtyInput.val(currentValue - 1); // Decrement the quantity
+        }
+    });
+
+    // Remove item and reload on click
+    $('.delete-item').click(function(e) {
+        e.preventDefault(); // Prevent default link behavior
+        var csrfToken = $("input[name='csrfmiddlewaretoken']").val(); // Fetch CSRF token from the form
+        var itemId = $(this).attr('id').split('remove_')[1]; // Extract item ID from the ID attribute
+        var url = `/bag/remove/${itemId}/`; // URL to remove the item
+        var data = {'csrfmiddlewaretoken': csrfToken}; // Data to send with the request
+
+        $.post(url, data)
+         .done(function() {
+             location.reload(); // Reload the page after successful deletion
+         })
+         .fail(function() {
+             alert('Failed to remove item'); // Alert on failure
+         });
+    });
+});
+
+
+</script>
+
 {% endblock %}

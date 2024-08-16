@@ -357,6 +357,13 @@ input {
     letter-spacing: 2px;
     color: #005792;
 }
+
+/*---------------------------------------------------------------  Cursor */
+
+.point-cursor {
+    cursor: pointer;
+}
+
 /*---------------------------------------------------------------  Media Queries */
 
 @media (max-width: 368px) {
