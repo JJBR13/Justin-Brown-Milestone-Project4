@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, HttpResponse
 from django.contrib import messages
 
 from tour_products.models import TourProducts
@@ -53,3 +53,24 @@ def update_backpack(request, item_id):
     # Update/create bag on session
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
+
+def remove_from_backpack(request, item_id):
+    """Remove the tour product from the backpack."""
+
+    try:
+        bag = request.session.get('bag', {})
+
+        # Check if the item exists in the bag
+        if str(item_id) in bag:
+            # Remove the item from the bag
+            bag.pop(str(item_id))
+            # Update the session bag
+            request.session['bag'] = bag
+            return HttpResponse(status=200)
+        else:
+            # If item is not found in the bag, return a 404 response
+            return HttpResponse(status=404, reason='Item not found in the backpack')
+
+    except Exception as e:
+        # Log the exception if needed, and return a 500 response
+        return HttpResponse(status=500, reason=str(e))
