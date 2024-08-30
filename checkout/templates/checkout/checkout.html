@@ -44,7 +44,7 @@
                         {{ order_form.phone_number | as_crispy_field }}
                     </fieldset>
                     <div class="button-container d-flex justify-content-center">
-                        <button type="button" class="btn text-btn-2 float-right mb-3" onclick="nextStep(2)">Next</button>
+                        <button type="button" class="btn text-btn-2 float-right hvr-grow mb-3" onclick="nextStep(2)">Next</button>
                     </div>
                 </div>
 
@@ -70,9 +70,9 @@
                         </div>
                     </fieldset>
                     <div class="button-container d-flex justify-content-center">
-                        <button type="button" class="btn text-btn m-3" onclick="prevStep(1)">Back</button>
-                        <button type="button" class="btn text-btn-2 float-right" onclick="nextStep(3)">Next</button>
-                    </div>
+                        <button type="button" class="btn text-btn hvr-shrink m-3" onclick="prevStep(1)">Back</button>
+                        <button type="button" class="btn text-btn-2 float-right hvr-grow m-3" onclick="nextStep(3)">Next</button>
+                    </div> 
                 </div>
 
                 <!-- Step 3: Payment Details -->
@@ -83,15 +83,19 @@
                         <div class="class mb-3 text-danger" id="card-errors" role="alert"></div>
                     </fieldset>
                     <div class="button-container d-flex justify-content-center">
-                        <button type="button" class="btn text-btn m-3" onclick="prevStep(2)">Back</button>
-                        <button type="submit" class="btn text-btn-2 float-right m-3">Complete Payment</button>
+                        <button type="button" class="btn text-btn hvr-shrink m-3" onclick="prevStep(2)">Back</button>
+                        <button type="submit" class="btn text-btn-2 float-right m-3 hvr-icon-grow">Complete Payment
+                            <span>
+                                <i class="fa-solid fa-credit-card hvr-icon"></i>
+                            </span>
+                        </button>
                     </div> 
                 </div>
             </form>
         </div>
 
         <!-- Order Summary Column  -->
-        <div class="col-12 col-md-4 order-summary-container pt-3">
+        <div class="col-12 col-md-4 pt-3">
             <div class="order-summary">
                 <div class="order-border mb-3">
                     <p id="order-header">Order Summary <strong class="font-weight-bold">({{ tour_count }})</strong></p>

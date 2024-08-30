@@ -43,12 +43,24 @@
     outline: none;
 }
 
-.order-summary-container {
-    display: flex;
-    align-items: flex-start; /* Ensure it aligns properly with the form */
-    justify-content: flex-end; /* Pushes the summary to the right */
+.text-btn:hover { 
+    font-family: 'Fredoka One', cursive;
+    color: #005792;
+    text-decoration: none;
+    border: solid 3px #55D8C1;
+    padding: 10px;
+    border-radius: 5px;
 }
 
+.text-btn-2:hover {
+    font-family: 'Fredoka One', cursive;
+    color: #005792;
+    text-decoration: none;
+    background-color: #55D8C1;
+    border: solid 3px #55D8C1;
+    padding: 10px;
+    border-radius: 5px;
+}
 
 /* ------------------------------------------------------------------- Responsive css */
 
