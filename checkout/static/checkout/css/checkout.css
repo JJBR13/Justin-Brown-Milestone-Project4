@@ -1,3 +1,5 @@
+/*------------------------------------------------ Checkout.html */
+
 .form-header1 {
     font-size: clamp(1rem, 1.5vw, 2rem);
     color:#005792;
@@ -22,17 +24,33 @@
 
 .form-control {
     border: 1px solid #005792;
-    background-color: #FFE6EB ;
+    background-color: #FFE6EB;
+    margin-bottom: 10px;
 }
 
-.form-control:focus {
-    background-color: #f3f4f6!important; 
-    border-color: #005792 !important; 
-    outline: none !important;
-    color: #fff !important;
+/*------------------------------------------- Checkout Steps */
+
+#progress-bar {
+    background-color:#005792; 
+        color:#FFFFFF; 
 }
 
-/* Responsive css */
+.custom-input input:focus, 
+.custom-input textarea:focus, 
+.custom-input select:focus {
+    color: #005792; 
+    border-color: #FFE6EB;
+    outline: none;
+}
+
+.order-summary-container {
+    display: flex;
+    align-items: flex-start; /* Ensure it aligns properly with the form */
+    justify-content: flex-end; /* Pushes the summary to the right */
+}
+
+
+/* ------------------------------------------------------------------- Responsive css */
 
 @media (max-width: 767.98px) { 
     .order-border {
