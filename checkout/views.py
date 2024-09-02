@@ -1,14 +1,21 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
+from django.conf import settings 
 
 from .forms import OrderForm
+from bag.contexts import travelbag_contents
 
+import stripe
 
 def checkout(request):
     bag =  request.session.get('bag', {})
     if not bag: 
         message.error(request, "Your Backpack has nothing in")
         return redirect(reverse('tour_products'))
+
+    current_backpack = travelbag_contents(request)
+    total = current_backpack['grand_total']
+    stripe_total = round(total * 100)
 
     order_form = OrderForm()
     template = 'checkout/checkout.html'

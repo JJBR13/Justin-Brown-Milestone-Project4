@@ -31,3 +31,20 @@ var cardCvc = elements.create('cardCvc', { style: style });
 cardNumber.mount('#card-number-element');
 cardExpiry.mount('#card-expiry-element');
 cardCvc.mount('#card-cvc-element');
+
+// Handle realtime validation errors
+
+cardNumber.addEventListener('change', function (event) {
+    var errorDiv = document.getElementById('card-errors');
+    if (event.error) {
+        var html = `
+            <span class="icon" role="alert">
+                <i class="fas fa-times"></i>
+            </span>
+            <span>${event.error.message}</span>
+            `;
+            $(errorDiv).html(html);
+    } else {
+        errorDiv.textContent ='';
+    }
+});
