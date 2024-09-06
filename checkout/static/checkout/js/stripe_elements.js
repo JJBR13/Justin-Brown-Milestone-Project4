@@ -3,7 +3,6 @@ var clientSecret = $('#id_client_secret').text().slice(1, -1);
 var stripe = Stripe(stripePublicKey);
 var elements = stripe.elements();
 
-
 // Create separate elements for card number, expiry, and CVC
 var style = {
     base: {
@@ -22,6 +21,7 @@ var style = {
         iconColor: '#dc3545'
     }
 };
+
 // Create separate elements for card number, expiry, and CVC
 var cardNumber = elements.create('cardNumber', { style: style });
 var cardExpiry = elements.create('cardExpiry', { style: style });
@@ -33,7 +33,6 @@ cardExpiry.mount('#card-expiry-element');
 cardCvc.mount('#card-cvc-element');
 
 // Handle realtime validation errors
-
 cardNumber.addEventListener('change', function (event) {
     var errorDiv = document.getElementById('card-errors');
     if (event.error) {
@@ -42,35 +41,53 @@ cardNumber.addEventListener('change', function (event) {
                 <i class="fas fa-times"></i>
             </span>
             <span>${event.error.message}</span>
-            `;
-            $(errorDiv).html(html);
+        `;
+        $(errorDiv).html(html);
     } else {
-        errorDiv.textContent ='';
+        errorDiv.textContent = '';
     }
 });
 
-// Handles stripe form submission 
-var form = document.getElementById('payment-form');
+// Handles Stripe form submission
+const form = document.getElementById('checkout-form');
+const submitButton = document.getElementById('submit-button');
 
+// Add the event listener to the form
 form.addEventListener('submit', function(ev) {
     ev.preventDefault();
-    card.update({ 'disabled': true});
-    $('#submit-button').attr('disabled', true);
+
+    // Disable all elements
+    cardNumber.update({ 'disabled': true });
+    cardExpiry.update({ 'disabled': true });
+    cardCvc.update({ 'disabled': true });
+    submitButton.setAttribute('disabled', true);
+
+    $('#checkout-form').fadeToggle(100);
+    $('#loading-container').fadeIn(100);
+
+    // Confirm card payment using the card number element
     stripe.confirmCardPayment(clientSecret, {
         payment_method: {
-            card: card,
+            card: cardNumber,
         }
     }).then(function(result) {
         if (result.error) {
             var errorDiv = document.getElementById('card-errors');
             var html = `
                 <span class="icon" role="alert">
-                <i class="fas fa-times"></i>
+                    <i class="fas fa-times"></i>
                 </span>
-                <span>${result.error.message}</span>`;
+                <span>${result.error.message}</span>
+            `;
             $(errorDiv).html(html);
-            card.update({ 'disabled': false});
-            $('#submit-button').attr('disabled', false);
+
+            // Re-enable form elements after error
+            $('#checkout-form').fadeToggle(100);
+            $('#loading-container').fadeOut(100);
+            cardNumber.update({ 'disabled': false });
+            cardExpiry.update({ 'disabled': false });
+            cardCvc.update({ 'disabled': false });
+            submitButton.removeAttribute('disabled');
         } else {
             if (result.paymentIntent.status === 'succeeded') {
                 form.submit();
