@@ -67,4 +67,4 @@ class OrderLineItem(models.Model):
         self.order.update_totals()
 
     def __str__(self):
-        return f'SKU {self.tour.sku} on order {self.order.order_number}'
+        return f'Product {self.tour.name} (ID: {self.tour.id}) on order {self.order.order_number}'

@@ -62,7 +62,7 @@
     border-radius: 5px;
 }
 
-/*------------------------------------------- Checkout payment step */
+/*------------------------------------------- payment step */
 
 #card-errors {
     display: flex;
@@ -86,6 +86,16 @@
 .error-message {
     color: #dc3545;
     font-size: 15px;
+}
+
+/* ------------------------------------------------------------------- Checkout_success.html */
+.shadow-glow {
+    box-shadow: 0px 6px 15px rgba(0, 87, 146, 0.7);
+}
+
+.pink-text {
+    color: #f4889e;
+    font-size: 16px;
 }
 
 /* ------------------------------------------------------------------- Responsive css */
