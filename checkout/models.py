@@ -18,55 +18,53 @@ class Order(models.Model):
     street_address1 = models.CharField(max_length=80, null=False, blank=False)
     street_address2 = models.CharField(max_length=80, null=True, blank=True)
     county = models.CharField(max_length=80, null=True, blank=True)
-
-    #  Auto add date and time 
     date = models.DateTimeField(auto_now_add=True)
-    # delivery_cost = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
     order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
-
-    def __str__(self):
-        return self.order_number
-
-class OrderLineItem(models.Model):
-    order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
-    product = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE)
-    quantity = models.IntegerField(null=False, blank=False, default=0)
-    lineitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
 
     def _generate_order_number(self):
         """
         Generate unique order number
         """
         return uuid.uuid4().hex.upper()
-
-    """
-    def update_total(self): 
-        # Subtoatal, update each time new line iten is added
-            
-        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum']
-        if self.order_total < settings.FREE_DELIVERY_THRESHOLD:
-            self.delivery_cost = self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100
-        else:
-            self.delivery_cost = 0
-        self.grand_total = self.order_total + self.delivery_cost
+    
+    def update_totals(self):
+        """
+        Recalculate order total and grand total.
+        """
+        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
+        self.grand_total = self.order_total
         self.save()
-    """
 
     def save(self, *args, **kwargs):
         """
-        Overide default save method, to set the order number if hasnt been set already
+        Override the save method to set the order number if it hasn't been set already
         """
-        if not self.order_nummber:
+        if not self.order_number:
             self.order_number = self._generate_order_number()
         super().save(*args, **kwargs)
+        
+    def __str__(self):
+        return self.order_number
+
+class OrderLineItem(models.Model):
+    order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
+    tour = models.ForeignKey(TourProducts, null=False, blank=False, on_delete=models.CASCADE)
+    quantity = models.IntegerField(null=False, blank=False, default=0)
+    lineitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
 
     def save(self, *args, **kwargs):
         """
-        Overide default save method, to set lineitem total & update order total
+        Override the save method to set the order number if it hasn't been set already
         """
-        self.lineitem_total = self.product.price * self.quantity
+       # Set the line item total based on tour price and quantity
+        self.lineitem_total = self.tour.price * self.quantity
+
+        # Save the line item
         super().save(*args, **kwargs)
 
+        # Update the order total
+        self.order.update_totals()
+
     def __str__(self):
-        return f'SKU {self.tour_products.sku} on order {self.order.order_number}'
+        return f'SKU {self.tour.sku} on order {self.order.order_number}'

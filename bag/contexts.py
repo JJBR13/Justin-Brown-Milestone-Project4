@@ -8,6 +8,7 @@ def travelbag_contents(request):
     travel_backpack = []
     total = 0
     tour_count = 0
+    grand_total = 0
     bag = request.session.get('bag', {})
 
     for item_id, quantity in bag.items():
@@ -20,7 +21,7 @@ def travelbag_contents(request):
             'tour': tour,
         })
 
-        grand_total = total + tour_count
+    grand_total = total + tour_count
 
     context = {
         'travel_backpack': travel_backpack,

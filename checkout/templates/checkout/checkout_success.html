@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block header %}
+    <div class="container header-container">
+        <div class="class row">
+            <div class="class col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <!-- Header block -->
+    <div class="row">
+        <div class="col-12 text-center pt-4 pb-3">
+            <h1> Get Your Backpack READY! </h1>
+        </div> 
+        <p class="text-center">Your order information is below. A conformation email will be sent shortly to <strong>{{ order.email }}</strong></p>
+    </div>
+
+    <!-- Order Summary -->
+     <div class="col-12 col-lg-7"></div>
+
+    <!-- Browse other tours -->
+    <div class="row pt-3 pb-4">
+        <div class="col text-center">
+            <a href="{% url 'all-tours' %}" class="text-btn-2 mx-2 hvr-icon-back">
+                <span>
+                    <i class="fa-solid fa-hand-point-left hvr-icon"></i>
+                </span>
+                <span class="text-uppercase hrv-shrink">Explore more tours</span>
+            </a>
+        </div>
+    </div>
+{% endblock %}
