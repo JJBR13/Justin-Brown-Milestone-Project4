@@ -20,10 +20,13 @@ def travelbag_contents(request):
             'tour': tour,
         })
 
+        grand_total = total + tour_count
+
     context = {
         'travel_backpack': travel_backpack,
         'total': total,
         'tour_count': tour_count,
+        'grand_total': grand_total,
     }
 
     return context

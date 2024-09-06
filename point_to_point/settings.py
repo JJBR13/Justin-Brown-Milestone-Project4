@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-@3$f$wotqq++i&$22k_)o88#c5%=7_ukoos*+zqm33ptk5t=d(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-jjbr13-justinbrownmiles-9f7wwte36c2.ws-eu115.gitpod.io']
+ALLOWED_HOSTS = ['8000-jjbr13-justinbrownmiles-9f7wwte36c2.ws-eu116.gitpod.io']
 
 # Application definition
 
@@ -176,6 +176,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Stripe
 
-STRIPE_CURRENCY = 'gpb'
+STRIPE_CURRENCY = 'gbp'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
