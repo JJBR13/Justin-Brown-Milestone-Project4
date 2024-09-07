@@ -83,18 +83,17 @@
                     <div id="step-3" class="checkout-step" style="display:none;">
                         <fieldset>
                             <legend class="w-auto form-header2">Payment</legend>
-                    
                             <!-- Card Number -->
                             <div class="form-control mb-3" id="card-number-element"></div>
-                    
                             <!-- Expiration Date and CVC -->
                             <div class="d-flex mb-3">
                                 <div class="form-control me-3" id="card-expiry-element" style="flex: 1;"></div>
                                 <div class="form-control" id="card-cvc-element" style="flex: 1;"></div>
                             </div>
-                    
                             <!-- Error Messages -->
                             <div class="text-danger" id="card-errors" role="alert"></div>
+                            <!-- Pass the client secret to the view so we can get the payment intent id -->
+                            <input type="hidden" value="{{ client_secret }}" name="client_secret">
                         </fieldset>
                         <div class="button-container d-flex justify-content-center">
                             <button type="button" class="btn text-btn hvr-shrink m-3" onclick="prevStep(2)">Back</button>
