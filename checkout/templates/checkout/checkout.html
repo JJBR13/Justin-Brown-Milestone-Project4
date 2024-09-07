@@ -2,16 +2,16 @@
 {% load static %}
 {% load bag_tools %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
 {% block header %}
     <div class="container header-container">
         <div class="class row">
             <div class="class col"></div>
         </div>
     </div>
-{% endblock %}
-
-{% block extra_css %}
-    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
 
 {% block content %}
