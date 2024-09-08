@@ -22,6 +22,8 @@
     <!-- Button animation -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css"
         type="text/css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ MEDIA_URL }}logo.png">
     {% endblock %}
 
     {% block extra_css %}
@@ -85,7 +87,7 @@
             <div class="dropdown-menu" aria-labelledby="toursDropdown">
               {% for tour in tours %}
                 <ul class="no-bullets">
-                  <li class="px-3">
+                  <li>
                       <a href="{% url 'tour-breakdown' tour_id=tour.pk %}" id="tour-name">{{ tour.name }}</a>
                   </li>
                 </ul>

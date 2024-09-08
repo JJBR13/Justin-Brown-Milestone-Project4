@@ -131,10 +131,16 @@ body {
 }
 
 .megamenu .dropdown-menu {
-    background: #FFE6EB;
+    background: rgba(255, 230, 235, 0.7);
     border: none;
     width: 100%;
     margin-top: 0;
+}
+
+
+.dropdown-item:focus, .dropdown-item:hover {
+    color: var(--bs-dropdown-link-hover-color);
+    background-color: #005792;
 }
 
 .logo {
@@ -159,7 +165,8 @@ ul.no-bullets {
 
 #tour-name {
     text-decoration: none;
-    color: #4D4D4D;
+    color: #005792;
+    font-size: large;
 }
 
 /*---------------------------------------------------------------  Search bar */

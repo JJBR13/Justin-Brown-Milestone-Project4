@@ -1,4 +1,9 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'tour_products/css/tour_products.css' %}">
+{% endblock %}
 
 {% block content %}
     <div class="container-fluid p-0 m-0">
@@ -7,8 +12,7 @@
                 {% if tour.image %}
                     <img src="{{ tour.image.url }}" class="card-img-top vh-100" alt="{{ tour.name }}">
                 {% else %}
-                        <!-- add no img, img -->
-                        <img src="{{ MEDIA_URL}}" alt="{{ tour.name }}">
+                    <img src="{{ MEDIA_URL }}" alt="{{ tour.name }}">
                 {% endif %}
             </div>
         </div>
@@ -20,10 +24,10 @@
             <p class="fix-content">{{ tour.name }}</p>
         </div>
         <div class="col-4 d-flex justify-content-center align-items-center">
-            <p class="fix-content">tour number of days here<p>
+            <p class="fix-content">tour number of days here</p> <!-- Fixed the closing tag -->
         </div>
         <div class="col-4 d-flex justify-content-center align-items-center">
-            <p class="fix-content"><strong class="">£ {{ tour.price }}</strong></p>
+            <p class="fix-content"><strong>£ {{ tour.price }}</strong></p>
         </div>
     </div>
 
@@ -34,59 +38,63 @@
             {{ tour.description }}
         </div>
 
-        <div class="col-6 d-flex justify-content-center align-items-center">
+        <div class="col-6 d-flex justify-content-center align-items-center p-sm-2">
             <h3> image this side </h3>
         </div>
     </div>
-
-    <!-- Tour Date -->
-
-    <!-- Tour video -->
 
     <!-- Add to travel backpack -->
     <form class="form pb-5" action="{% url 'add-to-backpack' tour.id %}" method="POST">
         {% csrf_token %}
         <div class="container">
-            <!-- How many -->
             <div class="col-4">
                 <p class="mt-3">
-                    <strong class="text-uppercase">
-                        How many travellers?
-                    </strong>
+                    <strong class="text-uppercase">How many travellers?</strong>
                 </p>
             </div>
 
-            <!-- Number of people for tour -->
-            <div class="row align-items-center">
-                <div class="col-6">
-                    <div class="form-group">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <button class="icon d-flex m-2" data-item_id="{{ tour.id }}"
-                                    id="minus-qty_{{ tour.id }}">
-                                    <i class="fa-solid fa-user-minus ms-auto minus-qty"></i>
-                                </button>
-                            </div>
-                            <input class="form-control qty_input" type="number" name="quantity" value="1" min="1"
-                                max="30" data-item_id="{{ tour.id }}" id="id_qty_{{ tour.id }}">
-
-                            <div class="input-group-append">
-                                <button class="icon d-flex  m-2" data-item_id="{{ tour.id }}"
-                                    id="add-qty_{{ tour.id }}">
-                                    <i class="fa-solid fa-user-plus ms-auto add-qty"></i>
-                                </button>
+            <div class="row d-flex justify-content-center align-items-center">
+                
+                <div class="row">
+                    <!-- Number of people for tour -->
+                    <div class="col-12 col-md-6">
+                        <div class="form-group">
+                            <div class="row">
+                                <!-- Decrease quantity button -->
+                                <div class="col-1 p-0 m-1">
+                                    <button class="icon btn btn-outline-secondary d-flex justify-content-center align-items-center w-100 h-100" 
+                                            type="button" data-item_id="{{ tour.id }}" id="minus-qty_{{ tour.id }}">
+                                        <i class="fa-solid fa-user-minus minus-qty"></i>
+                                    </button>
+                                </div>
+                
+                                <!-- Input field for quantity -->
+                                <div class="col-9 p-0">
+                                    <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="30" 
+                                           data-item_id="{{ tour.id }}" id="id_qty_{{ tour.id }}">
+                                </div>
+                
+                                <!-- Increase quantity button -->
+                                <div class="col-1 p-0 m-1">
+                                    <button class="icon btn btn-outline-secondary d-flex justify-content-center align-items-center w-100 h-100" 
+                                            type="button" data-item_id="{{ tour.id }}" id="add-qty_{{ tour.id }}">
+                                        <i class="fa-solid fa-user-plus add-qty"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
+                    </div>          
+                    <!-- Call to action buttons -->
+                    <div class="col-12 col-md-6 d-flex">
+                        <input type="submit" class="text-btn-2 text-uppercase hrv-shrink m-2" value="Add to Backpack">
+                        
+                        <!-- Use an anchor tag instead of a button for navigation -->
+                        <a id="ex-btn" href="{% url 'all-tours' %}" class="btn btn-secondary m-2 hvr-icon-back">
+                            <i class="fa-solid fa-hand-point-left hvr-icon"></i> Explore more tours
+                        </a>
                     </div>
-                </div>
-
-                <!-- Call to action btn -->
-                <div class="col-6 d-flex">
-                    <input type="submit" class="text-btn-2 text-uppercase hrv-shrink m-2" value="Add to Backpack">
-                    <button id="ex-btn" href="{% url 'all-tours' %}" class="m-2 hvr-icon-back">
-                        <i class="fa-solid fa-hand-point-left hvr-icon"></i> Explore more tours
-                    </button>
-                </div>
+                </div>  
+                
                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
             </div>
         </div>
@@ -94,6 +102,6 @@
 {% endblock %}
 
 {% block postloadjs %}
-{{ block.super }}
-{% include 'tours/includes/breakdown_scripts.html' %} 
+    {{ block.super }}
+    {% include 'tours/includes/breakdown_scripts.html' %} 
 {% endblock %}
