@@ -14,23 +14,6 @@
                 <h1> Your Travel Backpack </h1>
             </div> 
         </div>
-
-        <div class="row pt-3 pb-4">
-            <div class="col text-center">
-                <a href="{% url 'all-tours' %}" class="text-btn-2 mx-2 hvr-icon-back">
-                    <span>
-                        <i class="fa-solid fa-hand-point-left hvr-icon"></i>
-                    </span>
-                    <span class="text-uppercase hrv-shrink">Explore more tours</span>
-                </a>
-                <a href="{% url 'checkout' %}" class="text-btn mx-2 hvr-icon-grow">
-                    <span class="text-uppercase">Secure Checkout</span>
-                    <span>
-                        <i class="fa-solid fa-shield hvr-icon"></i>
-                    </span>
-                </a>
-            </div>
-        </div>
         
         {% if travel_backpack  %}
             {% for item in travel_backpack %}
@@ -96,7 +79,7 @@
                     <hr>
                 </div>
                 <div class="col-12">
-                    <p class="px-3">Your Backpack is empty...</p>
+                    <p class="p-4"> <strong> Backpack is empty...</strong></p>
                     <a href="{% url 'all-tours' %}" class="text-btn mx-3">
                         <span class="px-3 hvr-icon-back">
                             <i class="fa-solid fa-hand-point-left hvr-icon"></i>
