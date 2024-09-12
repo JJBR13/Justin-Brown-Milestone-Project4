@@ -1,5 +1,6 @@
 from allauth.account.forms import SignupForm
 from django import forms
+from django.contrib.auth.models import User
 
 class CustomSignupForm(SignupForm):
     def __init__(self, *args, **kwargs):
@@ -15,9 +16,10 @@ class CustomSignupForm(SignupForm):
         self.fields['password1'].widget.attrs['placeholder'] = 'Enter your password'
         self.fields['password2'].widget.attrs['placeholder'] = 'Confirm your password'
         
-        # Add any other customization to the fields (like CSS classes)
+        # Add any other customisation to the fields (like CSS classes)
         for field in self.fields.values():
             field.widget.attrs['class'] = 'form-control'
 
     class Meta:
-        model = SignupForm
+        model = User
+        fields = ('username', 'email', 'email2', 'password1', 'password2')

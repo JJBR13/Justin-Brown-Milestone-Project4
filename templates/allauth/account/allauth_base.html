@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <!-- Include any messages -->
+  {% if messages %}
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="alert alert-info" role="alert">
+          <ul>
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Inject the specific allauth content here -->
+  <div class="container min-vh-100 d-flex justify-content-center align-items-center">
+    <div class="row w-100">
+      <div class="col-12 text-center">
+        {% block allauth_content %}
+        {% endblock allauth_content %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
