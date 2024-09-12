@@ -5,26 +5,26 @@
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
-<div class="container-fluid min-vh-100 d-flex justify-content-center align-items-center p-0">
-  <div class="row w-100 h-100 d-flex justify-content-center align-items-center">
-    <div class="col-md-6 col-sm-12">
-      <div class="card-form p-4">
+<div class="container-fluid min-vh-100 d-flex justify-content-center align-items-center">
+  <div class="row justify-content-center align-items-center w-100">
+    <!-- Form Signup Div -->
+    <div class="col-md-6 col-lg-4 col-sm-12">
+      <div class="card-form p-4 shadow">
         <h1 class="pt-4 text-center">
           {% trans "Create Account" %}
         </h1>
 
-        <p class="text-center">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+        <p class="text-center pt-2"><strong>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</strong></p>
 
         <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
           {% csrf_token %}
+          
+          <!-- Django form automatically includes fields from custom form -->
           {{ form.as_p }}
-          {% if redirect_field_value %}
-          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-          {% endif %}
 
           <!-- Centered Submit Button -->
           <div class="d-flex justify-content-center">
-            <button type="submit" class="btn text-btn-2 hvr-grow mb-3">{% trans "Sign Up" %} &raquo;</button>
+            <button type="submit" class="btn text-btn-2 hvr-grow mb-3">{% trans "Sign Up" %}</button>
           </div>
         </form>
       </div>
