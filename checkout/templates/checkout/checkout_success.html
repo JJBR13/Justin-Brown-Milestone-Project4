@@ -178,17 +178,24 @@
         </div>
     </div>
     
-
     <!-- Browse other tours -->
     <div class="row pt-4 pb-4">
         <div class="col text-center">
-            <a href="{% url 'all-tours' %}" class="text-btn-2 mx-2 hvr-icon-back">
-                <span>
-                    <i class="fa-solid fa-hand-point-left hvr-icon"></i>
-                </span>
-                <span class="text-uppercase hrv-shrink">Explore more tours</span>
-            </a>
+            {% if from_profile %}
+                <a href="{% url 'profile' %}" class="text-btn-2 mx-2 hvr-icon-back">
+                    <span>
+                        <i class="fa-solid fa-hand-point-left hvr-icon"></i>
+                    </span>
+                    <span class="text-uppercase hrv-shrink">Back to Profile</span>
+                </a>
+            {% else %}
+                <a href="{% url 'all-tours' %}" class="text-btn-2 mx-2 hvr-icon-back">
+                    <span>
+                        <i class="fa-solid fa-hand-point-left hvr-icon"></i>
+                    </span>
+                    <span class="text-uppercase hrv-shrink">Explore more tours</span>
+                </a>
+            {% endif %}
         </div>
     </div>
-</div>
 {% endblock %}

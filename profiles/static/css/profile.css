@@ -1,5 +1,4 @@
-/* Countries dropdown */
-
+/* ------------------------------------------- Countries dropdown */
 #profile-update-form .form-control {
     color: #000;
 }
@@ -12,8 +11,7 @@
     color: #aab7c4;
 }
 
-/* tabs */ 
-
+/* ----------------------------------------- tabs */ 
 .tab-button {
     background-color: #005792;
     color: #ffffff;
@@ -40,3 +38,7 @@
     border: 1px solid #005792;
 }
 
+.order-history {
+    max-height: 416px; /* height of profile form + submit button */
+    overflow-y: auto;
+}
