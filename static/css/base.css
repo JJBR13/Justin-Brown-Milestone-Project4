@@ -313,12 +313,35 @@ input[type="search"]::-webkit-search-results-decoration {
 
 /*---------------------------------------------------------------  Toasts */
 
-.message-container {
+.message-block {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 99999999999;
+    width: auto;
+    max-width: 500px;
+    /* background-color: rgba(255, 255, 255, 0.9); */
+    border: none;
 }
+
+.toast {
+    border: none;
+}
+
 
 .custom-toast {
     overflow: visible;
+}
+
+.toast-body .btn {
+    font-size: 0.9rem; 
+}
+
+.toast-body .icon i {
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.9);
+
 }
 
 /*---------------------------------------------------------------  Footer */

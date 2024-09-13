@@ -44,7 +44,17 @@ def tour_breakdown(request, tour_id):
 
 def add_tour(request):
     """ Add a tour to site """
-    form = TourForm()
+    if request.method == 'POST':
+        form = TourForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added new TOUR!')
+            return redirect(reverse('add_tour'))
+        else:
+            messages.error(request, 'Failed to add tour. Please ensure the form is valid.')
+    else:
+        form = TourForm()
+
     template = 'tours/add_tour.html'
     context = {
         'form': form,

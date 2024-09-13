@@ -36,7 +36,11 @@
             <!-- Tour Content-->
                 <div class="row">
                     <div class="col-md-3 text-center">
-                        <img class="img-fluid p-3" src="{{ item.tour.image.url }}" alt="tour image">
+                        {% if item.tour.image %}
+                        <img class="w-100" src="{{ item.tour.image.url }}" alt="{{ item.tour.name }}">
+                        {% else %}
+                        <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.tour.name }}">
+                        {% endif %}
                     </div>
 
                     <div class="col-md-5 d-flex align-items-center">
