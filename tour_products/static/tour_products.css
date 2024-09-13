@@ -13,3 +13,12 @@ input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
+/* ----------------------------------------------------------- Add tour CSS */
+
+label {
+    font-size: 1.5rem;
+    font-family: inherit;
+    font-weight: bold;
+    color: #333;
+}

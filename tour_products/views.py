@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from .models import TourProducts
+from .forms import TourForm
 
 
 def all_tours(request):
@@ -40,3 +41,13 @@ def tour_breakdown(request, tour_id):
     }
 
     return render(request, 'tours/tour_breakdown.html', context)
+
+def add_tour(request):
+    """ Add a tour to site """
+    form = TourForm()
+    template = 'tours/add_tour.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
