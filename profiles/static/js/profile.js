@@ -19,17 +19,25 @@ function openTab(evt, tabName) {
     evt.currentTarget.className += " active";
 }
 
-/* country js */
-let countrySelected = $('#id_default_country').val();
-if (!countrySelected || countrySelected === '') {
-    $('#id_default_country').css('color', '#aab7c4');
-}
+// Ensure the first tab is visible on page load
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("personal-details").style.display = "block";
+    document.querySelector(".tab-button").classList.add("active");
+});
 
-$('#id_default_country').change(function() {
-    countrySelected = $(this).val();
+/* Country js */
+$(document).ready(function() {
+    let countrySelected = $('#id_default_country').val();
     if (!countrySelected || countrySelected === '') {
-        $(this).css('color', '#aab7c4');
-    } else {
-        $(this).css('color', '#000');
+        $('#id_default_country').css('color', '#aab7c4');
     }
+
+    $('#id_default_country').change(function() {
+        countrySelected = $(this).val();
+        if (!countrySelected || countrySelected === '') {
+            $(this).css('color', '#aab7c4');
+        } else {
+            $(this).css('color', '#000');
+        }
+    });
 });

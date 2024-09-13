@@ -11,3 +11,32 @@
 #profile-update-form input::placeholder {
     color: #aab7c4;
 }
+
+/* tabs */ 
+
+.tab-button {
+    background-color: #005792;
+    color: #ffffff;
+    border: 1px solid #005792;
+    padding: 10px 20px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+/* Hover effect */
+.tab-button:hover {
+    background-color: #55D8C1;
+    color: #000;
+}
+
+/* Active button styling */
+.tab-button.active {
+    background-color: #55D8C1;
+    color: #000;
+    border: 1px solid #005792;
+}
+

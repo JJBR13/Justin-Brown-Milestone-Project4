@@ -17,6 +17,22 @@
         
         {% if travel_backpack  %}
             {% for item in travel_backpack %}
+            <div class="col-12 d-flex justify-content-center align-items-center">
+                <!-- Progress btns -->
+                <a href="{% url 'all-tours' %}" class="text-btn mx-3">
+                    <span class="px-3 hvr-icon-back">
+                        <i class="fa-solid fa-hand-point-left hvr-icon"></i>
+                        <strong class="text-uppercase">Explore tours</strong>
+                    </span>
+                </a>
+            
+                <a href="{% url 'checkout' %}" class="text-btn-2 mx-2 hvr-icon-grow">
+                    <span class="text-uppercase">Secure Checkout
+                        <i class="fa-solid fa-shield hvr-icon"></i>
+                    </span>
+                </a>
+            </div>
+
             <!-- Tour Content-->
                 <div class="row">
                     <div class="col-md-3 text-center">
