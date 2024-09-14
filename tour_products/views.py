@@ -42,9 +42,6 @@ def tour_breakdown(request, tour_id):
 
     return render(request, 'tours/tour_breakdown.html', context)
 
-from django.shortcuts import render, redirect, reverse
-from django.contrib import messages
-from .forms import TourForm
 
 def add_tour(request):
     """ Add a tour to site """
@@ -62,6 +59,31 @@ def add_tour(request):
     template = 'tours/add_tour.html'
     context = {
         'form': form,
+    }
+
+    return render(request, template, context)
+
+
+def edit_tour(request, tour_id):
+    """ Edit a tour """
+
+    tour = get_object_or_404(TourProducts, pk=tour_id)
+    if request.method == 'POST':
+        form = TourForm(request.POST, request.FILES, instance=tour)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated Tour!')
+            return redirect(reverse('tour-breakdown', args=[tour.id]))
+        else:
+            messages.error(request, 'Failed to update tour. Please ensure the form is valid.')
+    else:
+        form = TourForm(instance=tour)
+        messages.info(request, f'You are editing {tour.name}')
+
+    template = 'tours/edit_tour.html'
+    context = {
+        'form': form,
+        'tour': tour,
     }
 
     return render(request, template, context)
