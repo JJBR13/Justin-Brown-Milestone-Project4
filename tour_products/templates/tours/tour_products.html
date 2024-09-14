@@ -31,6 +31,17 @@
                         <h5 class="card-title">{{ tour.name }}</h5>
                         <p class="card-text">{{ tour.description|truncatechars:100 }}</p>
                         <a href="{% url 'tour-breakdown' tour.id %}" class="text-btn-2 hvr-forward">VIEW TOUR</a>
+                        <!--edit/ delete btn superuser-->
+                        <div class="row mt-4 mb-1">
+                            <div class="col-12 d-flex justify-content-center">
+                                {% if request.user.is_superuser %}
+                                    <p class="ml-3">
+                                        <a a class="hvr-grow" href="{% url 'edit_tour' tour.id %}">Edit</a>
+                                        <a class="text-danger hvr-grow" href="{% url 'delete_tour' tour.id %}">Delete</a>
+                                    </p>
+                                {% endif %}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
