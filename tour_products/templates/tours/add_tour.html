@@ -26,9 +26,15 @@
         <div class="row justify-content-center">
             <div class="col-12 col-md-6">
                 <form method="POST" action="{% url 'add_tour' %}" class="form mb-2" enctype="multipart/form-data">
-                    {% csrf_token %}
                     <div class="mb-3">
-                        {{ form | crispy }}
+                        {% csrf_token %}
+                        {% for field in form %}
+                            {% if field.name != 'image' %}
+                                {{ field | as_crispy_field }}
+                            {% else %}
+                                {{ field }}
+                            {% endif %}
+                        {% endfor %}
                     </div>
                     <div class="text-center pb-3 mt-3">
                         <a class="btn btn-secondary rounded-0" href="{% url 'all-tours' %}">Cancel</a>
@@ -38,4 +44,14 @@
             </div>            
         </div>
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript">
+        $('#new-image').change(function() {
+            var file = $('#new-image')[0].files[0];
+            $('#filename').text(`Image will be set to: ${file.name}`);
+        });
+    </script>
 {% endblock %}
