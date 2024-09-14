@@ -42,6 +42,10 @@ def tour_breakdown(request, tour_id):
 
     return render(request, 'tours/tour_breakdown.html', context)
 
+from django.shortcuts import render, redirect, reverse
+from django.contrib import messages
+from .forms import TourForm
+
 def add_tour(request):
     """ Add a tour to site """
     if request.method == 'POST':

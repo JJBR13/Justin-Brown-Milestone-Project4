@@ -93,7 +93,7 @@
                 </ul>
               {% endfor %}
               <hr class="dropdown-divider"></a>
-              <a class="dropdown-item"  href="{% url 'all-tours' %}">">ALL TOURS</a>
+              <a class="dropdown-item"  href="{% url 'all-tours' %}">ALL TOURS</a>
             </div>
           </li>
 
@@ -111,7 +111,7 @@
             <ul class="dropdown-menu">
               {% if request.user.is_authenticated %}
               {% if request.user.is_superuser %}
-              <a href="{% url 'add-tour' %}" class="dropdown-item">Admin Tour Management</a>
+              <a href="{% url 'add_tour' %}" class="dropdown-item">Admin Tour Management</a>
               {% endif %}
               <li><a class="dropdown-item" href="{% url 'profile' %}">My Profile</a></li>
               <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
