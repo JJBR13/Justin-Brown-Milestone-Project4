@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from .models import TourProducts
 from .forms import TourForm
@@ -43,8 +44,13 @@ def tour_breakdown(request, tour_id):
     return render(request, 'tours/tour_breakdown.html', context)
 
 
+@login_required
 def add_tour(request):
     """ Add a tour to site """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only ADMINS users can do that.')
+        return redirect(reverse('home'))
+
     if request.method == 'POST':
         form = TourForm(request.POST, request.FILES)
         if form.is_valid():
@@ -64,8 +70,12 @@ def add_tour(request):
     return render(request, template, context)
 
 
+@login_required
 def edit_tour(request, tour_id):
     """ Edit a tour """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only ADMINS users can do that.')
+        return redirect(reverse('home'))
 
     tour = get_object_or_404(TourProducts, pk=tour_id)
     if request.method == 'POST':
@@ -89,8 +99,13 @@ def edit_tour(request, tour_id):
     return render(request, template, context)
 
 
+@login_required
 def delete_tour(request, tour_id):
     """ Delete a tour from the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only ADMINS users can do that.')
+        return redirect(reverse('home'))
+
     tour = get_object_or_404(TourProducts, pk=tour_id)
     tour.delete()
     messages.success(request, 'Tour deleted!')
