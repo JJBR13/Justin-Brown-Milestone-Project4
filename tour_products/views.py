@@ -15,7 +15,7 @@ def all_tours(request):
     # Search bar queryS
     if request.GET:
         if 's-q' in request.GET:
-            query = request.GET['sq']
+            query = request.GET['s-q']
             if not query:
                 messages.error(request, "Invalid search criteria")
                 return redirect(reverse('all-tours'))
