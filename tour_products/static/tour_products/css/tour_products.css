@@ -17,8 +17,8 @@ input[type="number"]::-webkit-inner-spin-button {
 /* ----------------------------------------------------------- Add tour CSS */
 
 label {
-    font-size: 3rem;
-    font-family: inherit;
-    font-weight: bold;
-    color: orange;
+    font-size: 1.5rem;
+    font-family: 'Fredoka One', cursive;
+    color: #005792;
+    padding-bottom: 5px;
 }
