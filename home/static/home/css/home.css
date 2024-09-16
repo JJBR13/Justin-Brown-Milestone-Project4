@@ -63,6 +63,16 @@
     padding: 0;
 }
 
+/*---------------------------------------------------------------- Our Tour block */
+
+.tour-tile {
+    transition: transform 0.3s ease;
+    margin:0;
+    padding: 0;
+}
+.tour-tile:hover {
+    transform: scale(1.05);
+}
 
 /*---------------------------------------------------------------- Why us block */
 
@@ -73,8 +83,18 @@
     opacity: 1;
 }
 
-/*---------------------------------------------------------------- Review block */
+.tour-img {
+    height: 90px;
+    width: 90px;
+    object-fit: cover;
+}
 
-.review-item {
-    height: 200px;
+.tour-name {
+    font-family: 'Fredoka One', cursive;
+    font-size: 13px;
+    color: #005792;
+}
+
+h6 {
+    font-size: 1rem;
 }

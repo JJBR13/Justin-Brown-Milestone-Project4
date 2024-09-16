@@ -1,9 +1,9 @@
-# Escape Gaming Reviews
-## Milestone Project 3:  *Demonstration of Backend Development understanding, through a gaming review site.* 
+# Point > Point
+## Milestone Project 4:  *full-stack site e-Commerce site.* 
 
-DISCLAIMER: This is a project for Code Institute, to demonstrate an understanding of Backend Development and not financialise gain. 
+DISCLAIMER: This is a project for Code Institute, to demonstrate an understanding full-stack site based around business logic used to control a centrally-owned dataset.
 
-![MockUps](documents/mockups.png)
+![MockUps](#)
 
 ## Live Project 
 
@@ -81,9 +81,16 @@ The purpose of this website is to provide a fully functional e-commerce platform
 
 ## Languages Used
 
+- [HTML5](https://www.w3schools.com/whatis/whatis_html.asp)
+- [CSS3](https://www.w3schools.com/whatis/whatis_css.asp)
+- [JavaScript](https://www.w3schools.com/whatis/whatis_js.asp)
+- [Python](https://www.python.org/doc/)
+
 ## Testing 
 
-### Strip 
+### Stripe
+
+### Dummy Card Information
 
 The following test card details were used for testing Stripe:
 
