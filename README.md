@@ -1,108 +1,197 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Escape Gaming Reviews
+## Milestone Project 3:  *Demonstration of Backend Development understanding, through a gaming review site.* 
 
-Welcome USER_NAME,
+DISCLAIMER: This is a project for Code Institute, to demonstrate an understanding of Backend Development and not financialise gain. 
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+![MockUps](documents/mockups.png)
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+## Live Project 
 
-## Gitpod Reminders
+[View live project here](#)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## Repository 
 
-`python3 -m http.server`
+[Locate project repository here](https://github.com/JJBR13/Justin-Brown-Milestone-Project4)
 
-A blue button should appear to click: _Make Public_,
+## Contents 
 
-Another blue button should appear to click: _Open Browser_.
+- [Ideology](#ideology)
+- [User Experience](#user-experience)
+    + [User Stories](#user-stories)
+- [Design](#design)
+    + [Wireframes](#wireframes)
+    + [Database](#database)
+    + [Colour Palette](#colour-pallete)
+    + [Typography](#typography)
+- [Current Features](#current-features)
+    + [Responsive On All Devices](#responsive-on-all-devices)
+- [Future Releases](#future-releases)
+- [Languages Used](#languages-used)
+- [Testing](#testing)
+- [Deployment](#deployment)
+    + [Project Creation](#project-creation)
+    + [Cloning Repo](#cloning-repo)
+    + [Danjgo](#django)
+    + [ElaphantSQL](#elaphantsql)
+    + [Heroku](#heroku)
+    + [Stripe](#stripe)
+- [References, Credit, Frameworks & Programs](#references-credit-frameworks-programs)
+    + [References](#references)
+    + [Credit](#credit)
+    + [Frameworks](#frameworks)
+    + [Programs](#programs)
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+## Ideology
 
-A blue button should appear to click: _Make Public_,
+The purpose of this website is to provide a fully functional e-commerce platform tailored for solo youth travelers seeking their next adventure. Built with Django and Python, the site allows users to explore all the unique travel experiences offered by Point > Point. Visitors can browse destinations, discover the exciting activities awaiting them, and book unforgettable, once-in-a-lifetime trips, all designed specifically for young, solo travelers eager to explore the world. 
 
-Another blue button should appear to click: _Open Browser_.
+## User Experience 
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### User Stories 
 
-To log into the Heroku toolbelt CLI:
+## Design 
+ 
+### Wireframes
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+### Database
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+### Colour Pallete
 
-------
+### Typography
 
-## Release History
+## Current Features
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+### Pages
+#### Favicon
+#### Home
+#### All Tours
+#### About 
+#### Contact Us
+#### Profile & Profile Managemnet 
+#### Profile: Admin users 
+#### Bag 
+#### Checkout 
+#### Secure checkout 
+#### Responsive messages
+#### Error Page 
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+### Responsive On All Devices
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+## Future releases
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+## Languages Used
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+## Testing 
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+### Strip 
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+The following test card details were used for testing Stripe:
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+Card Number: 4242 4242 4242 4242
+Date: 0424
+CVC: 242
+Postcode: 42424
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+## Deployment 
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+### Project Creation 
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+## Cloning Repo 
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+ 1. Locating repository, clicking on the "New" button.
+ 2. Click the Code button, select clone with HTTPS, SSH or the GitHub CLI and copy the link.
+ 3. Open the terminal in your preferred IDE. Change the working directory to the target location for the cloned repository.
+ 4. In the terminal, type 'git clone' followed by the copied URL.
+ 5. Install the packages from the requirements.txt file by running pip3 install -r requirements.txt in the terminal.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+## Django: 
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+ 1. In the terminal enter, pip3 install 'django<4'.
+ 2. Then enter, django-admin startproject your project name
+ 3. You will see the django project folder, including settings.py and urls.py.
+ 4. Back to the terminal, enter touch .gitignore.
+ 5. In the .gitignore file enter, *.sqlite3 and *.pyc and pycache
+ 6. Run the project by entering python3 manage.py runserver to check it is running well. Your page should show a rocket with 'The install worked successfully! Congratulations!' below it.
+ 7. Back in the terminal CTRL + C to quit the server.
+ 8. Migrate: enter, python3 manage.py migrate.
+ 9. Create a superuser: enter, python3 manage.py createsuperuser. Provide username, email (or skip this by hitting enter) and password.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+- Adding the Chrome extension "GitPod" created an online coding platform, enabling the use of bash terminals throughout the project. The below "git commands" were used: 
 
-------
+1. git add . - This command for multiple files to the staging area before commiting. 
+2. git commit -m "Message explaining upadate" - This command explained changes that were done to the repository. 
+3. git push - This command was used to push all committed changes to the GitHub Repository. 
 
-## FAQ about the uptime script
+## ElaphantSQL
+ 1. Navigate to ElephantSQL.com and select create a new instance.
+ 2. Select - free database plan.
+ 3. Set up your plan 
+ 4. Give it the same name as your project 
+ 5. Select region closest to you 
+ 6. Click review and then Create instance.
+ 7. Return to the ElephantSQL dashboard
+ 8. Click on the database instance name for this project
+ 9. In the URL section, copy the database URL to your clipboard
 
-**Why have you added this script?**
+## Heroku
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+## Stripe
+ 1. Navigate to Stripe website 
+ 2. Register for a Stripe account.
+ 3. Go to 'API Keys' to view public and secret key.
+ 4. In the apps .env file, add STRIPE_PUCLIC_KEY AND STRIPE_SECERET_KEY.
+ 5. Copy in public and secret keys from Stripe.
+ 6. Go to Heroku and open the app.
+ 7. Click 'settings' and 'Reveal Config Vars'
+ 8. Add the STRIPE_PUCLIC_KEY AND STRIPE_SECERET_KEY with their keys from Stripe.
 
-**How will this affect me?**
+## References, Credit, Frameworks & Programs
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+### References 
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+- [Font Awesome](https://fontawesome.com/): 
+    - All icons used for the site.
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+- [Git](https://git-scm.com/): 
+    - Used for version conterol.
 
-**So….?**
+- [GitHub](https://docs.github.com/en/get-started): 
+    - Was used to store the project.
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+- [Google Chrome Developer Tools](https://developer.chrome.com/docs/devtools/): 
+    - Used to inspect site pages and there elements to help debug issues with layouts and try differnt CSS styles.
+    
+- [Google Fonts](https://fonts.google.com/) 
+    - Used to import fonts into style.css. 
 
-**Can I opt out?**
+- [Hex to RGBA Converter](https://rgbacolorpicker.com/)
+    - Used to convert hex to rgba.
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+- [Unicorn Revealer](https://chromewebstore.google.com/detail/unicorn-revealer/lmlkphhdlngaicolpmaakfmhplagoaln?hl=en-US&utm_source=ext_sidebar): 
+    - Used to aid with diagnosis & applying css.
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+### Credit 
+- [Boutique Ado](https://github.com/Code-Institute-Solutions/boutique_ado_v1/tree/f5880efee43b3b9ea1276a09ca972f4588001c59)
+    - A lot of the core code was taken from the 'Boutique Ado' walkthrough project on Code Institute.
 
-**Anything more?**
+- [Manu at Bristol Collge](https://codeinstitute.net/): 
+    - For all the support and pointers. 
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+- [Code Institute](https://codeinstitute.net/): 
+    - For all the lecture/ learning content provided. 
 
----
+### Frameworks
 
-Happy coding!
+- [Bootstrap](https://getbootstrap.com/)
+    - Documentation and layout of the site.
+
+- [Heroku](https://id.heroku.com/login): 
+    - Used as hosting platform to deploy the project.
+
+### Programs 
+
+- [Balsamiq](https://balsamiq.com/)
+   - Allowed the creation of wireframes.
+
+- [Canva](https://www.canva.com/login)
+   - Allowed the creation logos & Unquie sitewide touches.
