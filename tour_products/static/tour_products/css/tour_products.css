@@ -22,3 +22,24 @@ label {
     color: #005792;
     padding-bottom: 5px;
 }
+
+/* ----------------------------------------------------------- Tour product card */
+
+.card-img-top {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.card {
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+}

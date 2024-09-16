@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'tour_products/css/tour_products.css' %}">
+{% endblock %}
+
 {% block content %}
 
     <div class="d-md-none p-1"></div>
@@ -22,32 +26,30 @@
             <div class="col-sm-12 col-md-4 pb-5">
                 <div class="card w-100" style="width: 18rem;">
                     {% if tour.image %}
-                            <img src="{{ tour.image.url }}" class="card-img-top" alt="{{ tour.name }}">
+                        <img src="{{ tour.image.url }}" class="card-img-top" alt="{{ tour.name }}">
                     {% else %}
-                            <!-- add no img, img -->
-                            <img src="{{ MEDIA_URL}}" alt="{{ tour.name }}">
+                        <img src="{{ MEDIA_URL }}noimage.png" class="card-img-top" alt="{{ tour.name }}">
                     {% endif %}
                     <div class="card-body">
                         <h5 class="card-title">{{ tour.name }}</h5>
                         <p class="card-text">{{ tour.description|truncatechars:100 }}</p>
                         <a href="{% url 'tour-breakdown' tour.id %}" class="text-btn-2 hvr-forward">VIEW TOUR</a>
-                        <!--edit/ delete btn superuser-->
+                        {% if request.user.is_superuser %}
                         <div class="row mt-4 mb-1">
                             <div class="col-12 d-flex justify-content-center">
-                                {% if request.user.is_superuser %}
-                                    <p class="ml-3">
-                                        <a a class="hvr-grow" href="{% url 'edit_tour' tour.id %}">Edit</a>
-                                        <a class="text-danger hvr-grow" href="{% url 'delete_tour' tour.id %}">Delete</a>
-                                    </p>
-                                {% endif %}
+                                <p class="ml-3">
+                                    <a class="hvr-grow" href="{% url 'edit_tour' tour.id %}">Edit</a>
+                                    <a class="text-danger hvr-grow" href="{% url 'delete_tour' tour.id %}">Delete</a>
+                                </p>
                             </div>
                         </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
 
             <div class="d-md-none p-3"></div>
-            {% endfor %}
+        {% endfor %}
         </div>
     </div>
 {% endblock %}
