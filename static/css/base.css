@@ -490,6 +490,31 @@ input[type="search"]::-webkit-search-results-decoration {
     font-weight: none;
 }
 
+/*---------------------------------------------------------------  404 error page */
+
+.error-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.error-box {
+    text-align: center;
+    background-color: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.error-code {
+    font-size: 96px;
+    font-weight: bold;
+    color: #55D8C1;
+}
+.error-message {
+    font-size: 24px;
+    margin-top: 20px;
+}
+
 /*---------------------------------------------------------------  Media Queries */
 
 @media (max-width: 368px) {
@@ -498,7 +523,6 @@ input[type="search"]::-webkit-search-results-decoration {
     .navbar-toggler {
         width: 100%;
         margin-top: 10px;
-        /* padding: 5px; */
     }
 
     button span {

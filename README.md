@@ -156,7 +156,7 @@ Postcode: 42424
 
 ### References 
 
-- [Font Awesome](https://fontawesome.com/): 
+- [Flat icon](https://www.flaticon.com/): 
     - All icons used for the site.
 
 - [Git](https://git-scm.com/): 
@@ -174,18 +174,25 @@ Postcode: 42424
 - [Hex to RGBA Converter](https://rgbacolorpicker.com/)
     - Used to convert hex to rgba.
 
+- [Loading Animation](https://css-loaders.com/classic/): 
+    - Loading animation while payment is pending.
+
+- [Profile tab structure](https://codepen.io/rockteam/pen/WrpXBN ): 
+    - Used on profile page to create tab for perosnal details & Order history. 
+
 - [Unicorn Revealer](https://chromewebstore.google.com/detail/unicorn-revealer/lmlkphhdlngaicolpmaakfmhplagoaln?hl=en-US&utm_source=ext_sidebar): 
     - Used to aid with diagnosis & applying css.
 
-### Credit 
+### Credit
+
 - [Boutique Ado](https://github.com/Code-Institute-Solutions/boutique_ado_v1/tree/f5880efee43b3b9ea1276a09ca972f4588001c59)
     - A lot of the core code was taken from the 'Boutique Ado' walkthrough project on Code Institute.
 
-- [Manu at Bristol Collge](https://codeinstitute.net/): 
-    - For all the support and pointers. 
-
 - [Code Institute](https://codeinstitute.net/): 
     - For all the lecture/ learning content provided. 
+
+- [Manu at Bristol Collge](https://codeinstitute.net/): 
+    - For all the support and pointers. 
 
 ### Frameworks
 
