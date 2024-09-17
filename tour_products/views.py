@@ -24,9 +24,18 @@ def all_tours(request):
                 description__icontains=query)
             tourproducts = tourproducts.filter(queries)
 
+    # Getting categories 
+    categories = tourproducts.values_list('category', flat=True).distinct()
+
+    selected_category = request.GET.get('category', None)
+    if selected_category:
+        tourproducts = tourproducts.filter(category__iexact=selected_category)
+
     context = {
         'tourproducts': tourproducts,
         'search_text': query,
+        'categories': categories,
+        'selected_category': selected_category,
     }
 
     return render(request, 'tours/tour_products.html', context)

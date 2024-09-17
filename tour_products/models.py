@@ -19,8 +19,8 @@ class TourProducts(models.Model):
     class Meta:
         verbose_name_plural = 'Tour Product'
 
-    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
     name = models.CharField(max_length=60)
+    category = models.CharField(max_length=60, null=True, blank=True)
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
     four_facts = models.TextField(null=True, blank=True)

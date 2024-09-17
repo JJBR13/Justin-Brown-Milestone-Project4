@@ -43,3 +43,47 @@ label {
     flex-direction: column;
     justify-content: space-between; 
 }
+
+/* ----------------------------------------------------------- Filter Category */
+
+.category-btn {
+    background-color: white;
+    color: #55D8C1;
+    border: 2px solid #55D8C1;
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.category-btn i {
+    margin-right: 8px;
+}
+
+.category-btn:hover {
+    background-color: #55D8C1;
+    color: #005792;
+    border-color: #005792;
+}
+
+.category-btn:hover i {
+    color: #005792;
+}
+
+.icon-static {
+    color: #005792;
+    margin-right: 8px;
+}
+
+.filter-icon:hover i {
+    color: #0056b3;
+}
+
+.filter-icon p {
+    margin-top: 5px;
+    font-size: 14px;
+    color:  #0056b3;
+}
