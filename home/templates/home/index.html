@@ -25,15 +25,18 @@
       </div>
     </div>
   </div>
+
   <!-- Our Destination -->
-  <div class="container p-5">
+  <div class="container p-5 mb-2">
     <h2 class="text-start pb-4">Our Destinations!</h2>
       <div class="row g-1 justify-content-start">
         {% for tour in tourproducts %}
           <div class="col-6 col-sm-4 col-md-2 text-start mb-4">
               <div class="tour-tile">
                   {% if tour.image %}
-                    <img src="{{ tour.image.url }}" alt="{{ tour.name }}" class="img-fluid rounded tour-img">
+                    <a href="{% url 'tour-breakdown' tour.id %}">
+                      <img src="{{ tour.image.url }}" alt="{{ tour.name }}" class="img-fluid rounded tour-img">
+                    </a>
                   {% else %}
                     <img src="{{ MEDIA_URL }}noimage.png" alt="{{ tour.name }}" class="img-fluid rounded tour-img">
                   {% endif %}
@@ -45,7 +48,7 @@
   </div>
 
   <!-- Why us block -->
-  <div class="container p-4">
+  <div class="container pb-5">
     <div class="row d-flex justify-content-center">
       <div class="col-12 text-center">
         <h2 class="pb-3">Why Point > Point?</h2>
@@ -57,7 +60,7 @@
       </div>
     </div>
 
-    <div class="row p-4 text-center">
+    <div class="row text-center p-4 mt-3">
       <div class="col-sm-12 col-md-3">
         <i class="fa-sharp fa-solid fa-piggy-bank fa-2x p-2"></i>
         <h3 class="pt-3">LOW DEPOSIT</h3>
