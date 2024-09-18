@@ -31,7 +31,7 @@ label {
     border-radius: 20px;
 }
 
-.tour-info-box {
+.tour-info-box, .tour-description-box {
     background-color: #f8f9fa;
     border-radius: 15px;
     padding: 20px;
@@ -55,6 +55,30 @@ label {
 
 .icon-share {
     font-size: 1.2rem;
+}
+
+/*--------------------------------------------------------------- Breadcrumb */ 
+
+.breadcrumb-item+.breadcrumb-item::before {
+    content: var(--bs-breadcrumb-divider, ">");
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: black;
+}
+
+.breadcrumb-item {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.2rem;
+    color: black;
+}
+
+.breadcrumb a:hover {
+    text-decoration: none;
+    color: black;
 }
 
 /* ----------------------------------------------------------- Filter Category */
@@ -99,4 +123,20 @@ label {
     margin-top: 5px;
     font-size: 14px;
     color:  #0056b3;
+}
+
+/* ---------------------------------------------- sticky tour info */
+
+.sticky-tour-info {
+    position: sticky;
+    top: 20px;
+    z-index: 100;
+}
+/* ---------------------------------------------- Thumbnail imgs */
+
+.thumbnail-img {
+    width: 100%; 
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
 }

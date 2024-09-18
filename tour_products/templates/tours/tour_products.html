@@ -47,14 +47,14 @@
                         <p class="card-text">{{ tour.description|truncatechars:100 }}</p>
                         <a href="{% url 'tour-breakdown' tour.id %}" class="text-btn-2 hvr-forward">VIEW TOUR</a>
                         {% if request.user.is_superuser %}
-                        <div class="row mt-4 mb-1">
-                            <div class="col-12 d-flex justify-content-center">
-                                <p class="ml-3">
-                                    <a class="hvr-grow" href="{% url 'edit_tour' tour.id %}">Edit</a>
-                                    <a class="text-danger hvr-grow" href="{% url 'delete_tour' tour.id %}">Delete</a>
-                                </p>
+                            <div class="row mt-4 mb-1">
+                                <div class="col-12 d-flex justify-content-center">
+                                    <p class="ml-3">
+                                        <a class="hvr-grow" href="{% url 'edit_tour' tour.id %}">Edit</a>
+                                        <a class="text-danger hvr-grow" href="{% url 'delete_tour' tour.id %}">Delete</a>
+                                    </p>
+                                </div>
                             </div>
-                        </div>
                         {% endif %}
                     </div>
                 </div>

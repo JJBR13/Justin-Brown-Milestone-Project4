@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Category(models.Model):
 
     class Meta:
@@ -33,3 +34,11 @@ class TourProducts(models.Model):
 
     def __str__(self):
         return f"{self.id}: {self.name}"
+
+class TourImage(models.Model):
+    tour = models.ForeignKey(TourProducts, related_name='images', on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='tour_images/')
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return f"Image for {self.tour.name}"
