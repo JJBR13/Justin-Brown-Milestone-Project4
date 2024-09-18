@@ -26,8 +26,8 @@
         <!-- About us block -->
         <section class="py-5">
             <div class="container">
-                <h2 class="text-center mb-4">About Explore Youth Travel</h2>
-                <p class="lead text-center">We offer unique travel experiences for youth who seek adventure and personal growth. At Explore Youth Travel, our mission is to make travel accessible and memorable for everyone.</p>
+                <h2 class="text-start mb-4">About Explore Youth Travel</h2>
+                <p class="lead text-start">We offer unique travel experiences for youth who seek adventure and personal growth. At Explore Youth Travel, our mission is to make travel accessible and memorable for everyone.</p>
             </div>
         </section>
 
@@ -53,10 +53,18 @@
 
         <!-- Call action  -->
         <section class="py-5">
-            <div class="container text-center">
+            <div class="container text-start">
                 <h2 class="mb-4">Start Your Adventure Today!</h2>
                 <p class="lead mb-4">Explore new destinations, meet new friends, and grow as a traveler. Check out our latest tours and plan your next trip.</p>
-                <a href="{% url 'all-tours' %}" class="btn-primary text-btn">Explore Our Tours</a>
+            </div>
+
+            <div class="text-center p-3">
+                <a href="{% url 'all-tours' %}" class="text-btn mx-3">
+                    <span class="px-3 hvr-icon-back">
+                        <i class="fa-solid fa-hand-point-left hvr-icon"></i>
+                        <strong class="text-uppercase">Explore tours</strong>
+                    </span>
+                </a>
             </div>
         </section>
     </div>

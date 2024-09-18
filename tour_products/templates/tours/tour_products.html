@@ -35,7 +35,7 @@
         <!-- Tour card -->
         <div class="row">
         {% for tour in tourproducts %}
-            <div class="col-sm-12 col-md-4 pb-5">
+            <div class="col-sm-12 col-md-4 d-flex pb-5">
                 <div class="card w-100" style="width: 18rem;">
                     {% if tour.image %}
                         <img src="{{ tour.image.url }}" class="card-img-top" alt="{{ tour.name }}">
