@@ -25,23 +25,36 @@ label {
 
 /* ----------------------------------------------------------- Tour product card */
 
-.card-img-top {
-    width: 100%;
-    height: 250px;
+.carousel-item img {
+    height: 500px;
     object-fit: cover;
+    border-radius: 20px;
 }
 
-.card {
-    height: 100%; 
-    display: flex;
-    flex-direction: column;
+.tour-info-box {
+    background-color: #f8f9fa;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.card-body {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; 
+.btn-inquire {
+    background-color: #ff3b3f;
+    color: white;
+    border-radius: 25px;
+}
+
+.btn-inquire:hover {
+    background-color: #d32f2f;
+}
+
+.tour-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.icon-share {
+    font-size: 1.2rem;
 }
 
 /* ----------------------------------------------------------- Filter Category */

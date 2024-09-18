@@ -13,6 +13,32 @@ def add_to_backpack(request, item_id):
     """ Add tour to backpack """
 
     tour = TourProducts.objects.get(pk=item_id)
+    # quantity = int(request.POST.get('quantity'))  # Commenting out quantity
+    redirect_url = request.POST.get('redirect_url')
+
+    # Get varible if already exists, if not creates one
+    bag = request.session.get('bag', {})
+
+    if item_id in list(bag.keys()):
+        # update quantity if exists
+        # bag[item_id] += quantity  # Commenting out quantity logic
+        messages.success(
+            request, f'Added {tour.name} tour to your travel backpack')
+
+    else:
+        # Add to bag without quantity
+        # bag[item_id] = quantity  # Commenting out quantity logic
+        bag[item_id] = 1  # Default to 1 as there is no quantity logic now
+        messages.success(
+            request, f'Added {tour.name} tour to your travel backpack')
+
+    # Update/create bag on session
+    request.session['bag'] = bag
+    return redirect(redirect_url)
+
+    """ Add tour to backpack """
+
+    tour = TourProducts.objects.get(pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
 
