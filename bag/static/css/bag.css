@@ -3,3 +3,44 @@
 .point-cursor {
     cursor: pointer;
 }
+
+/*---------------------------------------------------------------  bag.html */
+
+.container-fluid .table-sm {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.5rem;
+    color: #005792;
+}
+
+img.rounded {
+    border-radius: 0.75rem;
+}
+
+.qty_input {
+    width: 60px;
+}
+
+.btn {
+    padding: 8px 12px;
+}
+
+.update-link {
+    margin-right: 10px;
+}
+
+.delete-item {
+    margin-left: 10px;
+}
+
+.point-cursor {
+    cursor: pointer;
+}
+
+/* ---------------------------------------------------- Media Queries */
+
+@media (max-width: 768px) {
+    .qty_input {
+        width: 100%; 
+    }
+}
+

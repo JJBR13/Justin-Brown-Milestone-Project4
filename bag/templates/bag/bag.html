@@ -11,112 +11,99 @@
         <!-- Header Block -->
         <div class="row">
             <div class="col-12 text-center pb-3">
-                <h1> Your Travel Backpack </h1>
-            </div> 
+                <h1>Your Travel Backpack</h1>
+            </div>
         </div>
-        
+
         {% if travel_backpack %}
-            <div class="col-12 d-flex justify-content-center align-items-center">
-                <!-- Progress btns -->
+            <div class="col-12 d-flex justify-content-center align-items-center mb-4">
+                <!-- Progress buttons -->
                 <a href="{% url 'all-tours' %}" class="text-btn mx-3">
                     <span class="px-3 hvr-icon-back">
                         <i class="fa-solid fa-hand-point-left hvr-icon"></i>
-                        <strong class="text-uppercase">Explore tours</strong>
+                        <strong class="text-uppercase">Explore Tours</strong>
                     </span>
                 </a>
-            
+
                 <a href="{% url 'checkout' %}" class="text-btn-2 mx-2 hvr-icon-grow">
                     <span class="text-uppercase">Secure Checkout
                         <i class="fa-solid fa-shield hvr-icon"></i>
                     </span>
                 </a>
             </div>
-        {% endif %}
-        
-        {% if travel_backpack  %}
-            {% for item in travel_backpack %}
-            <!-- Tour Content-->
-                <div class="row">
-                    <div class="col-md-3 text-center">
-                        {% if item.tour.image %}
-                        <img class="w-100" src="{{ item.tour.image.url }}" alt="{{ item.tour.name }}">
-                        {% else %}
-                        <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.tour.name }}">
-                        {% endif %}
-                    </div>
 
-                    <div class="col-md-5 d-flex align-items-center">
-                        <table class="table-sm table table-borderless">
-                            <tr>
-                                <th class="pt-4">{{ item.tour.name }}</th>
-                            </tr>
-                            <tr>
-                                <td><strong>Date:</strong> {{ item.tour.date_available }}</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Price:</strong> £{{ item.tour.price }}</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Quantity:</strong> {{ item.quantity }}</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <!-- Increase/ decrease function about of ppl -->
-                    <div class="col-md-3 d-flex align-items-center">
-                        <form class="form update-form" method="POST" action="{% url 'update_backpack' item.item_id %}">
-                            {% csrf_token %}
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <button type="button" class="icon d-flex m-2 minus-qty" data-item_id="{{ item.tour.id }}"
-                                        id="minus-qty_{{ item.tour.id }}">
-                                        <i class="icon fa-solid fa-user-minus ml-auto pt-2"></i>
-                                    </button>
-                                
-                                    <input class="form-control qty_input" type="number" name="quantity" value="{{ item.quantity }}"
-                                        min="1" max="30" data-item_id="{{ item.tour.id }}" id="id_qty_{{ item.tour.id }}">
-                                
-                                    <button type="button" class="icon d-flex m-2 add-qty" data-item_id="{{ item.tour.id }}"
-                                        id="add-qty_{{ item.tour.id }}">
-                                        <i class="icon fa-solid fa-user-plus ms-auto pt-2"></i>
-                                    </button>
-                                </div>
-                            </div>  
-                            <div class="row">
-                                <div class="col-12 text-end">
+            {% for item in travel_backpack %}
+            <!-- Tour Content -->
+            <div class="row align-items-center mb-4">
+                <!-- Tour Image -->
+                <div class="col-12 col-md-3 text-center mb-3 mb-md-0">
+                    {% if item.tour.image %}
+                        <img class="w-100 rounded" src="{{ item.tour.image.url }}" alt="{{ item.tour.name }}">
+                    {% else %}
+                        <img class="w-100 rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.tour.name }}">
+                    {% endif %}
+                </div>
+
+                <!-- Tour Info -->
+                <div class="col-12 col-md-5 d-flex align-items-center mb-3 mb-md-0">
+                    <table class="table-sm table table-borderless">
+                        <tr>
+                            <th class="pt-2">{{ item.tour.name }}</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Date:</strong> {{ item.tour.date_available }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Price:</strong> £{{ item.tour.price }} per tour</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- Quantity Controls -->
+                <div class="col-12 col-md-4 d-flex align-items-center justify-content-center justify-content-md-start">
+                    <form class="form update-form" method="POST" action="{% url 'update_backpack' item.item_id %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <div class="input-group">
+                                <p><strong> Quantity:</strong></p>
+                                <input class="form-control text-center qty_input" type="number" name="quantity" value="{{ item.quantity }}" min="1" max="30" data-item_id="{{ item.tour.id }}" id="id_qty_{{ item.tour.id }}">
+                            </div>
+                        </div>
+                        <div class="row mt-1">
+                            <div class="col-12 d-flex justify-content-between">
+                                <div>
                                     <a class="update-link text-info point-cursor"><small>Update</small></a>
-                                    <a class="delete-item text-danger float-right point-cursor" id="remove_{{ item.item_id }}">
+                                </div>
+                                <div>
+                                    <a class="delete-item text-danger point-cursor style-features" id="remove_{{ item.item_id }}">
                                         <i class="fa-solid fa-trash"></i>
                                     </a>
                                 </div>
                             </div>
-                        </form>
-                    </div>
-                    <div class="row">
-                        <div class="col mx-auto">
-                            <hr>
                         </div>
-                    </div>
+                    </form>
                 </div>
-            {% endfor %}
-        {% else %}
-        <!-- Backpack is empty -->
-            <div class="row">
-                <div class="col-11 mx-3">
+
+                <!-- Separator -->
+                <div class="col-12">
                     <hr>
                 </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="row">
                 <div class="col-12">
                     <p class="p-4"> <strong> Backpack is empty...</strong></p>
                     <a href="{% url 'all-tours' %}" class="text-btn mx-3">
                         <span class="px-3 hvr-icon-back">
                             <i class="fa-solid fa-hand-point-left hvr-icon"></i>
-                            <strong class="text-uppercase">Explore tours</strong>
+                            <strong class="text-uppercase">Explore Tours</strong>
                         </span>
                     </a>
                 </div>
             </div>
         {% endif %}
     </div>
-
 {% endblock %}
 
 {% block postloadjs %}
@@ -127,10 +114,11 @@
    $(document).ready(function() {
     // Update quantity on click
     $('.update-link').click(function(e) {
-        e.preventDefault(); // Prevent default link behavior
-        var form = $(this).closest('.row').find('.update-form'); // Find the form within the same row
-        form.submit(); // Submit the form
-    });
+    e.preventDefault(); 
+    var form = $(this).closest('.update-form'); 
+    form.submit(); 
+});
+
 
     // Increase quantity on click
     $('.add-qty').click(function(e) {
