@@ -62,14 +62,57 @@
                         </a>
                     </div>
             
-                    <!-- Thumbnail Row -->
+                     <!-- Thumbnail Row -->
                     <div class="row mt-3">
                         {% for image in tour_images %}
-                            <div class="col-3">
-                                <img src="{{ image.image.url }}" class="img-fluid thumbnail-img rounded" alt="Thumbnail {{ forloop.counter }}">
-                            </div>
+                            {% if forloop.counter <= 4 %}
+                                <div class="col-3">
+                                    <img src="{{ image.image.url }}" class="img-fluid thumbnail-img rounded" alt="Thumbnail {{ forloop.counter }}">
+                                </div>
+                            {% endif %}
                         {% endfor %}
                     </div>
+
+                    <!-- Carousel for Remaining Images -->
+                    {% if tour_images|length > 4 %}
+                        <div id="thumbnailCarousel" class="carousel slide mt-3" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="row">
+                                        {% for image in tour_images %}
+                                            {% if forloop.counter > 4 and forloop.counter <= 8 %}
+                                                <div class="col-3">
+                                                    <img src="{{ image.image.url }}" class="img-fluid thumbnail-img rounded" alt="Thumbnail {{ forloop.counter }}">
+                                                </div>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                {% if tour_images|length > 8 %}
+                                <div class="carousel-item">
+                                    <div class="row">
+                                        {% for image in tour_images %}
+                                            {% if forloop.counter > 8 %}
+                                                <div class="col-3">
+                                                    <img src="{{ image.image.url }}" class="img-fluid thumbnail-img rounded" alt="Thumbnail {{ forloop.counter }}">
+                                                </div>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                {% endif %}
+                            </div>
+                            <a class="carousel-control-prev" href="#thumbnailCarousel" role="button" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#thumbnailCarousel" role="button" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </a>
+                        </div>
+                    {% endif %}
+
                 </div>
 
                 <!-- Tour Information -->  
@@ -161,5 +204,11 @@
                 alert('Your browser does not support Web Share API. Please copy the link manually: ' + url);
             }
         });
+
+        var carousel = document.querySelector('#imageCarousel');
+            var carouselInstance = new bootstrap.Carousel(carousel, {
+                interval: 2000,
+                ride: 'carousel'
+            });
     </script>
 {% endblock %}
