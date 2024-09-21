@@ -3,7 +3,7 @@
 {% load bag_tools %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'bag/css/bag.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bag.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -107,60 +107,40 @@
 {% endblock %}
 
 {% block postloadjs %}
-{{ block.super }}
-{% include 'tours/includes/breakdown_scripts.html' %} 
+    {{ block.super }}
+        <script type="text/javascript">
+            $(document).ready(function () {
+                // Update quantity on click
+                $('.update-link').click(function (e) {
+                    e.preventDefault();
+                    var form = $(this).closest('.update-form');
+                    form.submit();
+                });
 
-<script type="text/javascript">
-   $(document).ready(function() {
-    // Update quantity on click
-    $('.update-link').click(function(e) {
-    e.preventDefault(); 
-    var form = $(this).closest('.update-form'); 
-    form.submit(); 
-});
+                // Function to handle delete item clicks
+                $('.text-danger').click(function (e) { // Updated selector to match your HTML
+                    e.preventDefault();
 
+                    // Get the item ID from the element ID
+                    var itemId = $(this).attr('id').split('remove_')[1];
 
-    // Increase quantity on click
-    $('.add-qty').click(function(e) {
-        e.preventDefault();
-        var itemId = $(this).data('item_id'); // Get item ID from data attribute
-        var qtyInput = $('#id_qty_' + itemId); // Find the input field corresponding to this item
-        var currentValue = parseInt(qtyInput.val());
-        if (currentValue < 30) { // Assuming max quantity is 30
-            qtyInput.val(currentValue + 1); // Increment the quantity
-        }
-    });
+                    // Create a new form element
+                    var form = $('<form>', {
+                        'method': 'POST',
+                        'action': `/bag/remove/${itemId}/`
+                    });
 
-    // Decrease quantity on click
-    $('.minus-qty').click(function(e) {
-        e.preventDefault();
-        var itemId = $(this).data('item_id'); // Get item ID from data attribute
-        var qtyInput = $('#id_qty_' + itemId); // Find the input field corresponding to this item
-        var currentValue = parseInt(qtyInput.val());
-        if (currentValue > 1) { // Assuming minimum quantity is 1
-            qtyInput.val(currentValue - 1); // Decrement the quantity
-        }
-    });
+                    // Add CSRF token to the form
+                    var csrfToken = $("input[name='csrfmiddlewaretoken']").val();
+                    form.append($('<input>', {
+                        'type': 'hidden',
+                        'name': 'csrfmiddlewaretoken',
+                        'value': csrfToken
+                    }));
 
-    // Remove item and reload on click
-    $('.delete-item').click(function(e) {
-        e.preventDefault(); // Prevent default link behavior
-        var csrfToken = $("input[name='csrfmiddlewaretoken']").val(); // Fetch CSRF token from the form
-        var itemId = $(this).attr('id').split('remove_')[1]; // Extract item ID from the ID attribute
-        var url = `/bag/remove/${itemId}/`; // URL to remove the item
-        var data = {'csrfmiddlewaretoken': csrfToken}; // Data to send with the request
-
-        $.post(url, data)
-         .done(function() {
-             location.reload(); // Reload the page after successful deletion
-         })
-         .fail(function() {
-             alert('Failed to remove item'); // Alert on failure
-         });
-    });
-});
-
-
-</script>
-
+                    // Append the form to the body and submit it
+                    form.appendTo('body').submit();
+                });
+            });
+        </script>
 {% endblock %}

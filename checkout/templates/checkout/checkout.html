@@ -121,23 +121,25 @@
                             </div>
                         </div>
                         {% for item in bag_items %}
-                            <div class="row">
-                                <div class="col-2 mb-1">
+                            <div class="row mb-2">
+                                <!-- Tour Image -->
+                                <div class="col-2">
                                     <a href="{% url 'tour_detail' item.tour.id %}">
                                         {% if item.tour.image %}
-                                            <img class="w-100" src="{{ item.tour.image.url }}" alt="{{ tour.name }}">
+                                            <img class="w-100 rounded" src="{{ item.tour.image.url }}" alt="{{ item.tour.name }}">
                                         {% else %}
-                                            <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ tour.name }}">
+                                            <img class="w-100 rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.tour.name }}">
                                         {% endif %}
                                     </a>
                                 </div>
+                                <!-- Tour Info -->
                                 <div class="col-7">
-                                    <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                                    <p class="my-0 small">Size: {% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
+                                    <p class="my-0"><strong>{{ item.tour.name }}</strong></p>
                                     <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
                                 </div>
+                                <!-- Subtotal -->
                                 <div class="col-3 text-right">
-                                    <p class="my-0 small text-muted">£{{ item.product.price | calc_subtotal:item.quantity }}</p>
+                                    <p class="my-0 small text-muted">£{{ item.tour.price | calc_subtotal:item.quantity }}</p>
                                 </div>
                             </div>
                         {% endfor %}
@@ -155,6 +157,7 @@
                     </div>
                 </div>
             </div>
+            
         </div>
     </div>
 

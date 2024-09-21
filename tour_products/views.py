@@ -66,6 +66,8 @@ def add_tour(request):
         form = TourForm(request.POST, request.FILES)
         if form.is_valid():
             new_tour = form.save()
+            messages.success(request, 'Successfully added new TOUR!')
+
 
             images = request.FILES.getlist('images')
 
