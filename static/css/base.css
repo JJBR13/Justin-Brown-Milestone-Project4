@@ -130,7 +130,7 @@ body {
 }
 
 .megamenu .dropdown-menu {
-    background: rgba(255, 230, 235, 0.7);
+    background: rgba(255, 230, 235, 1);
     border: none;
     width: 100%;
     margin-top: 0;

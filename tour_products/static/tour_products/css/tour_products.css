@@ -140,6 +140,13 @@ label {
     color:  #0056b3;
 }
 
+.selected-category {
+    background-color: #FFE6EB;
+    transform: scale(0.95);
+    border: 1px solid #f7b2bd;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
 /* ------------------------------------- Card height  */
 
 .card-img-top {

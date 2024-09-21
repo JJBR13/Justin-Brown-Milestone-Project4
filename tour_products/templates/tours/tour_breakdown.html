@@ -7,187 +7,186 @@
 
 {% block header %}
     <div class="container header-container">
-        <div class="class row">
-            <div class="class col"></div>
+        <div class="row">
+            <div class="col"></div>
         </div>
     </div>
 {% endblock %}
 
 {% block content %}
-    <section class="class bg-light">
-        <div class="container ml-5 mr-5">
-            <div class="row">
-                <!-- Breadcrumbs -->
-                <nav aria-label="breadcrumb text-start">
-                    <ol class="breadcrumb pt-5">
-                      <li class="breadcrumb-item hvr-shrink">
+<section class="bg-light">
+    <div class="container ml-5 mr-5">
+        <div class="row">
+            <!-- Breadcrumbs -->
+            <nav aria-label="breadcrumb text-start">
+                <ol class="breadcrumb pt-5">
+                    <li class="breadcrumb-item hvr-shrink">
                         <a href="{% url 'home' %}">Home</a>
-                      </li>
-                      <li class="breadcrumb-item hvr-shrink">
+                    </li>
+                    <li class="breadcrumb-item hvr-shrink">
                         <a href="{% url 'all-tours' %}">All Tours</a>
-                      </li>
-                      <li class="breadcrumb-item active" aria-current="page">{{ tour.name }}</li>
-                    </ol>
-                </nav>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ tour.name }}</li>
+                </ol>
+            </nav>
 
-                <!-- Tour Title -->
-                <div class="col-8">
-                    <h1 class="tour-title p-1">{{ tour.name }}</h1>
-                </div>
-                <div class="col-4 text-end p-5">
-                    <a href="#" class="icon-share text-black hvr-shrink" id="shareButton">
-                        <i class="fa-solid fa-share"></i> Share
-                    </a>
-                </div>
+            <!-- Tour Title -->
+            <div class="col-8">
+                <h1 class="tour-title p-1">{{ tour.name }}</h1>
             </div>
-
-            <div class="row mt-2">
-                <!-- Image Carousel -->
-                <div class="col-lg-8">
-                    <div id="tourCarousel" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            {% for image in tour_images %}
-                                <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                                    <img src="{{ image.image.url }}" class="d-block w-100" alt="Tour Image {{ forloop.counter }}">
-                                </div>
-                            {% endfor %}
-                        </div>
-                        <a class="carousel-control-prev" href="#tourCarousel" role="button" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#tourCarousel" role="button" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </a>
-                    </div>
-            
-                     <!-- Thumbnail Row -->
-                    <div class="row mt-3">
-                        {% for image in tour_images %}
-                            {% if forloop.counter <= 4 %}
-                                <div class="col-3">
-                                    <img src="{{ image.image.url }}" class="img-fluid thumbnail-img rounded" alt="Thumbnail {{ forloop.counter }}">
-                                </div>
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-
-                    <!-- Carousel for Remaining Images -->
-                    {% if tour_images|length > 4 %}
-                        <div id="thumbnailCarousel" class="carousel slide mt-3" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <div class="row">
-                                        {% for image in tour_images %}
-                                            {% if forloop.counter > 4 and forloop.counter <= 8 %}
-                                                <div class="col-3">
-                                                    <img src="{{ image.image.url }}" class="img-fluid thumbnail-img rounded" alt="Thumbnail {{ forloop.counter }}">
-                                                </div>
-                                            {% endif %}
-                                        {% endfor %}
-                                    </div>
-                                </div>
-                                {% if tour_images|length > 8 %}
-                                <div class="carousel-item">
-                                    <div class="row">
-                                        {% for image in tour_images %}
-                                            {% if forloop.counter > 8 %}
-                                                <div class="col-3">
-                                                    <img src="{{ image.image.url }}" class="img-fluid thumbnail-img rounded" alt="Thumbnail {{ forloop.counter }}">
-                                                </div>
-                                            {% endif %}
-                                        {% endfor %}
-                                    </div>
-                                </div>
-                                {% endif %}
-                            </div>
-                            <a class="carousel-control-prev" href="#thumbnailCarousel" role="button" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#thumbnailCarousel" role="button" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </a>
-                        </div>
-                    {% endif %}
-
-                </div>
-
-                <!-- Tour Information -->  
-                <div class="col-lg-4">
-                    <div class="sticky-tour-info">
-                        <form class="form pb-5" action="{% url 'add-to-backpack' tour.id %}" method="POST">
-                            {% csrf_token %}
-                            
-                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                    
-                            <div class="tour-info-box">
-                                <h3 class="fs-5 mb-1"><strong>{{ tour.duration }} Days Tour</strong></h3>
-                                <p class="p-2"><strong>{{ tour.location_start }} > {{ tour.location_end }} </strong></p>
-                                <h4 class="mb-3">From <strong>GBP £{{ tour.price }}</strong></h4>
-                    
-                                <!-- Submit button -->
-                                <input type="submit" class="text-btn-2 btn-lg w-100 mb-3 hvr-shrink m-2" value="Add to Backpack">
-                    
-                                <p class="text-muted text-center">Limited slots available.</p>
-                            </div>
-                        </form>
-                    </div>
-                </div>    
-                
-                <!-- Whats Included-->
-                <div class="col-lg-8 mt-5 mb-5">
-                    <div class="tour-description-box p-4">
-                        <h2 class="pb-3"> {{ tour.duration }} Days | {{ tour.name }} </h2>
-
-                        <div class="col-lg-12 d-flex mb-3 align-items-center">
-                            <div class="me-3">
-                                <i class="fa-solid fa-sun fa-2x icon-color"></i>
-                            </div>
-                            <div>
-                                <h5 class="mb-0">Days</h5>
-                                <p class="mb-0 sub-heading">{{ tour.duration }}</p>
-                            </div>
-                        </div>
-                
-                        <!-- Group Size -->
-                        <div class="col-lg-12 d-flex mb-3 align-items-center">
-                            <div class="me-3">
-                                <i class="fa-solid fa-users fa-2x icon-color"></i>
-                            </div>
-                            <div>
-                                <h5 class="mb-0">Group Size</h5>
-                                <p class="mb-0 sub-heading">Maximum 20 people</p>
-                            </div>
-                        </div>
-                        <div>
-                            <p>{{ tour.description }}</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!--- Edit/ Delete btn -->
-                {% if request.user.is_superuser %}
-                        <div class="row mt-4 mb-4">
-                            <div class="col-12 d-flex justify-content-center">
-                                <p class="ml-3">
-                                    <a class="hvr-grow" href="{% url 'edit_tour' tour.id %}">Edit</a>
-                                    <a class="text-danger hvr-grow" href="{% url 'delete_tour' tour.id %}">Delete</a>
-                                </p>
-                            </div>
-                        </div>
-                {% endif %}
-
+            <div class="col-4 text-end p-5">
+                <a href="#" class="icon-share text-black hvr-shrink" id="shareButton">
+                    <i class="fa-solid fa-share"></i> Share
+                </a>
             </div>
         </div>
-    </section>  
+
+        <div class="row mt-2">
+            <!-- Image Carousel -->
+            <div class="col-lg-8">
+                <div id="tourCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        {% for image in tour_images %}
+                            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                                <img src="{{ image.image.url }}" class="d-block w-100" alt="Tour Image {{ forloop.counter }}">
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#tourCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#tourCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+        
+                <!-- Thumbnail Row -->
+                <div class="row mt-3">
+                    {% for image in tour_images %}
+                        {% if forloop.counter|add:0 <= 4 %}
+                            <div class="col-3">
+                                <img src="{{ image.image.url }}" class="img-fluid thumbnail-img rounded" alt="Thumbnail {{ forloop.counter }}">
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+                <!-- Carousel for Remaining Images -->
+                {% if tour_images|length > 4 %}
+                    <div id="thumbnailCarousel" class="carousel slide mt-3" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="row">
+                                    {% for image in tour_images %}
+                                        {% if forloop.counter > 4 and forloop.counter >= 8 %}
+                                            <div class="col-3">
+                                                <img src="{{ image.image.url }}" class="img-fluid thumbnail-img rounded" alt="Thumbnail {{ forloop.counter }}">
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            {% if tour_images|length > 4 %}
+                            <div class="carousel-item">
+                                <div class="row">
+                                    {% for image in tour_images %}
+                                        {% if forloop.counter > 8 %}
+                                            <div class="col-3">
+                                                <img src="{{ image.image.url }}" class="img-fluid thumbnail-img rounded" alt="Thumbnail {{ forloop.counter }}">
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#thumbnailCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#thumbnailCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- Tour Information -->  
+            <div class="col-lg-4">
+                <div class="sticky-tour-info">
+                    <form class="form pb-5" action="{% url 'add-to-backpack' tour.id %}" method="POST">
+                        {% csrf_token %}
+                        
+                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                
+                        <div class="tour-info-box">
+                            <h3 class="fs-5 mb-1"><strong>{{ tour.duration }} Days Tour</strong></h3>
+                            <p class="p-2"><strong>{{ tour.location_start }} > {{ tour.location_end }} </strong></p>
+                            <h4 class="mb-3">From <strong>GBP £{{ tour.price }}</strong></h4>
+                
+                            <!-- Submit button -->
+                            <input type="submit" class="text-btn-2 btn-lg w-100 mb-3 hvr-shrink m-2" value="Add to Backpack">
+                
+                            <p class="text-muted text-center">Limited slots available.</p>
+                        </div>
+                    </form>
+                </div>
+            </div>    
+            
+            <!-- Whats Included-->
+            <div class="col-lg-8 mt-5 mb-5">
+                <div class="tour-description-box p-4">
+                    <h2 class="pb-3"> {{ tour.duration }} Days | {{ tour.name }} </h2>
+
+                    <div class="col-lg-12 d-flex mb-3 align-items-center">
+                        <div class="me-3">
+                            <i class="fa-solid fa-sun fa-2x icon-color"></i>
+                        </div>
+                        <div>
+                            <h5 class="mb-0">Days</h5>
+                            <p class="mb-0 sub-heading">{{ tour.duration }}</p>
+                        </div>
+                    </div>
+            
+                    <!-- Group Size -->
+                    <div class="col-lg-12 d-flex mb-3 align-items-center">
+                        <div class="me-3">
+                            <i class="fa-solid fa-users fa-2x icon-color"></i>
+                        </div>
+                        <div>
+                            <h5 class="mb-0">Group Size</h5>
+                            <p class="mb-0 sub-heading">Maximum 20 people</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p>{{ tour.description }}</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!--- Edit/ Delete btn -->
+            {% if request.user.is_superuser %}
+                    <div class="row mt-4 mb-4">
+                        <div class="col-12 d-flex justify-content-center">
+                            <p class="ml-3">
+                                <a class="hvr-grow" href="{% url 'edit_tour' tour.id %}">Edit</a>
+                                <a class="text-danger hvr-grow" href="{% url 'delete_tour' tour.id %}">Delete</a>
+                            </p>
+                        </div>
+                    </div>
+            {% endif %}
+        </div>
+    </div>
+</section>  
 {% endblock %}
 
 {% block postloadjs %}
-{{ block.super }}
+    {{ block.super }}
     <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('shareButton').addEventListener('click', function(event) {
             event.preventDefault();
             const url = window.location.href;
@@ -205,10 +204,21 @@
             }
         });
 
-        var carousel = document.querySelector('#imageCarousel');
-            var carouselInstance = new bootstrap.Carousel(carousel, {
-                interval: 2000,
-                ride: 'carousel'
+        // Auto scroll through the image carousel
+        var imageCarousel = document.querySelector('#tourCarousel');
+        if (imageCarousel) {
+            var carouselInstance = new bootstrap.Carousel(imageCarousel, {
+                interval: 3500 
             });
+        }
+
+        // Auto scroll through the thumbnail carousel
+        var thumbnailCarousel = document.querySelector('#thumbnailCarousel');
+        if (thumbnailCarousel) {
+            var thumbnailCarouselInstance = new bootstrap.Carousel(thumbnailCarousel, {
+                interval: 3000
+            });
+        }
+    });
     </script>
 {% endblock %}

@@ -16,12 +16,21 @@
             </div>
         </div>
 
-        <!-- Category filters -->
+        <!-- Filters Btns-->
         <div class="row justify-content-start">
+            <!-- All Tours Button -->
+            <div class="col-sm-6 col-md-2 text-start mb-5">
+                <a href="{% url 'all-tours' %}" class="btn category-btn {% if not request.GET.category %}selected-category{% endif %}">
+                    <i class="fa-solid fa-globe icon-static"></i>
+                    All Tours
+                </a>
+            </div>
+
+            <!-- Category btn -->
             {% for category in categories %}
                 {% if category %}
                     <div class="col-sm-6 col-md-2 text-start mb-5">
-                        <a href="?category={{ category }}" class="btn category-btn">
+                        <a href="?category={{ category }}" class="btn category-btn {% if request.GET.category == category %}selected-category{% endif %}">
                             <i class="fa-solid fa-location-dot icon-static"></i>
                             {{ category }}
                         </a>
