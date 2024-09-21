@@ -85,14 +85,17 @@ def checkout(request):
         if not bag: 
             messages.error(request, "Your Backpack has nothing in")
             return redirect(reverse('tour_products'))
+
         current_backpack = travelbag_contents(request)
         total = current_backpack['grand_total']
+
         stripe_total = round(total * 100)
         stripe.api_key = stripe_secret_key
         intent = stripe.PaymentIntent.create(
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
+
         #if user has a profile already: prefills
         if request.user.is_authenticated:
             try:
@@ -123,6 +126,7 @@ def checkout(request):
         'order_form': order_form,
         'stripe_public_key': stripe_public_key,
         'client_secret': intent.client_secret,
+        'travel_backpack': travelbag_contents,
     }
 
     return render(request, template, context)
