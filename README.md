@@ -49,6 +49,12 @@ The purpose of this website is to provide a fully functional e-commerce platform
 
 ### User Stories 
 
+![User Stories Customer](documents/images/user_profiles/customer_user_stories.png)
+
+![User Stories Admin](documents/images/user_profiles/admin_user_stories.png)
+
+- If the above screenshots are not clear, please follow this [link](https://docs.google.com/spreadsheets/d/1xx5Dkv36HNJfljd7qT-q4SbN8Jt4fcDM39XUS-Ybc3o/edit?usp=drive_link) to google sheet and click tab 'User Stories'. 
+
 ## Design 
  
 ### Wireframes
@@ -67,7 +73,7 @@ The purpose of this website is to provide a fully functional e-commerce platform
 #### All Tours
 #### About 
 #### Contact Us
-#### Profile & Profile Managemnet 
+#### Profile & Profile Management 
 #### Profile: Admin users 
 #### Bag 
 #### Checkout 
@@ -89,17 +95,6 @@ The purpose of this website is to provide a fully functional e-commerce platform
 ## Testing
 
 - Please see [TEST.md](TEST.md) for a breakdown of website testing and debugging.
-
-### Stripe
-
-### Dummy Card Information
-
-The following test card details were used for testing Stripe:
-
-Card Number: 4242 4242 4242 4242
-Date: 0424
-CVC: 242
-Postcode: 42424
 
 ## Deployment 
 
