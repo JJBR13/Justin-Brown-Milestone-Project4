@@ -86,7 +86,9 @@ The purpose of this website is to provide a fully functional e-commerce platform
 - [JavaScript](https://www.w3schools.com/whatis/whatis_js.asp)
 - [Python](https://www.python.org/doc/)
 
-## Testing 
+## Testing
+
+- Please see [TEST.md](TEST.md) for a breakdown of website testing and debugging.
 
 ### Stripe
 
@@ -103,7 +105,7 @@ Postcode: 42424
 
 ### Project Creation 
 
-## Cloning Repo 
+#### Cloning Repo 
 
  1. Locating repository, clicking on the "New" button.
  2. Click the Code button, select clone with HTTPS, SSH or the GitHub CLI and copy the link.
@@ -111,7 +113,7 @@ Postcode: 42424
  4. In the terminal, type 'git clone' followed by the copied URL.
  5. Install the packages from the requirements.txt file by running pip3 install -r requirements.txt in the terminal.
 
-## Django: 
+#### Django: 
 
  1. In the terminal enter, pip3 install 'django<4'.
  2. Then enter, django-admin startproject your project name
@@ -129,7 +131,7 @@ Postcode: 42424
 2. git commit -m "Message explaining upadate" - This command explained changes that were done to the repository. 
 3. git push - This command was used to push all committed changes to the GitHub Repository. 
 
-## ElaphantSQL
+#### ElaphantSQL
  1. Navigate to ElephantSQL.com and select create a new instance.
  2. Select - free database plan.
  3. Set up your plan 
@@ -140,9 +142,9 @@ Postcode: 42424
  8. Click on the database instance name for this project
  9. In the URL section, copy the database URL to your clipboard
 
-## Heroku
+#### Heroku
 
-## Stripe
+#### Stripe
  1. Navigate to Stripe website 
  2. Register for a Stripe account.
  3. Go to 'API Keys' to view public and secret key.
@@ -177,8 +179,17 @@ Postcode: 42424
 - [Loading Animation](https://css-loaders.com/classic/): 
     - Loading animation while payment is pending.
 
+- [Images for tours](https://pixabay.com/): 
+    - Image content for tours.
+
+- [One Life Adventures](https://onelifeadventures.com/): 
+    - Tour names & description.
+
 - [Profile tab structure](https://codepen.io/rockteam/pen/WrpXBN ): 
     - Used on profile page to create tab for perosnal details & Order history. 
+
+- [Trutravels](https://www.trutravels.com/): 
+    - Tour names & description.
 
 - [Unicorn Revealer](https://chromewebstore.google.com/detail/unicorn-revealer/lmlkphhdlngaicolpmaakfmhplagoaln?hl=en-US&utm_source=ext_sidebar): 
     - Used to aid with diagnosis & applying css.

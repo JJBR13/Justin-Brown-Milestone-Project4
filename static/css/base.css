@@ -23,6 +23,10 @@ body {
     background-color: none;
 }
 
+body, html {
+    overflow-x: hidden;
+}
+
 .bg-pink {
     background-color: #FFE6EB;
 }
