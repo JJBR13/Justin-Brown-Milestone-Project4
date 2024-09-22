@@ -109,7 +109,7 @@
 {% block postloadjs %}
     {{ block.super }}
         <script type="text/javascript">
-            $(document).ready(function () {
+           $(document).ready(function () {
                 // Update quantity on click
                 $('.update-link').click(function (e) {
                     e.preventDefault();
@@ -118,29 +118,34 @@
                 });
 
                 // Function to handle delete item clicks
-                $('.text-danger').click(function (e) { // Updated selector to match your HTML
-                    e.preventDefault();
+                $('.delete-item').click(function (e) {
+        e.preventDefault();
 
-                    // Get the item ID from the element ID
-                    var itemId = $(this).attr('id').split('remove_')[1];
+        // Get the item ID from the element ID
+        var itemId = $(this).attr('id').split('remove_')[1];
 
-                    // Create a new form element
-                    var form = $('<form>', {
-                        'method': 'POST',
-                        'action': `/bag/remove/${itemId}/`
-                    });
+        if (!itemId) {
+            console.error('Item ID not found.');
+            return;
+        }
 
-                    // Add CSRF token to the form
-                    var csrfToken = $("input[name='csrfmiddlewaretoken']").val();
-                    form.append($('<input>', {
-                        'type': 'hidden',
-                        'name': 'csrfmiddlewaretoken',
-                        'value': csrfToken
-                    }));
+        // Create a new form element
+        var form = $('<form>', {
+            'method': 'POST',
+            'action': `/bag/remove/${itemId}/`
+        });
 
-                    // Append the form to the body and submit it
-                    form.appendTo('body').submit();
-                });
+        // Add CSRF token to the form
+        var csrfToken = $("input[name='csrfmiddlewaretoken']").val();
+        form.append($('<input>', {
+            'type': 'hidden',
+            'name': 'csrfmiddlewaretoken',
+            'value': csrfToken
+        }));
+
+        // Append the form to the body and submit it
+        form.appendTo('body').submit();
+    });
             });
         </script>
 {% endblock %}

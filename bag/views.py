@@ -35,6 +35,7 @@ def add_to_backpack(request, item_id):
         messages.error(request, f"An error occurred: {e}")
         return redirect('view_bag')
 
+
 def update_backpack(request, item_id):
     """ Modify the quantity of the tour in the backpack. """
     try:
@@ -66,7 +67,7 @@ def update_backpack(request, item_id):
         messages.error(request, f"An error occurred: {e}")
         return redirect('view_bag')
 
-def remove_from_backpack(request, item_id):
+
     """Remove the tour product from the backpack."""
     try:
         bag = request.session.get('bag', {})
@@ -90,3 +91,28 @@ def remove_from_backpack(request, item_id):
     except Exception as e:
         messages.error(request, f'An error occurred: {str(e)}')
         return redirect('view_bag')
+
+
+def remove_from_backpack(request, item_id):
+    """Remove the tour product from the backpack."""
+    try:
+        bag = request.session.get('bag', {})
+
+        if str(item_id) in bag:
+            # Remove the item from the bag
+            tour = TourProducts.objects.get(pk=item_id)
+            bag.pop(str(item_id))
+            messages.success(request, f'Tour {tour.name} successfully removed from your travel backpack!')
+            request.session['bag'] = bag
+        else:
+            if 'bag' in request.session:
+                messages.error(request, 'Tour not found in the backpack.')
+
+        return redirect(reverse('view_bag'))
+
+    except TourProducts.DoesNotExist:
+        messages.error(request, "Tour not found.")
+        return redirect(reverse('view_bag'))
+    except Exception as e:
+        messages.error(request, f'An error occurred: {str(e)}')
+        return redirect(reverse('view_bag'))
