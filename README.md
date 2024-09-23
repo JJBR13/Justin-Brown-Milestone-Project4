@@ -57,7 +57,7 @@ The purpose of this website is to provide a fully functional e-commerce platform
 
 ## Design 
 
-![Site Design](documents/images/design/design.pngdesign.png)
+![Site Design](documents/images/design/design.png)
  
 ### Wireframes
 
@@ -71,28 +71,58 @@ The purpose of this website is to provide a fully functional e-commerce platform
 
 - Header font: Fredoka.
 
-![Header Font](documents/images/design/header_font.pngheader_font.png)
+![Header Font](documents/images/design/header_font.png)
 
 - Body font: Architects Daughter.
 
-![Body Font](documents/images/design/body_font.pngbody_font.png)
+![Body Font](documents/images/design/body_font.png)
 
 
 ## Current Features
 
-![Favicon](documents/images/current_features/favicon.png)
-
 ### Pages
 #### Favicon
 
+![Favicon](documents/images/current_features/favicon.png)
+
+-  A site-wide favicon of the site logo was created, this allows the user to easily identify the site when multiple are open. Helping to achieve user stories:
+
+> i. I want to be able to easily navigated the site.
 
 #### Home
+
+![Homepage](documents/images/current_features/home.png)
+
+
 #### All Tours
-#### About 
-#### Contact Us
-#### Profile & Profile Management 
+
+![Homepage](documents/images/current_features/all_tours.png)
+
+#### Tour Breakdown
+
+#### All Tours
+
+![Homepage](documents/images/current_features/tour_breakdown.png)
+
+#### About
+
+![About](documents/images/current_features/about.png)
+
+#### Login, Logout & Signup
+
+| Login | Logout | Signup |
+|----------|----------|----------|
+| ![login](documents/images/current_features/login.png) | ![logout](documents/images/current_features/signout.png) | ![login](documents/images/current_features/signup.png) |
+
+#### Profile & Profile Management
+
 #### Profile: Admin users 
-#### Bag 
+
+| Add | Edit |
+|----------|----------|
+| | ![login](documents/images/current_features/add.png) | | ![login](documents/images/current_features/edit.png) | 
+
+#### Backpack
 #### Checkout 
 #### Secure checkout 
 #### Responsive messages
@@ -100,7 +130,30 @@ The purpose of this website is to provide a fully functional e-commerce platform
 
 ### Responsive On All Devices
 
-## Future releases
+## Future Releases
+
+### Live Chat 
+
+- WhatsApp APi 
+
+### Display Images For Admin 
+
+- In Add and Edit modes 
+
+### Checkout Form
+
+- Add min number digits to phone number or say error 
+- Email needs to have @ in or cant progress 
+- timeout to session
+
+### Tour Updates
+
+- select tour via date
+- add increase and decrease btn in breakdown before adding to bag
+
+### Admin User 
+
+- edit and add views enable view of imgs or exiting imgs 
 
 ## Languages Used
 
