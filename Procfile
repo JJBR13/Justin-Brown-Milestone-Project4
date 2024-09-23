@@ -1,0 +1,1 @@
+web: gunicorn point_to_point.wsgi:application

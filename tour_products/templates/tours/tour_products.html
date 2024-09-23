@@ -43,34 +43,40 @@
 
         <!-- Tour card -->
         <div class="row">
-        {% for tour in tourproducts %}
-            <div class="col-sm-12 col-md-4 d-flex pb-5">
-                <div class="card w-100" style="width: 18rem;">
-                    {% if tour.image %}
-                        <img src="{{ tour.image.url }}" class="card-img-top" alt="{{ tour.name }}">
-                    {% else %}
-                        <img src="{{ MEDIA_URL }}noimage.png" class="card-img-top" alt="{{ tour.name }}">
-                    {% endif %}
-                    <div class="card-body">
-                        <h5 class="card-title">{{ tour.name }}</h5>
-                        <p class="card-text">{{ tour.description|truncatechars:100 }}</p>
-                        <a href="{% url 'tour-breakdown' tour.id %}" class="text-btn-2 hvr-forward">VIEW TOUR</a>
-                        {% if request.user.is_superuser %}
-                            <div class="row mt-4 mb-1">
-                                <div class="col-12 d-flex justify-content-center">
-                                    <p class="ml-3">
-                                        <a class="hvr-grow" href="{% url 'edit_tour' tour.id %}">Edit</a>
-                                        <a class="text-danger hvr-grow" href="{% url 'delete_tour' tour.id %}">Delete</a>
-                                    </p>
-                                </div>
+            <!-- {% if tourproducts %} -->
+                {% for tour in tourproducts %}
+                    <div class="col-sm-12 col-md-4 d-flex pb-5">
+                        <div class="card w-100" style="width: 18rem;">
+                            {% if tour.image %}
+                                <img src="{{ tour.image.url }}" class="card-img-top" alt="{{ tour.name }}">
+                            {% else %}
+                                <img src="{{ MEDIA_URL }}noimage.png" class="card-img-top" alt="{{ tour.name }}">
+                            {% endif %}
+                            <div class="card-body">
+                                <h5 class="card-title">{{ tour.name }}</h5>
+                                <p class="card-text">{{ tour.description|truncatechars:100 }}</p>
+                                <a href="{% url 'tour-breakdown' tour.id %}" class="text-btn-2 hvr-forward">VIEW TOUR</a>
+                                {% if request.user.is_superuser %}
+                                    <div class="row mt-4 mb-1">
+                                        <div class="col-12 d-flex justify-content-center">
+                                            <p class="ml-3">
+                                                <a class="hvr-grow" href="{% url 'edit_tour' tour.id %}">Edit</a>
+                                                <a class="text-danger hvr-grow" href="{% url 'delete_tour' tour.id %}">Delete</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                {% endif %}
                             </div>
-                        {% endif %}
+                        </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="d-md-none p-3"></div>
-        {% endfor %}
+                    <div class="d-md-none p-3"></div>
+                {% endfor %}
+            <!-- {% else %} -->
+                <!-- <div class="col-12 text-center mt-5">
+                    <h3>No tours available at the moment.</h3>
+                </div> -->
+            <!-- {% endif %} -->
         </div>
     </div>
 {% endblock %}

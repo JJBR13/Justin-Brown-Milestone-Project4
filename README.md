@@ -86,7 +86,7 @@ The purpose of this website is to provide a fully functional e-commerce platform
 
 ### Navbar
 
-| Navebar | Navbar dropdown example |
+| Navbar | Navbar dropdown example |
 |----------|----------|
 | ![Nabar](documents/images/current_features/nav1.png) | ![logout](documents/images/current_features/nav2.png) |
 
@@ -199,7 +199,7 @@ The purpose of this website is to provide a fully functional e-commerce platform
 
 ### Live Chat 
 
-- In future development of the app, adding a live chat feature would be beneficial for users to receive real-time support. This could be implemented using the [WhatsApp APi](https://pypi.org/project/django-whatsapp-business-api-is/#files)
+- In future development of the app, adding a live chat feature would be beneficial for users to receive real-time support. This could be implemented using the [WhatsApp API](https://pypi.org/project/django-whatsapp-business-api-is/#files)
 
 ### Display Images For Admin 
 
