@@ -69,64 +69,128 @@ The purpose of this website is to provide a fully functional e-commerce platform
 
 [Sourced via google fonts](https://fonts.google.com/)
 
-- Header font: Fredoka.
-
-![Header Font](documents/images/design/header_font.png)
-
-- Body font: Architects Daughter.
-
-![Body Font](documents/images/design/body_font.png)
-
+| Header font: Fredoka | Body font: Architects Daughter |
+|----------|----------|
+| ![Header Font](documents/images/design/header_font.png) | ![Body Font](documents/images/design/body_font.png) |
 
 ## Current Features
 
 ### Pages
-#### Favicon
+#### Favicon:
 
 ![Favicon](documents/images/current_features/favicon.png)
 
 -  A site-wide favicon of the site logo was created, this allows the user to easily identify the site when multiple are open. Helping to achieve user stories:
 
-> i. I want to be able to easily navigated the site.
+> i. I want to be able to, easily navigated the site.
 
-#### Home
+### Navbar
+
+| Navebar | Navbar dropdown example |
+|----------|----------|
+| ![Nabar](documents/images/current_features/nav1.png) | ![logout](documents/images/current_features/nav2.png) |
+
+- A site-wide navbar is consistently displayed on all pages, featuring a dropdown menu for additional options when the user is logged in. On mobile devices, it collapses into a burger menu, ensuring easy navigation across various devices and meeting user requirements, meeting user stories: 
+
+> i. I want to be able to, easily navigated the site.
+> ii. I want to be able to, login/ logout of my account.
+
+#### Home:
 
 ![Homepage](documents/images/current_features/home.png)
 
+- Upon landing on the site, this is the first page the user sees. Although access is limited, relevant call-to-action buttons are available to help users explore and discover what is on offer.
 
-#### All Tours
+> i. I want to be able to, easily navigated the site.
+
+#### All Tours:
 
 ![Homepage](documents/images/current_features/all_tours.png)
 
-#### Tour Breakdown
+- This page enables users to view all the tours available at Point to Point and filter their search by categories.
 
-#### All Tours
+> i. I want to be able to, view ALL tours on offer. 
+> ii. I want to be able to, filter tours by category. 
+
+#### Tour Breakdown:
 
 ![Homepage](documents/images/current_features/tour_breakdown.png)
 
-#### About
+- The tour breakdown provides detailed information and images of the selected tour. Users can add the tour to their backpack before continuing to browse or proceeding to checkout.
+
+> i. I want to be able to, browse tour in detail
+
+#### About:
 
 ![About](documents/images/current_features/about.png)
 
-#### Login, Logout & Signup
+- Also the user to see what the company is about and understand their values. 
+
+#### Login, Logout & Signup:
 
 | Login | Logout | Signup |
 |----------|----------|----------|
 | ![login](documents/images/current_features/login.png) | ![logout](documents/images/current_features/signout.png) | ![login](documents/images/current_features/signup.png) |
 
-#### Profile & Profile Management
+- Displays a simple form input, getting the user to fill simple information, and this then gets checked ir uploaded against the database.
+
+> i. I want to be able to, login/ logout of my account 
+> ii. I want to be able to, create an account
+> iii. I want to be able to, view my profile.
+
+#### Profile & Profile Management:
+
+![Profile](documents/images/current_features/profile.png)
+
+- The profile page allows users to update personal information and view their past orders.
+
+> i. I want to be able to, view my profile.
 
 #### Profile: Admin users 
 
-| Add | Edit |
-|----------|----------|
-| | ![login](documents/images/current_features/add.png) | | ![login](documents/images/current_features/edit.png) | 
+| Add | Edit | Delete |
+|----------|----------| ----------|
+| ![Admin Add Tour](documents/images/current_features/add.png) | | ![Admin Edit Tour](documents/images/current_features/edit.png) | ![Admin Delete Tour](documents/images/current_features/delete.png) |
 
-#### Backpack
-#### Checkout 
-#### Secure checkout 
-#### Responsive messages
-#### Error Page 
+- The above functions are available only to admin users, enabling them to efficiently manage tours through add, edit, and delete options.
+
+> i. I want to be able to, create new tour.
+> ii. I want to be able to, edit exsisting tour.
+> iii. I want to be able to, delete/ remove tour.
+
+#### Backpack:
+
+![Backpack](documents/images/current_features/backpack.png)
+
+- Here, users can view the tours they wish to purchase. They can adjust the quantity, update, or remove tours they no longer want before proceeding to checkout.
+
+> i. I want to be able to, view items in backpack.
+> ii. I want to be able to, edit quantity of tours.
+> iii. I want to be able to, delete/remove tours from backpack.
+
+#### Checkout:
+
+![Checkout Steps](documents/images/current_features/step_checkout.png)
+
+- This is a step-by-step form process with a progress bar above, indicating the user's current stage. Once completed correctly, the user is guided to the checkout.
+
+#### Secure checkout:
+
+![Secure Payment](documents/images/current_features/card_payment.png)
+
+- This page works with Strip API, to provide a secure checkout payment form.
+
+#### Responsive messages:
+
+![Secure Payment](documents/images/current_features/messgae.png)
+
+- The messages are sitewide, and pop up to provide feeback to the user. 
+
+> i. I want to be able to, have popup allowing for easy follow.
+
+#### Error Page:
+
+> i. I want to be able to, easily navigate when error occurs (404).
 
 ### Responsive On All Devices
 
@@ -134,26 +198,22 @@ The purpose of this website is to provide a fully functional e-commerce platform
 
 ### Live Chat 
 
-- WhatsApp APi 
+- In future development of the app, adding a live chat feature would be beneficial for users to receive real-time support. This could be implemented using the [WhatsApp APi](https://pypi.org/project/django-whatsapp-business-api-is/#files)
 
 ### Display Images For Admin 
 
-- In Add and Edit modes 
+- When an Admin is adding or editing existing tours, having the ability to view the uploaded images or existing images, rather than just their filenames, would provide a more cohesive and efficient administrative experience.
 
 ### Checkout Form
 
-- Add min number digits to phone number or say error 
-- Email needs to have @ in or cant progress 
-- timeout to session
+- The checkout form is a multi-step form and functions well. However, to enhance usability and security, incorporating the following features would be beneficial: 
+    - Enforce a minimum number of digits for the phone number input.
+    - Require the email input to include an '@' symbol.
+    - Implement a session timeout that automatically logs the user out if they are inactive or have not completed the checkout process within 10 minutes."
 
 ### Tour Updates
 
-- select tour via date
-- add increase and decrease btn in breakdown before adding to bag
-
-### Admin User 
-
-- edit and add views enable view of imgs or exiting imgs 
+- In future development, adding tour dates and a 'select date' function to tours would enhance the site's usability. Additionally, incorporating a feature to increase or decrease the quantity of a tour before adding it to the backpack would further improve user experience. 
 
 ## Languages Used
 
