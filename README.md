@@ -56,6 +56,8 @@ The purpose of this website is to provide a fully functional e-commerce platform
 - If the above screenshots are not clear, please follow this [link](https://docs.google.com/spreadsheets/d/1xx5Dkv36HNJfljd7qT-q4SbN8Jt4fcDM39XUS-Ybc3o/edit?usp=drive_link) to google sheet and click tab 'User Stories'. 
 
 ## Design 
+
+![Site Design](documents/images/design/design.pngdesign.png)
  
 ### Wireframes
 
@@ -65,10 +67,25 @@ The purpose of this website is to provide a fully functional e-commerce platform
 
 ### Typography
 
+[Sourced via google fonts](https://fonts.google.com/)
+
+- Header font: Fredoka.
+
+![Header Font](documents/images/design/header_font.pngheader_font.png)
+
+- Body font: Architects Daughter.
+
+![Body Font](documents/images/design/body_font.pngbody_font.png)
+
+
 ## Current Features
+
+![Favicon](documents/images/current_features/favicon.png)
 
 ### Pages
 #### Favicon
+
+
 #### Home
 #### All Tours
 #### About 
