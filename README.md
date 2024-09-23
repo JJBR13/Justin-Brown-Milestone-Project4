@@ -148,9 +148,10 @@ The purpose of this website is to provide a fully functional e-commerce platform
 
 #### Profile: Admin users 
 
-| Add | Edit | Delete |
-|----------|----------| ----------|
-| ![Admin Add Tour](documents/images/current_features/add.png) | | ![Admin Edit Tour](documents/images/current_features/edit.png) | ![Admin Delete Tour](documents/images/current_features/delete.png) |
+| Add                                   | Edit                                     | Delete                                   |
+|---------------------------------------|------------------------------------------|------------------------------------------|
+| ![Admin Add Tour](documents/images/current_features/add.png) | ![Admin Edit Tour](documents/images/current_features/edit.png) | ![Admin Delete Tour](documents/images/current_features/delete.png) |
+
 
 - The above functions are available only to admin users, enabling them to efficiently manage tours through add, edit, and delete options.
 
