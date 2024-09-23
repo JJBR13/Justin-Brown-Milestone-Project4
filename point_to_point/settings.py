@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-@3$f$wotqq++i&$22k_)o88#c5%=7_ukoos*+zqm33ptk5t=d(
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'point_to_point.herokuapp.com',
+    'point-point-1bb0d49f3487.herokuapp.com',
     'localhost',
 ]
 
