@@ -15,6 +15,11 @@
                     {% trans "Login" %}
                 </h1>
 
+                <p class="text-center mt-2">
+                    {% trans "Don't have an account?" %} 
+                    <a href="{% url 'account_signup' %}">{% trans "Sign up now!" %}</a>
+                </p>
+
                 {% get_providers as socialaccount_providers %}
 
                 {% if socialaccount_providers %}
