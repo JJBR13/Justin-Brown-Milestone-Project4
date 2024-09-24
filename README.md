@@ -34,6 +34,7 @@ DISCLAIMER: This is a project for Code Institute, to demonstrate an understandin
     + [Danjgo](#django)
     + [ElaphantSQL](#elaphantsql)
     + [Heroku](#heroku)
+    + [AWS](#aws)
     + [Stripe](#stripe)
 - [References, Credit, Frameworks & Programs](#references-credit-frameworks-programs)
     + [References](#references)
@@ -258,6 +259,7 @@ The purpose of this website is to provide a fully functional e-commerce platform
 3. git push - This command was used to push all committed changes to the GitHub Repository. 
 
 #### ElaphantSQL
+
  1. Navigate to ElephantSQL.com and select create a new instance.
  2. Select - free database plan.
  3. Set up your plan 
@@ -269,6 +271,188 @@ The purpose of this website is to provide a fully functional e-commerce platform
  9. In the URL section, copy the database URL to your clipboard
 
 #### Heroku
+
+- Prerequisites:
+    1. Ensure that both Git and the Heroku CLI are installed on your local machine.
+    2. [Sing up](https://dashboard.heroku.com/) for a Heroku account if you don’t already have one.
+
+ 1. Step 1: Create a New App on Heroku
+    1. Go to your Heroku Dashboard.
+    2. Click the New button and select Create new app.
+    3. Enter a unique App Name and choose your preferred Region.
+    4. Click the Create app button to proceed.
+ 2. Step 2: Connect Your App to a GitHub Repository
+    1. After creating your app, navigate to the Deploy tab.
+    2. In the Deployment Method section, select the GitHub option by clicking on the GitHub logo.
+    3. You will be prompted to connect your GitHub account if not already connected.
+    4. Search for your GitHub repository by entering its name in the search bar, then click the Search button.
+    5. Once your repository appears, click the Connect button next to it.
+ 3. Step 3: Configure Environment Variables (Config Vars)
+    1. Go to the Settings tab of your Heroku app.
+    2. In the Config Vars section, click on Reveal Config Vars.
+    3. Add the following key-value pairs to configure your environment variables:
+
+            | Key                     | Value                        |
+            |-------------------------|------------------------------|
+            | `AWS_ACCESS_KEY_ID`     | YOUR_AWS_ACCESS_KEY_ID       |
+            | `AWS_SECRET_ACCESS_KEY` | YOUR_AWS_SECRET_ACCESS_KEY   |
+            | `DATABASE_URL`          | YOUR_POSTGRES_URL            |
+            | `EMAIL_HOST_PASS`       | YOUR_EMAIL_HOST_PASS         |
+            | `EMAIL_HOST_USER`       | YOUR_EMAIL_HOST_USER         |
+            | `SECRET_KEY`            | YOUR_SECRET_KEY              |
+            | `STRIPE_PUBLIC_KEY`     | YOUR_STRIPE_PUBLIC_KEY       |
+            | `STRIPE_SECRET_KEY`     | YOUR_STRIPE_SECRET_KEY       |
+            | `STRIPE_WH_SECRET`      | YOUR_STRIPE_WH_SECRET        |
+            | `USE_AWS`               | TRUE                         |
+
+ 4. Step 4: Enable Automatic Deployments
+    1. Go back to the Deploy tab.
+    2. Scroll down to the Automatic Deploys section.
+    3. Choose the branch you want to automatically deploy (usually main or master).
+    4. Click on the Enable Automatic Deploys button to activate automatic deployments whenever you push changes to GitHub.
+ 5. Step 5: Manually Deploy Your Branch
+    1. Scroll down to the Manual Deploy section.
+    2. Select the branch you want to deploy (again, typically main or master).
+    3. Click on the Deploy Branch button.
+    4. Heroku will start building and deploying your app. Once completed, you will see a success message.
+ 6. Step 6: View Your Deployed App
+    1. After deployment, click the Open app button at the top right of the Heroku dashboard.
+    2. Your app should now be live and accessible at the provided Heroku URL. 
+
+#### AWS
+
+ 1. Step 1: Create an S3 Bucket:
+    1. Log in to your AWS Management Console.
+    2. To access S3:
+        - Option 1: Click on the S3 service from the dashboard.
+        - Option 2: Type 'S3' into the search bar and select S3.
+    3. Click on the Create bucket button.
+    4. In the Create bucket form:
+        1. Enter a unique Bucket name.
+        2. Select ACLs enabled.
+        3. Choose Bucket owner preferred for Object Ownership.
+        4. Uncheck the Block all public access option.
+        5. Check the acknowledgment box to confirm public access.
+        6. Leave other settings unchanged and click Create bucket.
+ 2. Step 2: Enable Static Website Hosting:
+    1. Click on the name of the newly created bucket to open its details.
+    2. Go to the Properties tab.
+    3. Scroll down to the Static website hosting section and click Edit.
+    4. In the Static website hosting configuration:
+        1. Select Enable.
+        2. Enter index.html in the Index document field.
+        3. Enter error.html in the Error document field.
+        4. Click Save changes.
+ 3. Step 3: Change CORS Configuration
+    1. Go to the Permissions tab of your S3 bucket.
+    2. Scroll to the Cross-origin resource sharing (CORS) section and click Edit.
+    3. Add the following JSON code in the editor:
+        - "[
+                {
+                    "AllowedHeaders": ["Authorization"],
+                    "AllowedMethods": ["GET"],
+                    "AllowedOrigins": ["*"],
+                    "ExposeHeaders": []
+                }
+            ]"
+    4. Click save changes.
+ 4. Step 4: Add a Bucket Policy
+    1. In the Permissions tab, scroll to the Bucket policy section and click Edit.
+    2. Click Policy Generator (opens in a new tab).
+    3. In the Policy Generator:
+        1. Select S3 Bucket Policy for the policy type.
+        2. Enter "*" (without quotes) in the Principal field.
+        3. Select GetObject from the Action dropdown.
+    4. Copy the ARN from the bucket policy editor in the other tab and paste it into the ARN input field in the Policy Generator.
+    5. Click Add Statement.
+    6. Scroll down and click Generate Policy.
+    7. Copy the generated policy text.
+    8. Go back to the bucket policy editor tab and paste the policy text.
+    9. Modify the Resource value by adding /* at the end to allow access to all objects:
+        - " {
+                "Version": "2012-10-17",
+                "Id": "Policy1720032710777",
+                "Statement": [
+                    {
+                        "Sid": "Stmt1720024120521",
+                        "Effect": "Allow",
+                        "Principal": "*",
+                        "Action": "s3:GetObject",
+                        "Resource": "YOUR_ARN/*"
+                    }
+                ]
+            }
+    10. Click Save Changes.
+ 5. Step 5: Edit the Access Control List (ACL)
+    1. In the Permissions tab, scroll down to the Access control list (ACL) section and click Edit.
+    2. On the Edit Access control list page:
+    3. Under Everyone (public access), check the List box.
+    4. Click the checkbox to acknowledge the effects of this change.
+    5. Click Save changes.
+ 6. Step 6: Create a User Group
+    1. Go to the AWS Management Console.
+    2. Search for IAM in the search bar and click on IAM.
+    3. In the IAM dashboard, click on User Groups in the left-hand menu.
+    4. Click on the Create group button.
+    5. Enter a group name.
+    6. Scroll to the bottom and click Create user group.
+ 7. Step 7: Create a Policy
+    1. In the IAM dashboard, click on Policies in the left-hand menu.
+    2. Click on Create Policy.
+    3. Click the JSON tab to edit the policy in JSON format.
+    4. Click the Actions dropdown and select Import managed policy.
+    5. In the search bar, type s3 and select AmazonS3FullAccess.
+    6. Click Import Policy.
+    7. Open a new tab and go to the S3 service.
+        1. Select your bucket.
+        2. Click on the Copy ARN button to copy the ARN of your bucket.
+    8. Go back to the policy editor tab and add your ARN to the Resource list twice:
+        - First, add it as "arn:aws:s3:::your-bucket-name".
+        - Second, add it as "arn:aws:s3:::your-bucket-name/*" to grant access to all objects.
+        - Policys should look like this: 
+            - " {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Sid": "Statement1",
+                            "Effect": "Allow",
+                            "Action": [
+                                "s3:*"
+                            ],
+                            "Resource": [
+                                "arn:aws:s3:::your-bucket-name",
+                                "arn:aws:s3:::your-bucket-name/*"
+                            ]
+                        }
+                    ]
+                } "
+    9. Click Next at the bottom of the page.
+    10. Enter a policy name and description.
+    11. Click Create policy.
+    12. You will see a success message indicating that the policy has been created.
+ 8. Step 8: Attach the Policy to the Group
+    1. Go to the User groups section in the IAM dashboard.
+    2. Click on the group you created
+    3. Go to the Permissions tab and click the Add permissions dropdown.
+    4. Select Attach policies.
+    5. Search for the policy you created by name or description.
+    6. Check the box next to your policy and click Attach policies.
+ 9. Step 9: Create a User
+    1. In the IAM dashboard, click on Users in the left-hand menu.
+    2. Click on Create user.
+    3. Enter a user name and click Next.
+    4. Select the user group you created previously and click Next.
+    5. Scroll down and click Create user.
+ 10. Step 10: Create an Access Key
+    1. Click on the new user you created.
+    2. Go to the Security credentials tab.
+    3. Scroll down to the Access keys section and click Create access key.
+    4. Select Application running outside AWS and click Next.
+    5. Click Create access key.
+    6. Click on Download .csv file to save the access key information.
+    7. Click Done.
+    8. Open the .csv file in a text editor. It will contain your AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY.
+    9. Use these values to set environment variables for your Heroku application
 
 #### Stripe
  1. Navigate to Stripe website 
