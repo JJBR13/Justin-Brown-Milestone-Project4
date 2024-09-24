@@ -32,6 +32,7 @@ DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = [
     'point-point-1bb0d49f3487.herokuapp.com',
+    'localhost',
     '8000-jjbr13-justinbrownmiles-9f7wwte36c2.ws-eu116.gitpod.io',
 ]
 
@@ -182,7 +183,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
