@@ -43,7 +43,7 @@
 
         <!-- Tour card -->
         <div class="row">
-            <!-- {% if tourproducts %} -->
+            {% if tourproducts %}
                 {% for tour in tourproducts %}
                     <div class="col-sm-12 col-md-4 d-flex pb-5">
                         <div class="card w-100" style="width: 18rem;">
@@ -72,11 +72,11 @@
 
                     <div class="d-md-none p-3"></div>
                 {% endfor %}
-            <!-- {% else %} -->
-                <!-- <div class="col-12 text-center mt-5">
+            {% else %}
+                <div class="col-12 text-center mt-5">
                     <h3>No tours available at the moment.</h3>
-                </div> -->
-            <!-- {% endif %} -->
+                </div>
+            {% endif %}
         </div>
     </div>
 {% endblock %}

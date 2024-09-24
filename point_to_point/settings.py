@@ -32,7 +32,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'point-point-1bb0d49f3487.herokuapp.com',
-    'localhost',
+    '8000-jjbr13-justinbrownmiles-9f7wwte36c2.ws-eu116.gitpod.io',
 ]
 
 # Application definition

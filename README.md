@@ -74,8 +74,8 @@ The purpose of this website is to provide a fully functional e-commerce platform
 | ![Header Font](documents/images/design/header_font.png) | ![Body Font](documents/images/design/body_font.png) |
 
 ## Current Features
-
 ### Pages
+
 #### Favicon:
 
 ![Favicon](documents/images/current_features/favicon.png)
@@ -84,7 +84,7 @@ The purpose of this website is to provide a fully functional e-commerce platform
 
 > i. I want to be able to, easily navigated the site.
 
-### Navbar
+#### Navbar
 
 | Navbar | Navbar dropdown example |
 |----------|----------|

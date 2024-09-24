@@ -64,12 +64,12 @@
         </a>
         {% include 'includes/mobile-top-header.html' %}
         <!-- Burger btn -->
-        <button class="navbar-toggler mx-3" type="button" data-bs-toggle="collapse" data-bs-target="#navBurger"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+          <button class="navbar-toggler mx-3" type="button" data-bs-toggle="collapse" data-bs-target="#navBurger"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         {% include 'includes/main-nav.html' %}
       </nav>
 
@@ -109,18 +109,18 @@
             </a>
             <ul class="dropdown-menu">
               {% if request.user.is_authenticated %}
-              {% if request.user.is_superuser %}
-              <a href="{% url 'add_tour' %}" class="dropdown-item">Add NEW TOUR!</a>
-              {% endif %}
-              <li><a class="dropdown-item" href="{% url 'profile' %}">My Profile</a></li>
-              <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
+                {% if request.user.is_superuser %}
+                  <a href="{% url 'add_tour' %}" class="dropdown-item">Add NEW TOUR!</a>
+                {% endif %}
+                <li><a class="dropdown-item" href="{% url 'profile' %}">My Profile</a></li>
+                <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
               {% else %}
-              <li><a class="dropdown-item" href="{% url 'account_signup' %}">Signup</a></li>
-              <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Ask us anything</a></li>
+                <li><a class="dropdown-item" href="{% url 'account_signup' %}">Signup</a></li>
+                <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Ask us anything</a></li>
               {% endif %}
             </ul>
           </li>
@@ -204,13 +204,11 @@
     </footer>
 
     {% block postloadjs %}
-    <script type="text/javascript">
-      $(document).ready(function () {
-          $('.toast').toast('show');
-        })
-    </script>
-    
+      <script type="text/javascript">
+        $(document).ready(function () {
+            $('.toast').toast('show');
+          })
+      </script>
     {% endblock %}
-
   </body>
 </html>
