@@ -284,6 +284,9 @@ The purpose of this website is to provide a fully functional e-commerce platform
 
 ### References 
 
+- [Django Secret Key](https://djecrety.ir/):
+    - Used to generate django secret key.
+
 - [Flat icon](https://www.flaticon.com/): 
     - All icons used for the site.
 
