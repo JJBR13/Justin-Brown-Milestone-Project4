@@ -68,13 +68,13 @@ The purpose of this website is to provide a fully functional e-commerce platform
 
 - The relational database for this project is hosted on PostgreSQL. The following data models were used to structure the application:
 
-    - User Profile: Contains user-related information, such as phone number, address, and other personal details.
-    - Tour Products: Stores detailed information about the tours offered, including name, description, price, availability, images, and location.
-    - Category: Manages the different categories of tours, which can be used to filter and organize the tour products.
-    - Order: Keeps track of customer orders, including order number, contact details, shipping address, and the associated user profile.
-    - Order Line Items: Holds specific information about each item within an order, such as quantity, price, and the tour product linked to the order.
-    - Tour Images: Manages additional images for each tour product, providing more visual information for users.
-    - Django and Social Account: Includes tables for user authentication, permissions, and social account integration, supporting features like user login, group permissions, and social media sign-ups.
+    - __User Profile:__ Contains user-related information, such as phone number, address, and other personal details.
+    - __Tour Products:__ Stores detailed information about the tours offered, including name, description, price, availability, images, and location.
+    - __Category:__ Manages the different categories of tours, which can be used to filter and organize the tour products.
+    - __Order:__ Keeps track of customer orders, including order number, contact details, shipping address, and the associated user profile.
+    - __Order Line Items:__ Holds specific information about each item within an order, such as quantity, price, and the tour product linked to the order.
+    - __Tour Images:__ Manages additional images for each tour product, providing more visual information for users.
+    - __Django and Social Account__: Includes tables for user authentication, permissions, and social account integration, supporting features like user login, group permissions, and social media sign-ups.
 
 - The schema was visualized and designed using [DbSchema](https://dbschema.com/download.html): Database Diagram Designer & Management Tool, which helped create a clear and organized representation of the database structure.
 
