@@ -3,19 +3,19 @@
 {% block content %}
   <!-- Include any messages -->
   {% if messages %}
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-12">
-        <div class="alert alert-info" role="alert">
-          <ul>
-            {% for message in messages %}
-              <li>{{ message }}</li>
-            {% endfor %}
-          </ul>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="alert alert-info" role="alert">
+            <ul>
+              {% for message in messages %}
+                <li>{{ message }}</li>
+              {% endfor %}
+            </ul>
+          </div>
         </div>
       </div>
     </div>
-  </div>
   {% endif %}
 
   <!-- Inject the specific allauth content here -->

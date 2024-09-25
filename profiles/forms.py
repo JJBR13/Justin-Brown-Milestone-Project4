@@ -49,7 +49,7 @@ class CustomSignupForm(SignupForm):
         self.fields['password1'].widget.attrs['placeholder'] = 'Enter your password'
         self.fields['password2'].widget.attrs['placeholder'] = 'Confirm your password'
         
-        # Add any other customisation to the fields (like CSS classes)
+        # Add CSS to all feilds
         for field in self.fields.values():
             field.widget.attrs['class'] = 'form-control'
 
