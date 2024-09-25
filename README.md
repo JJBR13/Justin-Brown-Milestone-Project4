@@ -3,7 +3,7 @@
 
 DISCLAIMER: This is a project for Code Institute, to demonstrate an understanding full-stack site based around business logic used to control a centrally-owned dataset.
 
-![MockUps](#)
+![MockUps](documents/images/design/mockups.png)
 
 ## Live Project 
 
@@ -514,6 +514,9 @@ The purpose of this website is to provide a fully functional e-commerce platform
 
 - [Profile tab structure](https://codepen.io/rockteam/pen/WrpXBN ): 
     - Used on profile page to create tab for perosnal details & Order history. 
+
+- [Techsini](https://techsini.com/multi-mockup/index.php): 
+    - Created mockups from the live site.
 
 - [Trutravels](https://www.trutravels.com/): 
     - Tour names & description.
