@@ -545,4 +545,16 @@ input[type="search"]::-webkit-search-results-decoration {
     #back-to-top {
         padding-bottom: 20px;
     }
+
+    #tour-name {
+        text-decoration: none;
+        color: #005792;
+        font-size: large;
+        padding-left: 10px;
+    }
+
+    .search-input {
+        margin: 5px !important;
+        width: calc(100% - 10px) !important;
+    }
 }

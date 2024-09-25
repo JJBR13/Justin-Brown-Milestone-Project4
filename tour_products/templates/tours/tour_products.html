@@ -17,7 +17,7 @@
         </div>
 
         <!-- Filters Btns-->
-        <div class="row justify-content-start">
+        <div class="row d-none d-md-flex justify-content-start">
             <!-- All Tours Button -->
             <div class="col-sm-6 col-md-2 text-start mb-5">
                 <a href="{% url 'all-tours' %}" class="btn category-btn {% if not request.GET.category %}selected-category{% endif %}">
@@ -25,7 +25,7 @@
                     All Tours
                 </a>
             </div>
-
+        
             <!-- Category btn -->
             {% for category in categories %}
                 {% if category %}
@@ -38,6 +38,29 @@
                 {% endif %}
             {% endfor %}
         </div>
+        
+        <!-- Dropdown for mobile devices -->
+        <div class="d-md-none mb-4">
+            <div class="dropdown">
+                <button class="btn btn-dropdown dropdown-toggle" type="button" id="categoryDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    Select Category
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="categoryDropdown">
+                    <li>
+                        <a class="dropdown-item {% if not request.GET.category %}selected-category{% endif %}" href="{% url 'all-tours' %}">All Tours</a>
+                    </li>
+                    {% for category in categories %}
+                        {% if category %}
+                            <li>
+                                <a class="dropdown-item {% if request.GET.category == category %}selected-category{% endif %}" href="?category={{ category }}">
+                                    {{ category }}
+                                </a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>        
         
         <div class="d-md-none p-1"></div>
 
