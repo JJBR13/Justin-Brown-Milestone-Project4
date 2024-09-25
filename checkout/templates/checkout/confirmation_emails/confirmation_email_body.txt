@@ -6,9 +6,8 @@ Your upcoming trip is all set, and we’ve included all the important details be
 Order Number: {{ order.order_number }}
 Order Date: {{ order.date }}
 
-Order Total: ${{ order.order_total }}
-Delivery: ${{ order.delivery_cost }}
-Grand Total: ${{ order.grand_total }}
+Order Total: £{{ order.order_total }}
+Grand Total: £{{ order.grand_total }}
 
 Please review this information carefully and let us know if you have any questions at {{ contact_email }}.
 

@@ -31,6 +31,69 @@
         </div>
     </div>    
     
+    <!-- Order Summary Mobile -->
+    <div class="container d-md-flex justify-content-md-between mb-4">
+        <div class="col-12 col-md-4 mb-4 order-summary-container d-md-none">
+            <div class="accordion" id="orderSummaryAccordionMobile">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOrderSummaryMobile">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOrderSummaryMobile" aria-expanded="false" aria-controls="collapseOrderSummaryMobile">
+                            Order Summary <strong class="font-weight-bold">({{ tour_count }})</strong>
+                        </button>
+                    </h2>
+                    <div id="collapseOrderSummaryMobile" class="accordion-collapse collapse" aria-labelledby="headingOrderSummaryMobile" data-bs-parent="#orderSummaryAccordionMobile">
+                        <div class="accordion-body">
+                            <div class="order-summary">
+                                <div class="order-border mb-3">
+                                    <div class="row">
+                                        <div class="col-7 offset-2">
+                                            <p class="mb-1 mt-0 small text-muted">Item</p>
+                                        </div>
+                                        <div class="col-3 text-right">
+                                            <p class="mb-1 mt-0 small text-muted">Subtotal</p>
+                                        </div>
+                                    </div>
+                                    {% for item in travel_backpack %}
+                                        <div class="row mb-2">
+                                            <!-- Tour Image -->
+                                            <div class="col-2">
+                                                <a href="{% url 'tour-breakdown' item.tour.id %}">
+                                                    {% if item.tour.image %}
+                                                        <img class="w-100 rounded" src="{{ item.tour.image.url }}" alt="{{ item.tour.name }}">
+                                                    {% else %}
+                                                        <img class="w-100 rounded" src="{{ item.tour.image.url }}" alt="{{ item.tour.name }}">
+                                                    {% endif %}
+                                                </a>
+                                            </div>
+                                            <!-- Tour Info -->
+                                            <div class="col-7">
+                                                <p class="my-0"><strong>{{ item.tour.name }}</strong></p>
+                                                <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
+                                            </div>
+                                            <!-- Subtotal -->
+                                            <div class="col-3 text-right">
+                                                <p class="my-0 small text-muted">£{{ item.tour.price | calc_subtotal:item.quantity }}</p>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                    <hr class="my-0">
+                                    <div class="row text-black text-right">
+                                        <div class="col-7 offset-2">
+                                            <p class="my-0"><strong>Total:</strong></p>
+                                        </div>
+                                        <div class="col-3">
+                                            <p class="my-0"><strong>£{{ grand_total | floatformat:2 }}</strong></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <!-- Steps Checkout Form -->
     <div class="container">
         <div class="row">
@@ -108,10 +171,10 @@
             </div>
 
             <!-- Order Summary Column  -->
-            <div class="col-12 col-md-4 order-first order-md-last pt-3">
+            <div class="col-md-4 d-none d-sm-block pt-3">
                 <div class="order-summary">
                     <div class="order-border mb-3">
-                        <p id="order-header">Order Summary <strong class="font-weight-bold">({{ tour_count }})</strong></p>
+                        <p id="order-header">Order Summary<strong class="font-weight-bold">({{ tour_count }})</strong></p>
                         <div class="row">
                             <div class="col-7 offset-2">
                                 <p class="mb-1 mt-0 small text-muted">Item</p>

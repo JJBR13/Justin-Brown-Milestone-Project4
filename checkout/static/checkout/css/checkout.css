@@ -195,6 +195,12 @@ select:-internal-autofill-selected {
 
 /* ------------------------------------------------------------------- Responsive css */
 
+.accordion-button {
+    border: 2px solid #FFE6EB;
+}
+
+/* ------------------------------------------------------------------- Media Quieries */
+
 @media (max-width: 768px) { 
     .order-border {
         border-left: none;
