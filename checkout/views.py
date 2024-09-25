@@ -126,7 +126,7 @@ def checkout(request):
         'order_form': order_form,
         'stripe_public_key': stripe_public_key,
         'client_secret': intent.client_secret,
-        'travel_backpack': travelbag_contents,
+        'travel_backpack': current_backpack['travel_backpack'],   
     }
 
     return render(request, template, context)

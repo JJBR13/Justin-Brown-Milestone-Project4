@@ -195,9 +195,13 @@ select:-internal-autofill-selected {
 
 /* ------------------------------------------------------------------- Responsive css */
 
-@media (max-width: 767.98px) { 
+@media (max-width: 768px) { 
     .order-border {
         border-left: none;
         padding-left: 0; 
+    }
+
+    .section-margin {
+        padding: 20px !important;
     }
 }

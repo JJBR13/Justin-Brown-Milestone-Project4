@@ -16,10 +16,10 @@
 
 {% block content %}
 
-<div class="min-vh-100">
+<div class="min-vh-100 d-flex flex-column align-items-center justify-content-center section-margin">
     <!-- Header block -->
     <div class="row">
-        <div class="col-12 text-center pt-4 pb-3">
+        <div class="col-12 text-center pb-3">
             <h1> Pay For Your Backpack </h1>
         </div> 
     </div>
@@ -55,12 +55,12 @@
                     <div id="step-2" class="checkout-step mb-3" style="display:none;">
                         <fieldset class="mb-3">
                             <legend class="w-auto form-header2">Delivery Details</legend>
-                            {{ order_form.street_address1 | as_crispy_field }}
-                            {{ order_form.street_address2 | as_crispy_field }}
-                            {{ order_form.town_or_city | as_crispy_field }}
-                            {{ order_form.county | as_crispy_field }}
-                            {{ order_form.postcode | as_crispy_field }}
-                            {{ order_form.country | as_crispy_field }}
+                                {{ order_form.street_address1 | as_crispy_field }}
+                                {{ order_form.street_address2 | as_crispy_field }}
+                                {{ order_form.town_or_city | as_crispy_field }}
+                                {{ order_form.county | as_crispy_field }}
+                                {{ order_form.postcode | as_crispy_field }}
+                                {{ order_form.country | as_crispy_field }}
                             <div class="form-check d-flex justify-content-center align-items-center text-center">
                                 {% if user.is_authenticated %}
                                     <input class="form-check-input ml-2 mr-2" type="checkbox" id="id-save-info" name="save-info" checked>
@@ -108,7 +108,7 @@
             </div>
 
             <!-- Order Summary Column  -->
-            <div class="col-12 col-md-4 pt-3">
+            <div class="col-12 col-md-4 order-first order-md-last pt-3">
                 <div class="order-summary">
                     <div class="order-border mb-3">
                         <p id="order-header">Order Summary <strong class="font-weight-bold">({{ tour_count }})</strong></p>
@@ -120,15 +120,15 @@
                                 <p class="mb-1 mt-0 small text-muted">Subtotal</p>
                             </div>
                         </div>
-                        {% for tour in travel_backpack %}
+                        {% for item in travel_backpack %}
                             <div class="row mb-2">
                                 <!-- Tour Image -->
                                 <div class="col-2">
-                                    <a href="{% url 'tour_detail' item.tour.id %}">
+                                    <a href="{% url 'tour-breakdown' item.tour.id %}">
                                         {% if item.tour.image %}
                                             <img class="w-100 rounded" src="{{ item.tour.image.url }}" alt="{{ item.tour.name }}">
                                         {% else %}
-                                            <img class="w-100 rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.tour.name }}">
+                                            <img class="w-100 rounded" src="{{ item.tour.image.url }}" alt="{{ item.tour.name }}">
                                         {% endif %}
                                     </a>
                                 </div>
@@ -141,23 +141,22 @@
                                 <div class="col-3 text-right">
                                     <p class="my-0 small text-muted">£{{ item.tour.price | calc_subtotal:item.quantity }}</p>
                                 </div>
+
                             </div>
                         {% endfor %}
                         <hr class="my-0">
                         <div class="row text-black text-right">
-                            <div class="col-7 offset-2">
-                                <p class="my-0">Order Total:</p>
-                                <p class="my-0">Grand Total:</p>
-                            </div>
-                            <div class="col-3">
-                                <p class="my-0">£{{ total | floatformat:2 }}</p>
-                                <p class="my-0"><strong>£{{ grand_total | floatformat:2 }}</strong></p>
-                            </div>
+                                <div class="col-7 offset-2">
+                                    <p class="my-0"><strong>Total:</strong></p>
+                                </div>
+                                <div class="col-3">
+                                    <p class="my-0"><strong>£{{ grand_total | floatformat:2 }}</strong></p>
+                                </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
 
