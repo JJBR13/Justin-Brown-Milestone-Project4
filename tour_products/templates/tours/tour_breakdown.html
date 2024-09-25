@@ -14,7 +14,7 @@
 {% endblock %}
 
 {% block content %}
-<section class="bg-light">
+<section class="bg-light section-margin">
     <div class="container ml-5 mr-5">
         <div class="row">
             <!-- Breadcrumbs -->
@@ -34,7 +34,7 @@
             <div class="col-8">
                 <h1 class="tour-title p-1">{{ tour.name }}</h1>
             </div>
-            <div class="col-4 text-end p-5">
+            <div class="col-4 text-end pb-sm-0 p-md-5">
                 <a href="#" class="icon-share text-black hvr-shrink" id="shareButton">
                     <i class="fa-solid fa-share"></i> Share
                 </a>
@@ -117,7 +117,7 @@
             <!-- Tour Information -->  
             <div class="col-lg-4">
                 <div class="sticky-tour-info">
-                    <form class="form pb-5" action="{% url 'add-to-backpack' tour.id %}" method="POST">
+                    <form class="form pb-sm-0 pb-md-5 pb-sm-0" action="{% url 'add-to-backpack' tour.id %}" method="POST">
                         {% csrf_token %}
                         
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">

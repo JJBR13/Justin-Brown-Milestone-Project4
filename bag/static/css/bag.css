@@ -42,5 +42,8 @@ img.rounded {
     .qty_input {
         width: 100%; 
     }
+    
+    .bag-margin {
+        padding: 20px !important;
+    }
 }
-

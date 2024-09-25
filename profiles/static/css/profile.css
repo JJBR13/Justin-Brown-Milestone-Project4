@@ -39,6 +39,27 @@
 }
 
 .order-history {
-    max-height: 416px; /* height of profile form + submit button */
+    max-height: 416px;
     overflow-y: auto;
+}
+
+/* ----------------------------------------------------- Active button styling */
+
+@media (max-width: 576px) {
+    .col-12.col-md-8.col-lg-6 {
+        border: none !important;
+        box-shadow: none !important;
+        padding: 20px !important;
+    }
+
+    .tab-buttons {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .tab-button {
+        width: auto;
+        margin: 5px;
+    }
 }

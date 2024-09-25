@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container pt-4 mb-5 vh-100">
+    <div class="container pt-4 mb-5 vh-100 bag-margin">
         <!-- Header Block -->
         <div class="row">
             <div class="col-12 text-center pb-3">
@@ -45,8 +45,8 @@
                 </div>
 
                 <!-- Tour Info -->
-                <div class="col-12 col-md-5 d-flex align-items-center mb-3 mb-md-0">
-                    <table class="table-sm table table-borderless">
+                <div class="col-sm-6 col-md-5 d-flex align-items-center mb-3 mb-md-0">
+                    <table class="table-sm table table-borderless w-100">
                         <tr>
                             <th class="pt-2">{{ item.tour.name }}</th>
                         </tr>
@@ -60,29 +60,24 @@
                 </div>
 
                 <!-- Quantity Controls -->
-                <div class="col-12 col-md-4 d-flex align-items-center justify-content-center justify-content-md-start">
-                    <form class="form update-form" method="POST" action="{% url 'update_backpack' item.item_id %}">
+                <div class="col-sm-6 col-md-4 d-flex align-items-center justify-content-center justify-content-md-start">
+                    <form class="form update-form d-flex flex-sm-row align-items-center w-100" method="POST" action="{% url 'update_backpack' item.item_id %}">
                         {% csrf_token %}
-                        <div class="form-group">
+                        <div class="form-group me-3 w-100">
+                            <label class="d-block mb-1 text-center"><strong>Quantity:</strong></label>
                             <div class="input-group">
-                                <p><strong> Quantity:</strong></p>
-                                <input class="form-control text-center qty_input" type="number" name="quantity" value="{{ item.quantity }}" min="1" max="30" data-item_id="{{ item.tour.id }}" id="id_qty_{{ item.tour.id }}">
+                                <input class="form-control text-center qty_input w-100" type="number" name="quantity" value="{{ item.quantity }}" min="1" max="30" data-item_id="{{ item.tour.id }}" id="id_qty_{{ item.tour.id }}">
                             </div>
                         </div>
-                        <div class="row mt-1">
-                            <div class="col-12 d-flex justify-content-between">
-                                <div>
-                                    <a class="update-link text-info point-cursor"><small>Update</small></a>
-                                </div>
-                                <div>
-                                    <a class="delete-item text-danger point-cursor style-features" id="remove_{{ item.item_id }}">
-                                        <i class="fa-solid fa-trash"></i>
-                                    </a>
-                                </div>
-                            </div>
+                        <div class="d-flex mt-2 mt-sm-0">
+                            <a class="update-link text-info point-cursor mb-1 text-center"><small>Update</small></a>
+                            <a class="delete-item text-danger point-cursor style-features text-center" id="remove_{{ item.item_id }}">
+                                <i class="fa-solid fa-trash"></i>
+                            </a>
                         </div>
                     </form>
                 </div>
+
 
                 <!-- Separator -->
                 <div class="col-12">

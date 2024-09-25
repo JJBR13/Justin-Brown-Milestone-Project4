@@ -23,7 +23,7 @@ body {
     background-color: none;
 }
 
-body, html {
+footer {
     overflow-x: hidden;
 }
 
@@ -556,5 +556,12 @@ input[type="search"]::-webkit-search-results-decoration {
     .search-input {
         margin: 5px !important;
         width: calc(100% - 10px) !important;
+    }
+
+}
+
+@media (max-width: 576px) {
+    .min-vh-100, .vh-100 {
+        min-height: 80vh !important;
     }
 }
