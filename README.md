@@ -36,6 +36,7 @@ DISCLAIMER: This is a project for Code Institute, to demonstrate an understandin
     + [Heroku](#heroku)
     + [AWS](#aws)
     + [Stripe](#stripe)
+    + [Send Emails Gmail](#send-emails-gmail)
 - [References, Credit, Frameworks & Programs](#references-credit-frameworks-programs)
     + [References](#references)
     + [Credit](#credit)
@@ -479,6 +480,64 @@ __[View wireframes.pdf here](documents/wireframes/wireframes_point_to_point.pdf)
  6. Go to Heroku and open the app.
  7. Click 'settings' and 'Reveal Config Vars'
  8. Add the STRIPE_PUCLIC_KEY AND STRIPE_SECERET_KEY with their keys from Stripe.
+
+ #### Send Emails Gmail 
+ 1. Log into Gmail account, navigate to 2-step verification. 
+    1. Settings icon in right corner of Gmail.
+    2. Click 'Account and Imports tab.
+    3. Under 'Change account settings click 'Other Google Account settings'.
+ 2. Enable 2-Step Verification on Your Google Account:
+    1. Go to your Google Account.
+    2. Navigate to the Security tab.
+    3. Under the Signing in to Google section, enable 2-Step Verification.
+ 3. Generate an App Password:
+    1. After enabling 2-Step Verification, go back to the Security section.
+    2. Under the Signing in to Google section, you will now see an option called App Passwords.
+    3. Click on App Passwords. You may need to sign in again.
+    4. Click on Select app and choose Other (Custom name).
+    5. Enter a name like Django App and click Generate.
+    6. Google will provide you with a 16-character password. This is your App Password.
+3. Add to Heroku Config Vars: 
+    1. Go to your Heroku dashboard.
+    2. Open your application and navigate to the Settings tab.
+    3. Click on Reveal Config Vars.
+    4. Add or update the following variables with your new App Password:
+        | Step | Description |
+        |------|-------------|
+        | 1    | Go to the **Settings** tab of your Heroku application and click on **Reveal Config Vars**. |
+        | 2    | Add or update the following environment variables: <br><br> | 
+        |      | | **Key**                | **Value**                       |
+        |      | |-----------------------|---------------------------------|
+        |      | | `EMAIL_HOST_USER`     | your-email@gmail.com            |
+        |      | | `EMAIL_HOST_PASS`     | your-app-password               |
+        |      | | `SECRET_KEY`          | your-secret-key                 |
+        |      | | `DEBUG`               | False                           |
+
+ 4. Updating Gitpod Configuration:
+    1. Add Environment Variables in Gitpod:
+    2. Open your Gitpod workspace.
+    3. In your .env file or directly in the Gitpod environment settings, add the following variables:
+        - ' EMAIL_HOST_USER=your-email@gmail.com
+            EMAIL_HOST_PASS=your-app-password
+            SECRET_KEY=your-secret-key
+          '
+ 5. Update env.py File:
+    1. If you are using an env.py file in your Django project, update it to include your Gmail App
+ 6. Update Email Settings in settings.py:
+    - Ensure your settings.py file uses the environment variables for email configuration: 
+        - ' Email configuration
+            EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+            EMAIL_USE_TLS = True
+            EMAIL_PORT = 587
+            EMAIL_HOST = 'smtp.gmail.com'
+            EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+            EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASS')
+            DEFAULT_FROM_EMAIL = os.getenv('EMAIL_HOST_USER')
+          '
+ 7. Verify Configuration Locally:
+    - Run your Django app in Gitpod or your local environment and attempt to sign up or send an email to ensure everything is set up correctly.
+ 8. Check Email Sending Functionality:
+    - After updating the configuration on both Heroku and Gitpod, perform actions like signing up.
 
 ## References, Credit, Frameworks & Programs
 
