@@ -481,7 +481,7 @@ __[View wireframes.pdf here](documents/wireframes/wireframes_point_to_point.pdf)
  7. Click 'settings' and 'Reveal Config Vars'
  8. Add the STRIPE_PUCLIC_KEY AND STRIPE_SECERET_KEY with their keys from Stripe.
 
- #### Send Emails Gmail 
+#### Send Emails Gmail 
  1. Log into Gmail account, navigate to 2-step verification. 
     1. Settings icon in right corner of Gmail.
     2. Click 'Account and Imports tab.
