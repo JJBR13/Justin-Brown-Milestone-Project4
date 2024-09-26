@@ -31,7 +31,8 @@ label {
     border-radius: 20px;
 }
 
-.tour-info-box, .tour-description-box {
+.tour-info-box,
+.tour-description-box {
     background-color: #f8f9fa;
     border-radius: 15px;
     padding: 20px;
@@ -47,7 +48,7 @@ label {
     font-size: 1.2rem;
 }
 
-/*------------------------------------------- Breadcrumb */ 
+/*------------------------------------------- Breadcrumb */
 
 .breadcrumb-item+.breadcrumb-item::before {
     content: var(--bs-breadcrumb-divider, ">");
@@ -82,7 +83,7 @@ label {
 /* ---------------------------------------------- Thumbnail imgs */
 
 .thumbnail-img {
-    width: 100%; 
+    width: 100%;
     height: 150px;
     object-fit: cover;
     border-radius: 8px;
@@ -138,7 +139,7 @@ label {
 .filter-icon p {
     margin-top: 5px;
     font-size: 14px;
-    color:  #0056b3;
+    color: #0056b3;
 }
 
 .selected-category {
@@ -157,7 +158,7 @@ label {
 }
 
 .btn-dropdown {
-    color:#0056b3;
+    color: #0056b3;
     border: 2px solid #f7b2bd;
 }
 

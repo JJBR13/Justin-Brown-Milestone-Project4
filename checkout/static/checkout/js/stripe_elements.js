@@ -29,9 +29,15 @@ var style = {
 };
 
 // Create separate elements for card number, expiry, and CVC
-var cardNumber = elements.create('cardNumber', { style: style });
-var cardExpiry = elements.create('cardExpiry', { style: style });
-var cardCvc = elements.create('cardCvc', { style: style });
+var cardNumber = elements.create('cardNumber', {
+    style: style
+});
+var cardExpiry = elements.create('cardExpiry', {
+    style: style
+});
+var cardCvc = elements.create('cardCvc', {
+    style: style
+});
 
 // Mount the elements to the respective divs
 cardNumber.mount('#card-number-element');
@@ -59,13 +65,19 @@ const form = document.getElementById('checkout-form');
 const submitButton = document.getElementById('submit-button');
 
 // Add the event listener to the form
-form.addEventListener('submit', function(ev) {
+form.addEventListener('submit', function (ev) {
     ev.preventDefault();
 
     // Disable all elements
-    cardNumber.update({ 'disabled': true });
-    cardExpiry.update({ 'disabled': true });
-    cardCvc.update({ 'disabled': true });
+    cardNumber.update({
+        'disabled': true
+    });
+    cardExpiry.update({
+        'disabled': true
+    });
+    cardCvc.update({
+        'disabled': true
+    });
     submitButton.setAttribute('disabled', true);
 
     $('#checkout-form').fadeToggle(100);
@@ -82,7 +94,7 @@ form.addEventListener('submit', function(ev) {
     var url = '/checkout/cache_checkout_data/';
 
     // Confirm card payment using the card number element
-    $.post(url, postData).done(function() {
+    $.post(url, postData).done(function () {
         stripe.confirmCardPayment(clientSecret, {
             payment_method: {
                 card: cardNumber,
@@ -90,7 +102,7 @@ form.addEventListener('submit', function(ev) {
                     name: $.trim(form.full_name.value),
                     phone: $.trim(form.phone_number.value),
                     email: $.trim(form.email.value),
-                    address:{
+                    address: {
                         line1: $.trim(form.street_address1.value),
                         line2: $.trim(form.street_address2.value),
                         city: $.trim(form.town_or_city.value),
@@ -109,7 +121,7 @@ form.addEventListener('submit', function(ev) {
                     country: $.trim(form.country.value),
                 }
             },
-        }).then(function(result) {
+        }).then(function (result) {
             if (result.error) {
                 var errorDiv = document.getElementById('card-errors');
                 var html = `
@@ -119,13 +131,19 @@ form.addEventListener('submit', function(ev) {
                     <span>${result.error.message}</span>
                 `;
                 $(errorDiv).html(html);
-    
+
                 // Re-enable form elements after error
                 $('#checkout-form').fadeToggle(100);
                 $('#loading-container').fadeOut(100);
-                cardNumber.update({ 'disabled': false });
-                cardExpiry.update({ 'disabled': false });
-                cardCvc.update({ 'disabled': false });
+                cardNumber.update({
+                    'disabled': false
+                });
+                cardExpiry.update({
+                    'disabled': false
+                });
+                cardCvc.update({
+                    'disabled': false
+                });
                 submitButton.removeAttribute('disabled');
             } else {
                 if (result.paymentIntent.status === 'succeeded') {
@@ -133,7 +151,7 @@ form.addEventListener('submit', function(ev) {
                 }
             }
         });
-    }).fail(function() {
+    }).fail(function () {
         // reloads the page, with the error in django messages
         location.reload();
     })

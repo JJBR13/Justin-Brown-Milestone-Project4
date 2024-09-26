@@ -16,7 +16,7 @@
                 </h1>
 
                 <p class="text-center mt-2">
-                    {% trans "Don't have an account?" %} 
+                    {% trans "Don't have an account?" %}
                     <a href="{% url 'account_signup' %}">{% trans "Sign up now!" %}</a>
                 </p>
 
@@ -25,8 +25,8 @@
                 {% if socialaccount_providers %}
                 <p class="text-center">
                     {% blocktrans with site.name as site_name %}
-                        Please sign in with one of your existing third-party accounts. Or,
-                        <a href="{{ signup_url }}">sign up</a> for a {{ site_name }} account and sign in below:
+                    Please sign in with one of your existing third-party accounts. Or,
+                    <a href="{{ signup_url }}">sign up</a> for a {{ site_name }} account and sign in below:
                     {% endblocktrans %}
                 </p>
                 {% endif %}

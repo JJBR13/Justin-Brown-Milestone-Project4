@@ -40,9 +40,9 @@ img.rounded {
 
 @media (max-width: 768px) {
     .qty_input {
-        width: 100%; 
+        width: 100%;
     }
-    
+
     .bag-margin {
         padding: 20px !important;
     }

@@ -16,7 +16,7 @@ function reHide() {
   exit.classList.add('hide')
   search.classList.remove('hide');
   searchBar.classList.add('hide');
-  
+
 }
 
 // When user click footer btn returns to top of page

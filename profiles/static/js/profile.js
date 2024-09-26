@@ -26,13 +26,13 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /* Country js */
-$(document).ready(function() {
+$(document).ready(function () {
     let countrySelected = $('#id_default_country').val();
     if (!countrySelected || countrySelected === '') {
         $('#id_default_country').css('color', '#aab7c4');
     }
 
-    $('#id_default_country').change(function() {
+    $('#id_default_country').change(function () {
         countrySelected = $(this).val();
         if (!countrySelected || countrySelected === '') {
             $(this).css('color', '#aab7c4');

@@ -3,21 +3,23 @@
 {% block head_title %}{% trans "Verification Sent" %}{% endblock %}
 
 {% block allauth_content %}
-    <div class="container min-vh-100 d-flex justify-content-center align-items-center">
-        <div class="row justify-content-center align-items-center w-100">
-            <div class="col-md-6 col-lg-4 col-sm-12 text-center">
-                <div class="card p-4">
-                    <h1 class="pt-4 text-center">
-                        {% trans "Verification Email Sent" %}
-                    </h1>
-                    <p class="pt-2">
+<div class="container min-vh-100 d-flex justify-content-center align-items-center">
+    <div class="row justify-content-center align-items-center w-100">
+        <div class="col-md-6 col-lg-4 col-sm-12 text-center">
+            <div class="card p-4">
+                <h1 class="pt-4 text-center">
+                    {% trans "Verification Email Sent" %}
+                </h1>
+                <p class="pt-2">
                     {% blocktrans %}
-                        A verification email has been sent to {{ request.user.email }}. Please check your email and click on the link to verify your account.
+                    A verification email has been sent to {{ request.user.email }}. Please check your email and click on
+                    the link to verify your account.
                     {% endblocktrans %}
-                    </p>
-                    <a href="{% url 'account_email' %}" class="btn text-btn-2 btn-primary">{% trans "Resend Verification Email" %}</a>
-                </div>
+                </p>
+                <a href="{% url 'account_email' %}"
+                    class="btn text-btn-2 btn-primary">{% trans "Resend Verification Email" %}</a>
             </div>
         </div>
     </div>
+</div>
 {% endblock %}

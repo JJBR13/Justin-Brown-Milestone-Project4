@@ -11,11 +11,11 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="toursDropdown">
                 {% for tour in tours %}
-                    <ul class="no-bullets mr-2">
+                <ul class="no-bullets mr-2">
                     <li class="px-3">
                         <a href="{% url 'tour-breakdown' tour_id=tour.pk %}" id="tour-name">{{ tour.name }}</a>
                     </li>
-                    </ul>
+                </ul>
                 {% endfor %}
                 <hr class="dropdown-divider">
                 <a class="dropdown-item" href="{% url 'all-tours' %}">All Trips</a>
@@ -30,7 +30,7 @@
         <li class="nav-item pt-3">
             <a class="nav-link" href="{% url 'about' %}">About</a>
         </li>
-        
+
         <!-- Profile Dropdown -->
         <li class="nav-item dropdown megamenu pt-3">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -38,32 +38,32 @@
             </a>
             <ul class="dropdown-menu">
                 {% if request.user.is_authenticated %}
-                    {% if request.user.is_superuser %}
-                        <a href="{% url 'add_tour' %}" class="dropdown-item">Add NEW TOUR!</a>
-                    {% endif %}
-                        <li><a class="dropdown-item" href="{% url 'profile' %}">My Profile</a></li>
-                        <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
-                    {% else %}
-                        <li><a class="dropdown-item" href="{% url 'account_signup' %}">Signup</a></li>
-                        <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                    <li><a class="dropdown-item" href="#">Ask us anything</a></li>
+                {% if request.user.is_superuser %}
+                <a href="{% url 'add_tour' %}" class="dropdown-item">Add NEW TOUR!</a>
+                {% endif %}
+                <li><a class="dropdown-item" href="{% url 'profile' %}">My Profile</a></li>
+                <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
+                {% else %}
+                <li><a class="dropdown-item" href="{% url 'account_signup' %}">Signup</a></li>
+                <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Ask us anything</a></li>
                 {% endif %}
             </ul>
         </li>
         <!-- Basket -->
         <li class="list-inline-item d-flex align-items-center d-none d-md-block">
-            <a class="{% if total %}text-info {% else %}text-black{% endif %} nav-link p-0"
-                href="">
+            <a class="{% if total %}text-info {% else %}text-black{% endif %} nav-link p-0" href="">
                 <div class="text-center">
-                    <a class="icon-header mx-3" href="{% url 'view_bag' %}"><i class="fa-solid fa-basket-shopping"></i></a>
+                    <a class="icon-header mx-3" href="{% url 'view_bag' %}"><i
+                            class="fa-solid fa-basket-shopping"></i></a>
                     <p class="my-0">
                         {% if total %}
-                            £{{ total|floatformat:2 }}
+                        £{{ total|floatformat:2 }}
                         {% else %}
-                            £0.00
+                        £0.00
                         {% endif %}
                     </p>
                 </div>

@@ -6,7 +6,7 @@
     }
 }
 
-.no-padding-row > * {
+.no-padding-row>* {
     padding-right: 0 !important;
     padding-left: 0 !important;
 }
@@ -69,9 +69,10 @@
 
 .tour-tile {
     transition: transform 0.3s ease;
-    margin:0;
+    margin: 0;
     padding: 0;
 }
+
 .tour-tile:hover {
     transform: scale(1.05);
 }

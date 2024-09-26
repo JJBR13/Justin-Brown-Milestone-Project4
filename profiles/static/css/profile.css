@@ -4,14 +4,14 @@
 }
 
 #id_default_country option:first-child {
-    color: #aab7c4; 
+    color: #aab7c4;
 }
 
 #profile-update-form input::placeholder {
     color: #aab7c4;
 }
 
-/* ----------------------------------------- tabs */ 
+/* ----------------------------------------- tabs */
 .tab-button {
     background-color: #005792;
     color: #ffffff;

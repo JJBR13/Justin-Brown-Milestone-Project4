@@ -2,71 +2,77 @@
 {% load static %}
 
 {% block extra_css %}
-    <!-- <link rel="stylesheet" href="{% static 'css/profile.css' %}"> -->
+<!-- <link rel="stylesheet" href="{% static 'css/profile.css' %}"> -->
 {% endblock %}
 
 {% block header %}
-    <div class="container header-container">
-        <div class="class row">
-            <div class="class col"></div>
-        </div>
+<div class="container header-container">
+    <div class="class row">
+        <div class="class col"></div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
 
-    <!-- Header block -->
-    <div class="row">
-        <div class="col-12 text-center pt-4 pb-3">
-            <h1>About</h1>
-        </div> 
+<!-- Header block -->
+<div class="row">
+    <div class="col-12 text-center pt-4 pb-3 ">
+        <h1>About</h1>
     </div>
+</div>
 
-    <div class="container">
-        <!-- About us block -->
-        <section class="py-5">
-            <div class="container">
-                <h2 class="text-start mb-4">About Explore Youth Travel</h2>
-                <p class="lead text-start">We offer unique travel experiences for youth who seek adventure and personal growth. At Explore Youth Travel, our mission is to make travel accessible and memorable for everyone.</p>
-            </div>
-        </section>
+<div class="container section-margin">
+    <!-- About us block -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-start mb-4">About Explore Youth Travel</h2>
+            <p class="lead text-start">We offer unique travel experiences for youth who seek adventure and personal
+                growth. At Explore Youth Travel, our mission is to make travel accessible and memorable for everyone.
+            </p>
+        </div>
+    </section>
 
-        <!-- Info block -->
-        <section class="py-5 bg-light">
-            <div class="container">
-                <div class="row text-center">
-                    <div class="col-md-4 mb-4">
-                        <h3>Our Mission</h3>
-                        <p>To provide life-changing travel experiences that broaden horizons and connect young travelers with the world.</p>
-                    </div>
-                    <div class="col-md-4 mb-4">
-                        <h3>Our Vision</h3>
-                        <p>Empowering youth through affordable, sustainable, and immersive travel that fosters personal growth and global citizenship.</p>
-                    </div>
-                    <div class="col-md-4 mb-4">
-                        <h3>Our Values</h3>
-                        <p>We believe in adventure, community, sustainability, and personal development. These are the pillars of our youth travel experiences.</p>
-                    </div>
+    <!-- Info block -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4 mb-4">
+                    <h3>Our Mission</h3>
+                    <p>To provide life-changing travel experiences that broaden horizons and connect young travelers
+                        with the world.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h3>Our Vision</h3>
+                    <p>Empowering youth through affordable, sustainable, and immersive travel that fosters personal
+                        growth and global citizenship.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h3>Our Values</h3>
+                    <p>We believe in adventure, community, sustainability, and personal development. These are the
+                        pillars of our youth travel experiences.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Call action  -->
-        <section class="py-5">
-            <div class="container text-start">
-                <h2 class="mb-4">Start Your Adventure Today!</h2>
-                <p class="lead mb-4">Explore new destinations, meet new friends, and grow as a traveler. Check out our latest tours and plan your next trip.</p>
-            </div>
+    <!-- Call action  -->
+    <section class="py-5">
+        <div class="container text-start">
+            <h2 class="mb-4">Start Your Adventure Today!</h2>
+            <p class="lead mb-4">Explore new destinations, meet new friends, and grow as a traveler. Check out our
+                latest tours and plan your next trip.</p>
+        </div>
 
-            <div class="text-center p-3">
-                <a href="{% url 'all-tours' %}" class="text-btn mx-3">
-                    <span class="px-3 hvr-icon-back">
-                        <i class="fa-solid fa-hand-point-left hvr-icon"></i>
-                        <strong class="text-uppercase">Explore tours</strong>
-                    </span>
-                </a>
-            </div>
-        </section>
-    </div>
+        <div class="text-center p-3">
+            <a href="{% url 'all-tours' %}" class="text-btn mx-3">
+                <span class="px-3 hvr-icon-back">
+                    <i class="fa-solid fa-hand-point-left hvr-icon"></i>
+                    <strong class="text-uppercase">Explore tours</strong>
+                </span>
+            </a>
+        </div>
+    </section>
+</div>
 
 {% endblock %}
