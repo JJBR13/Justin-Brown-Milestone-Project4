@@ -62,6 +62,8 @@ The purpose of this website is to provide a fully functional e-commerce platform
  
 ### Wireframes
 
+__[View wireframes.pdf here](documents/wireframes/wireframes_point_to_point.pdf)__
+
 ### Database
 
 ![DbSchema](documents/images/design/dbschema.png)
