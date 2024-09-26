@@ -21,10 +21,9 @@ DISCLAIMER: This is a project for Code Institute, to demonstrate an understandin
 - [Design](#design)
     + [Wireframes](#wireframes)
     + [Database](#database)
-    + [Colour Palette](#colour-pallete)
+    + [Colour Palette](#color-palette)
     + [Typography](#typography)
 - [Current Features](#current-features)
-    + [Responsive On All Devices](#responsive-on-all-devices)
 - [Future Releases](#future-releases)
 - [Languages Used](#languages-used)
 - [Testing](#testing)
@@ -81,7 +80,19 @@ __[View wireframes.pdf here](documents/wireframes/wireframes_point_to_point.pdf)
 
 - The schema was visualized and designed using [DbSchema](https://dbschema.com/download.html): Database Diagram Designer & Management Tool, which helped create a clear and organized representation of the database structure.
 
-### Colour Pallete
+### Color Palette
+
+![Color Palette](documents/images/design/color_pallet.png)
+
+The chosen color palette is designed to create a vibrant and modern atmosphere that appeals to young solo travelers. The use of lively and dynamic colors reflects the spirit of adventure and exploration, making the site feel both engaging and welcoming.
+
+The aqua green (#55D8C1) represents energy, growth, and the excitement of new experiences. It brings a refreshing and youthful vibe to the design, perfectly aligning with the adventurous spirit of young travelers.
+
+The soft pink hue adds a sense of warmth and friendliness, creating an inviting environment. It complements the boldness of the other colors while maintaining a sense of comfort and openness, ideal for encouraging users to explore and connect.
+
+The deep blue provides a sense of stability and trust, essential qualities for a travel company. It balances the brighter tones and adds a touch of sophistication, reinforcing the reliability and professionalism of the services offered.
+
+This color palette has been thoughtfully selected to resonate with young solo travelers, creating a modern, fun, and inviting visual identity that encourages exploration and discovery.
 
 ### Typography
 
@@ -90,6 +101,14 @@ __[View wireframes.pdf here](documents/wireframes/wireframes_point_to_point.pdf)
 | Header font: Fredoka | Body font: Architects Daughter |
 |----------|----------|
 | ![Header Font](documents/images/design/header_font.png) | ![Body Font](documents/images/design/body_font.png) |
+
+The typography chosen for the site has been carefully selected to complement the youthful and adventurous spirit of the brand. By combining playful and approachable fonts, the design aims to engage young solo travelers and make the content easy and enjoyable to read.
+
+The header font, Fredoka, features rounded and bold characters that convey a sense of fun and modernity. Its friendly appearance makes headlines and key messages stand out, capturing attention and setting an upbeat tone that reflects the vibrant energy of travel and exploration.
+
+For the body text, the Architects Daughter font has been selected for its informal, handwritten style, which adds a personal and authentic touch to the content. This font choice creates a relaxed and conversational feel, making the information more relatable and accessible, as if shared by a fellow traveler.
+
+Together, these fonts create a cohesive visual experience that is both dynamic and welcoming, perfectly aligning with the brand's focus on inspiring young travelers to embark on their own unique journeys.
 
 ## Current Features
 ### Pages
@@ -210,8 +229,6 @@ __[View wireframes.pdf here](documents/wireframes/wireframes_point_to_point.pdf)
 #### Error Page:
 
 > i. I want to be able to, easily navigate when error occurs (404).
-
-### Responsive On All Devices
 
 ## Future Releases
 
