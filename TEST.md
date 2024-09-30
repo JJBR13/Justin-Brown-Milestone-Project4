@@ -39,6 +39,10 @@ Please follow this [link](https://docs.google.com/spreadsheets/d/1xx5Dkv36HNJflj
 
 [W3C HTML Validator link](https://validator.w3.org/)
 
+![HTML Validator](documents/images/testing/html_validator.png)
+
+- All HTML files were manually validated using the W3C validator to check for errors. The results were interpreted with some flexibility, as the integration of other languages like Python triggered warnings and errors that were not directly related to the HTML structure.
+
 ### CSS
 
 [W3C CSS Validator link](https://jigsaw.w3.org/css-validator/#validate_by_input+with_options)
@@ -51,7 +55,9 @@ Please follow this [link](https://docs.google.com/spreadsheets/d/1xx5Dkv36HNJflj
 
 [JSHint](https://jshint.com/)
 
-- Both files were Tested, they highlighted minimal issues and pulled errors with the Materialize script.
+![JS Hint](documents/images/testing/js_hint.png)
+
+- JS Hint was used not only to test all JavaScript files, but also throughout the project to troubleshoot and resolve issues in my JavaScript code.
 
 ### PEP8
 
