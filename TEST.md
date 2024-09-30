@@ -67,6 +67,8 @@ Please follow this [link](https://docs.google.com/spreadsheets/d/1xx5Dkv36HNJflj
 
 ### Flake8 
 
+[Flake8](https://flake8.pycqa.org/en/latest/)
+
 - Flake8 was utilised to validate the Python codebase, revealing several issues such as inconsistent indentation, trailing whitespace, missing blank lines, and lines exceeding the maximum length limit. Most of these issues, including indentation, whitespace, and blank line errors, were resolved. However, the excessively long lines in migration files, as well as a few other instances of long lines, were deferred for future resolution to avoid disrupting critical code functionality.
 
 ## Ligthouse
@@ -134,3 +136,24 @@ The following test card details were used for testing Stripe:
   | **Postcode** | 42424                  |
 
 ## Issues/ Bugs Found, Resolved & Unresolved
+
+Throughout the development of the site, numerous issues and bugs needed to be resolved to bring it to its current state. Below are some of the key bugs and challenges that took the most time to fix:
+
+1. __Signup Error After Deployment:__
+  - After deploying to Heroku, there was a "Server 500 error" when a new user attempted to sign up. This was resolved by adding a runtime.txt file at the root level of the project.
+
+2. __Missing Images:__
+  - Most images displayed correctly after deployment, but four images did not. After hours of troubleshooting, the solution was simple: adding {{ MEDIA_URL }} in the relevant HTML files to correctly reference the images stored on AWS.
+
+3. __Adding Tour Information Summary:__
+  - This issue was resolved by correcting the context.py file, adjusting the for loop in checkout.html, and modifying view.py to retrieve the current travel_backpack object.
+
+4. __Stripe Working Locally, Not on Deployed Site:__
+  - Troubleshooting this issue took a lot of time, but the solution was straightforward: the deployed webhook URL was missing a trailing '/' after "wh" in the URL.
+
+5. __Site-Wide Horizontal Scrolling:__
+  - Horizontal scrolling was an intermittent issue throughout the project. Initially, it was fixed by setting overflow: hidden on the body, but when sticky elements were needed on the tour breakdown page, the solution was refined by applying 'overflow-x: hidden !important;' to the footer, overriding Bootstrap's classes.
+
+### Unresolved
+
+- One unresolved issue is the loading overlay during the payment process. The overlay text is positioned in the top-left corner, rather than being centrally aligned both vertically and horizontally as intended. Despite many hours of adjustments, as reflected in the commits, and attempts using Bootstrap structuring, classes and custom CSS, achieving the desired alignment causes the overlay to appear prematurely at the start of checkout.
