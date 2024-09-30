@@ -105,6 +105,10 @@ footer {
     background-color: #fff;
 }
 
+.border-curve {
+    border-radius: 20px;
+}
+
 /* ------------------------------------------------------------- Sitewide */
 
 .section-overflow {
