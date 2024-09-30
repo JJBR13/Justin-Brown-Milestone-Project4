@@ -43,6 +43,10 @@ Please follow this [link](https://docs.google.com/spreadsheets/d/1xx5Dkv36HNJflj
 
 [W3C CSS Validator link](https://jigsaw.w3.org/css-validator/#validate_by_input+with_options)
 
+![CSS Validator](documents/images/testing/css_validator.png)
+
+- All project app static CSS files were manually entered and tested. Each file passed successfully, with only a few warnings identified. These warnings were primarily due to the use of frameworks like Bootstrap.
+
 ### JavaScript
 
 [JSHint](https://jshint.com/)
