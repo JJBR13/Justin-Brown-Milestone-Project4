@@ -19,7 +19,7 @@ Testing was done site-wide, all tests undertaken are shown below:
 - [Responsivity](#responsivity)
 - [Stripe](#stripe)
   + [Dummy Card Information](#dummy-card-information)
-- [Issues/ Bugs Found & Resolved](#issues-bugs-found-resolved)
+- [Issues/ Bugs Found, Resolved & Unresolved](#issues-bugs-found-resolved--unresolved)
 
 ## Functional Testing 
 
@@ -95,4 +95,4 @@ The following test card details were used for testing Stripe:
   | **CVC**      | 242                    |
   | **Postcode** | 42424                  |
 
-## Issues/ Bugs Found & Resolved
+## Issues/ Bugs Found, Resolved & Unresolved
